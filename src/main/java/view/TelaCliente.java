@@ -1,40 +1,78 @@
 package view;
 
+import controller.TelaClienteController;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTextField;
+
 public class TelaCliente extends javax.swing.JInternalFrame {
 
+    private final TelaClienteController controller;
+    
      public TelaCliente() {
         initComponents();
+        controller = new TelaClienteController(this);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        campoPesquisar = new javax.swing.JTextField();
+        separaatorVBP = new javax.swing.JSeparator();
+        separaatorVCP = new javax.swing.JSeparator();
+        separaatorVEP = new javax.swing.JSeparator();
+        separaatorVDP = new javax.swing.JSeparator();
+        textEmailPesquisa = new javax.swing.JLabel();
+        campoPesquisa = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JButton();
-        textPreco = new javax.swing.JLabel();
-        campoPreco = new javax.swing.JTextField();
-        textPreco1 = new javax.swing.JLabel();
-        campoPreco1 = new javax.swing.JTextField();
-        textPreco2 = new javax.swing.JLabel();
-        campoPreco2 = new javax.swing.JTextField();
-        btnCadastrarServico3 = new javax.swing.JButton();
-        btnCadastrarServico4 = new javax.swing.JButton();
-        btnCadastrarServico2 = new javax.swing.JButton();
+        separatorVCM = new javax.swing.JSeparator();
+        separatorVEM = new javax.swing.JSeparator();
+        separatorVDM = new javax.swing.JSeparator();
+        separatorVBM = new javax.swing.JSeparator();
+        textNome = new javax.swing.JLabel();
+        campoNome = new javax.swing.JTextField();
+        textEmail = new javax.swing.JLabel();
+        campoEmail = new javax.swing.JTextField();
+        textTelefone = new javax.swing.JLabel();
+        campoTelefone = new javax.swing.JTextField();
+        btnNovo = new javax.swing.JButton();
+        btnCadastrar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        separatorVBM2 = new javax.swing.JSeparator();
 
         setTitle("Cliente");
         setPreferredSize(new java.awt.Dimension(915, 518));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        campoPesquisar.setBackground(new java.awt.Color(250, 250, 250));
-        campoPesquisar.setPreferredSize(new java.awt.Dimension(290, 30));
-        campoPesquisar.setSelectionEnd(5);
-        campoPesquisar.setSelectionStart(5);
-        campoPesquisar.addActionListener(new java.awt.event.ActionListener() {
+        separaatorVBP.setPreferredSize(new java.awt.Dimension(850, 3));
+        getContentPane().add(separaatorVBP, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 117, -1, -1));
+
+        separaatorVCP.setPreferredSize(new java.awt.Dimension(850, 3));
+        getContentPane().add(separaatorVCP, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 17, -1, -1));
+
+        separaatorVEP.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        separaatorVEP.setPreferredSize(new java.awt.Dimension(3, 100));
+        getContentPane().add(separaatorVEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 17, -1, -1));
+
+        separaatorVDP.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        separaatorVDP.setPreferredSize(new java.awt.Dimension(3, 100));
+        getContentPane().add(separaatorVDP, new org.netbeans.lib.awtextra.AbsoluteConstraints(874, 17, -1, -1));
+
+        textEmailPesquisa.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        textEmailPesquisa.setText("Email:");
+        getContentPane().add(textEmailPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+
+        campoPesquisa.setBackground(new java.awt.Color(255, 255, 255));
+        campoPesquisa.setPreferredSize(new java.awt.Dimension(640, 28));
+        campoPesquisa.setSelectionEnd(5);
+        campoPesquisa.setSelectionStart(5);
+        campoPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoPesquisarActionPerformed(evt);
+                campoPesquisaActionPerformed(evt);
             }
         });
-        getContentPane().add(campoPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 28, -1, -1));
+        getContentPane().add(campoPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
         btnPesquisar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnPesquisar.setText("PESQUISAR");
@@ -44,121 +82,217 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 btnPesquisarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 28, -1, -1));
+        getContentPane().add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 70, -1, -1));
 
-        textPreco.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        textPreco.setText("NOME");
-        getContentPane().add(textPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 188, -1, -1));
+        separatorVCM.setPreferredSize(new java.awt.Dimension(850, 3));
+        getContentPane().add(separatorVCM, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 150, -1, -1));
 
-        campoPreco.setPreferredSize(new java.awt.Dimension(200, 30));
-        campoPreco.addActionListener(new java.awt.event.ActionListener() {
+        separatorVEM.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        separatorVEM.setPreferredSize(new java.awt.Dimension(3, 300));
+        getContentPane().add(separatorVEM, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 150, -1, -1));
+
+        separatorVDM.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        separatorVDM.setPreferredSize(new java.awt.Dimension(3, 300));
+        getContentPane().add(separatorVDM, new org.netbeans.lib.awtextra.AbsoluteConstraints(874, 150, -1, -1));
+
+        separatorVBM.setPreferredSize(new java.awt.Dimension(850, 3));
+        getContentPane().add(separatorVBM, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 370, -1, -1));
+
+        textNome.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        textNome.setText("NOME");
+        textNome.setPreferredSize(new java.awt.Dimension(37, 28));
+        getContentPane().add(textNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
+
+        campoNome.setPreferredSize(new java.awt.Dimension(700, 28));
+        campoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoPrecoActionPerformed(evt);
+                campoNomeActionPerformed(evt);
             }
         });
-        getContentPane().add(campoPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 181, 780, -1));
+        getContentPane().add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
 
-        textPreco1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        textPreco1.setText("EMAIL");
-        getContentPane().add(textPreco1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 243, -1, -1));
+        textEmail.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        textEmail.setText("EMAIL");
+        textEmail.setPreferredSize(new java.awt.Dimension(38, 28));
+        getContentPane().add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
-        campoPreco1.setPreferredSize(new java.awt.Dimension(200, 30));
-        campoPreco1.addActionListener(new java.awt.event.ActionListener() {
+        campoEmail.setPreferredSize(new java.awt.Dimension(700, 28));
+        campoEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoPreco1ActionPerformed(evt);
+                campoEmailActionPerformed(evt);
             }
         });
-        getContentPane().add(campoPreco1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 236, 780, -1));
+        getContentPane().add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
 
-        textPreco2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        textPreco2.setText("TELEFONE");
-        getContentPane().add(textPreco2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 298, -1, -1));
+        textTelefone.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        textTelefone.setText("TELEFONE");
+        textTelefone.setPreferredSize(new java.awt.Dimension(64, 28));
+        getContentPane().add(textTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
 
-        campoPreco2.setPreferredSize(new java.awt.Dimension(200, 30));
-        campoPreco2.addActionListener(new java.awt.event.ActionListener() {
+        campoTelefone.setPreferredSize(new java.awt.Dimension(700, 28));
+        campoTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoPreco2ActionPerformed(evt);
+                campoTelefoneActionPerformed(evt);
             }
         });
-        getContentPane().add(campoPreco2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 291, 780, -1));
+        getContentPane().add(campoTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
 
-        btnCadastrarServico3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnCadastrarServico3.setText("SALVAR");
-        btnCadastrarServico3.setPreferredSize(new java.awt.Dimension(120, 45));
-        btnCadastrarServico3.addActionListener(new java.awt.event.ActionListener() {
+        btnNovo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnNovo.setText("NOVO");
+        btnNovo.setPreferredSize(new java.awt.Dimension(120, 45));
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarServico3ActionPerformed(evt);
+                btnNovoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCadastrarServico3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 431, -1, -1));
+        getContentPane().add(btnNovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, -1));
 
-        btnCadastrarServico4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnCadastrarServico4.setText("EDITAR");
-        btnCadastrarServico4.setPreferredSize(new java.awt.Dimension(120, 45));
-        btnCadastrarServico4.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnCadastrar.setText("CADASTRAR");
+        btnCadastrar.setPreferredSize(new java.awt.Dimension(120, 45));
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarServico4ActionPerformed(evt);
+                btnCadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCadastrarServico4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 431, -1, -1));
+        getContentPane().add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, -1, -1));
 
-        btnCadastrarServico2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnCadastrarServico2.setText("EXCLUIR");
-        btnCadastrarServico2.setPreferredSize(new java.awt.Dimension(120, 45));
-        btnCadastrarServico2.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnEditar.setText("EDITAR");
+        btnEditar.setPreferredSize(new java.awt.Dimension(120, 45));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarServico2ActionPerformed(evt);
+                btnEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCadastrarServico2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 431, -1, -1));
+        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, -1, -1));
+
+        btnExcluir.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnExcluir.setText("EXCLUIR");
+        btnExcluir.setPreferredSize(new java.awt.Dimension(120, 45));
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 390, -1, -1));
+
+        separatorVBM2.setPreferredSize(new java.awt.Dimension(850, 3));
+        getContentPane().add(separatorVBM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 450, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPesquisarActionPerformed
+    private void campoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPesquisaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoPesquisarActionPerformed
+    }//GEN-LAST:event_campoPesquisaActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        // TODO add your handling code here:
+        try {
+            controller.pesquisar();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
-    private void campoPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPrecoActionPerformed
+    private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoPrecoActionPerformed
+    }//GEN-LAST:event_campoNomeActionPerformed
 
-    private void campoPreco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPreco1ActionPerformed
+    private void campoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoPreco1ActionPerformed
+    }//GEN-LAST:event_campoEmailActionPerformed
 
-    private void campoPreco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPreco2ActionPerformed
+    private void campoTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTelefoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoPreco2ActionPerformed
+    }//GEN-LAST:event_campoTelefoneActionPerformed
 
-    private void btnCadastrarServico3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarServico3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCadastrarServico3ActionPerformed
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        try {
+            controller.novoCliente();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnNovoActionPerformed
 
-    private void btnCadastrarServico4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarServico4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCadastrarServico4ActionPerformed
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        try {
+            controller.cadastrarCliente();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void btnCadastrarServico2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarServico2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCadastrarServico2ActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        try {
+            controller.editarCliente();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        try {
+            controller.excluirCliente();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    public JTextField getCampoEmail() {
+        return campoEmail;
+    }
+
+    public void setCampoEmail(JTextField campoEmail) {
+        this.campoEmail = campoEmail;
+    }
+
+    public JTextField getCampoNome() {
+        return campoNome;
+    }
+
+    public void setCampoNome(JTextField campoNome) {
+        this.campoNome = campoNome;
+    }
+
+    public JTextField getCampoPesquisa() {
+        return campoPesquisa;
+    }
+
+    public void setCampoPesquisa(JTextField campoPesquisa) {
+        this.campoPesquisa = campoPesquisa;
+    }
+
+    public JTextField getCampoTelefone() {
+        return campoTelefone;
+    }
+
+    public void setCampoTelefone(JTextField campoTelefone) {
+        this.campoTelefone = campoTelefone;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastrarServico2;
-    private javax.swing.JButton btnCadastrarServico3;
-    private javax.swing.JButton btnCadastrarServico4;
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnPesquisar;
-    private javax.swing.JTextField campoPesquisar;
-    private javax.swing.JTextField campoPreco;
-    private javax.swing.JTextField campoPreco1;
-    private javax.swing.JTextField campoPreco2;
-    private javax.swing.JLabel textPreco;
-    private javax.swing.JLabel textPreco1;
-    private javax.swing.JLabel textPreco2;
+    private javax.swing.JTextField campoEmail;
+    private javax.swing.JTextField campoNome;
+    private javax.swing.JTextField campoPesquisa;
+    private javax.swing.JTextField campoTelefone;
+    private javax.swing.JSeparator separaatorVBP;
+    private javax.swing.JSeparator separaatorVCP;
+    private javax.swing.JSeparator separaatorVDP;
+    private javax.swing.JSeparator separaatorVEP;
+    private javax.swing.JSeparator separatorVBM;
+    private javax.swing.JSeparator separatorVBM2;
+    private javax.swing.JSeparator separatorVCM;
+    private javax.swing.JSeparator separatorVDM;
+    private javax.swing.JSeparator separatorVEM;
+    private javax.swing.JLabel textEmail;
+    private javax.swing.JLabel textEmailPesquisa;
+    private javax.swing.JLabel textNome;
+    private javax.swing.JLabel textTelefone;
     // End of variables declaration//GEN-END:variables
 }

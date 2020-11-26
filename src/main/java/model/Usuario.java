@@ -13,17 +13,13 @@ public class Usuario implements Serializable {
     
     @Column(length = 50)
     private String nome;
-    
     @Id
     @Column(length = 70, unique=true)
     private String email;
-    
     @Column(length = 15)
     private String telefone;
-    
     @Column(length = 20)
     private String cargo;
-    
     @Column(length = 20)
     private String senha;
 

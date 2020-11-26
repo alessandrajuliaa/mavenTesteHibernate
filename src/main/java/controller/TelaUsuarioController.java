@@ -3,9 +3,7 @@ package controller;
 
 import dao.JPAUtil;
 import dao.UsuarioDAO;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -143,7 +141,7 @@ public class TelaUsuarioController {
             EntityManager em = new JPAUtil().getEntityManager();
             em.getTransaction().begin();
             List<Usuario> usuarios = new UsuarioDAO(em).selectAll();
-            for (Usuario usuario : usuarios){
+            for(Usuario usuario : usuarios){
                 System.out.println(usuario.getNome() + " - " + usuario.getEmail());
             }
             em.getTransaction().commit();
