@@ -33,7 +33,7 @@ public class TelaUsuarioController {
                 try {
                     EntityManager em = new JPAUtil().getEntityManager();
                     em.getTransaction().begin();
-                    new UsuarioDAO(em).insertOrUpdate(usuario);
+                    new UsuarioDAO(em).insert(usuario);
                     em.getTransaction().commit();
                     em.close();
                     
@@ -64,7 +64,7 @@ public class TelaUsuarioController {
                 try {
                     EntityManager em = new JPAUtil().getEntityManager();
                     em.getTransaction().begin();
-                    new UsuarioDAO(em).insertOrUpdate(usuario);
+                    new UsuarioDAO(em).update(usuario);
                     em.getTransaction().commit();
                     em.close();
                     

@@ -19,15 +19,14 @@ public class TelaClienteController {
     
     public void cadastrarCliente() throws SQLException{
         String nome = view.getCampoNome().getText();
-        String email = view.getCampoEmail().getText();
         String telefone = view.getCampoTelefone().getText();
         
-        if(!"".equals(nome) && !"".equals(email) && !"".equals(telefone)){
-            Cliente cliente = new Cliente(nome, email, telefone);
+        if(!"".equals(nome) && !"".equals(telefone)){
+            Cliente cliente = new Cliente(nome, telefone);
             try {
                 EntityManager em = new JPAUtil().getEntityManager();
                 em.getTransaction().begin();
-                new ClienteDAO(em).insertOrUpdate(cliente);
+                new ClienteDAO(em).insert(cliente);
                 em.getTransaction().commit();
                 em.close();
 
@@ -42,15 +41,14 @@ public class TelaClienteController {
     
     public void editarCliente() throws SQLException{
         String nome = view.getCampoNome().getText();
-        String email = view.getCampoEmail().getText();
         String telefone = view.getCampoTelefone().getText();
         
-        if(!"".equals(nome) && !"".equals(email) && !"".equals(telefone)){
-            Cliente cliente = new Cliente(nome, email, telefone);
+        if(!"".equals(nome) && !"".equals(telefone)){
+            Cliente cliente = new Cliente(nome, telefone);
             try {
                 EntityManager em = new JPAUtil().getEntityManager();
                 em.getTransaction().begin();
-                new ClienteDAO(em).insertOrUpdate(cliente);
+                new ClienteDAO(em).update(cliente);
                 em.getTransaction().commit();
                 em.close();
 
@@ -64,9 +62,9 @@ public class TelaClienteController {
     }
     
     public void excluirCliente() throws SQLException{
-        String email = view.getCampoEmail().getText();
-        if(!"".equals(email)){
-            Cliente cliente = new Cliente(email);
+        String telefone = view.getCampoTelefone().getText();
+        if(!"".equals(telefone)){
+            Cliente cliente = new Cliente(telefone);
             try {
                 EntityManager em = new JPAUtil().getEntityManager();
                 em.getTransaction().begin();
@@ -87,7 +85,6 @@ public class TelaClienteController {
     
     public void novoCliente() throws SQLException{
         view.getCampoNome().setText("");
-        view.getCampoEmail().setText("");
         view.getCampoTelefone().setText("");
     }
     
@@ -104,7 +101,6 @@ public class TelaClienteController {
                 
                 if(clienteEncontrado != null){
                     view.getCampoNome().setText(clienteEncontrado.getNome());
-                    view.getCampoEmail().setText(clienteEncontrado.getEmail());
                     view.getCampoTelefone().setText(clienteEncontrado.getTelefone());
                 }else{
                     JOptionPane.showMessageDialog(null, "Cliente não existe!");
@@ -116,8 +112,8 @@ public class TelaClienteController {
             EntityManager em = new JPAUtil().getEntityManager();
             em.getTransaction().begin();
             List<Cliente> clientes = new ClienteDAO(em).selectAll();
-            for (Cliente cliente : clientes){
-                System.out.println(cliente.getNome() + " - " + cliente.getEmail() + " - " + cliente.getTelefone());
+            for(Cliente cliente : clientes){
+                System.out.println(cliente.getNome() + " - " + " - " + cliente.getTelefone());
             }
             em.getTransaction().commit();
             em.close();

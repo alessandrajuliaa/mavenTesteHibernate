@@ -26,7 +26,8 @@ public class UsuarioDAO {
     }
     
     public Usuario insertOrUpdate(Usuario usuario){
-        if(em.merge(usuario).getEmail() == usuario.getEmail())
+        System.out.println(em.merge(usuario).getEmail().equals(usuario.getEmail()));
+        if(em.merge(usuario).getEmail().equals(usuario.getEmail()))
             return this.update(usuario);
         else
             return this.insert(usuario);
@@ -54,6 +55,17 @@ public class UsuarioDAO {
     
     public Usuario selectPorEmail(Usuario usuario){
         return em.find(Usuario.class, usuario.getEmail());
+    }
+    
+    public Usuario selectPorNome(Usuario user){
+        Usuario usuarioEcontrado = null;
+        List<Usuario> usuarios = new UsuarioDAO(em).selectAll();
+        
+        for(Usuario usuario : usuarios){
+            if(usuario.getNome() == user.getNome())
+                usuarioEcontrado = usuario;
+        }
+        return usuarioEcontrado;
     }
     
     public boolean existePorUsuarioESenha(Usuario usuarioNovo){

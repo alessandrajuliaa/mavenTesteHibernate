@@ -26,7 +26,7 @@ public class ClienteDAO {
     }
     
     public Cliente insertOrUpdate(Cliente cliente){
-        if(em.merge(cliente).getEmail() == cliente.getEmail())
+        if(em.merge(cliente).getTelefone().equals(cliente.getTelefone()))
             return this.update(cliente);
         else
             return this.insert(cliente);
@@ -53,6 +53,17 @@ public class ClienteDAO {
     }
     
     public Cliente selectPorEmail(Cliente cliente){
-        return em.find(Cliente.class, cliente.getEmail());
+        return em.find(Cliente.class, cliente.getTelefone());
+    }
+    
+    public Cliente selectPorNome(Cliente cli){
+        Cliente clienteEcontrado = null;
+        List<Cliente> clientes = new ClienteDAO(em).selectAll();
+        
+        for(Cliente cliente : clientes){
+            if(cliente.getNome() == cli.getNome())
+                clienteEcontrado = cliente;
+        }
+        return clienteEcontrado;
     }
 }

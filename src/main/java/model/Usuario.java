@@ -26,6 +26,7 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
+    
     public Usuario(String nome, String email, String telefone, String cargo, String senha) {
         this.nome = nome;
         this.email = email;
@@ -39,8 +40,8 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public Usuario(String email) {
-        this.email = email;
+    public Usuario(String nome) {
+        this.nome = nome;
     }
     
     public String getNome() {

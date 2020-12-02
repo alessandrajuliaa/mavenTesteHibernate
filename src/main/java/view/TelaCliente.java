@@ -31,8 +31,6 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         separatorVBM = new javax.swing.JSeparator();
         textNome = new javax.swing.JLabel();
         campoNome = new javax.swing.JTextField();
-        textEmail = new javax.swing.JLabel();
-        campoEmail = new javax.swing.JTextField();
         textTelefone = new javax.swing.JLabel();
         campoTelefone = new javax.swing.JTextField();
         btnNovo = new javax.swing.JButton();
@@ -40,9 +38,11 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         separatorVBM2 = new javax.swing.JSeparator();
+        jPanel1 = new javax.swing.JPanel();
 
+        setClosable(true);
         setTitle("Cliente");
-        setPreferredSize(new java.awt.Dimension(915, 518));
+        setPreferredSize(new java.awt.Dimension(915, 507));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         separaatorVBP.setPreferredSize(new java.awt.Dimension(850, 3));
@@ -111,19 +111,6 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         });
         getContentPane().add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
 
-        textEmail.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        textEmail.setText("EMAIL");
-        textEmail.setPreferredSize(new java.awt.Dimension(38, 28));
-        getContentPane().add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
-
-        campoEmail.setPreferredSize(new java.awt.Dimension(700, 28));
-        campoEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoEmailActionPerformed(evt);
-            }
-        });
-        getContentPane().add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
-
         textTelefone.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         textTelefone.setText("TELEFONE");
         textTelefone.setPreferredSize(new java.awt.Dimension(64, 28));
@@ -180,6 +167,10 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         separatorVBM2.setPreferredSize(new java.awt.Dimension(850, 3));
         getContentPane().add(separatorVBM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 450, -1, -1));
 
+        jPanel1.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel1.setOpaque(false);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, 120, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -198,10 +189,6 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNomeActionPerformed
-
-    private void campoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoEmailActionPerformed
 
     private void campoTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTelefoneActionPerformed
         // TODO add your handling code here:
@@ -239,14 +226,6 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
-    public JTextField getCampoEmail() {
-        return campoEmail;
-    }
-
-    public void setCampoEmail(JTextField campoEmail) {
-        this.campoEmail = campoEmail;
-    }
-
     public JTextField getCampoNome() {
         return campoNome;
     }
@@ -277,10 +256,10 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnPesquisar;
-    private javax.swing.JTextField campoEmail;
     private javax.swing.JTextField campoNome;
     private javax.swing.JTextField campoPesquisa;
     private javax.swing.JTextField campoTelefone;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator separaatorVBP;
     private javax.swing.JSeparator separaatorVCP;
     private javax.swing.JSeparator separaatorVDP;
@@ -290,7 +269,6 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator separatorVCM;
     private javax.swing.JSeparator separatorVDM;
     private javax.swing.JSeparator separatorVEM;
-    private javax.swing.JLabel textEmail;
     private javax.swing.JLabel textEmailPesquisa;
     private javax.swing.JLabel textNome;
     private javax.swing.JLabel textTelefone;

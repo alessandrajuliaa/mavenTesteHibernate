@@ -50,10 +50,11 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         btnExcluir = new javax.swing.JButton();
         separatorVBM2 = new javax.swing.JSeparator();
 
+        setClosable(true);
         setTitle("Usuário");
         setAlignmentX(0.0F);
         setAlignmentY(0.0F);
-        setPreferredSize(new java.awt.Dimension(915, 518));
+        setPreferredSize(new java.awt.Dimension(915, 507));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         separaatorVBP.setPreferredSize(new java.awt.Dimension(850, 3));

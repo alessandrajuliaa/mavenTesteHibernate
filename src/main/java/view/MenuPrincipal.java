@@ -1,7 +1,25 @@
 package view;
 
+import controller.MenuPrincipalController;
+import javax.swing.JTable;
+
 public class MenuPrincipal extends javax.swing.JFrame {
 
+    private final MenuPrincipalController controller;
+    
+    public void abrirAgenda(){
+        TelaAgendamento agenda = new TelaAgendamento();
+        if(desktop.getAllFrames().length == 0){
+            agenda.setVisible(true);
+            desktop.add(agenda);
+            agenda.toFront();
+        }else{
+            desktop.remove(desktop.getAllFrames()[0]);
+            agenda.setVisible(true);
+            desktop.add(agenda);
+            agenda.toFront();
+        }
+    }
     public void abrirCadastrarCliente(){
         TelaCliente cliente = new TelaCliente();
         if(desktop.getAllFrames().length == 0){
@@ -12,21 +30,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
             desktop.remove(desktop.getAllFrames()[0]);
             cliente.setVisible(true);
             desktop.add(cliente);
+            cliente.toFront();
         }
-        //cliente.setVisible(true);
-        //desktop.add(cliente);
     }
     public void abrirCadastrarProduto(){
-        TelaUsuario usuario = new TelaUsuario();
+        TelaProduto produto = new TelaProduto();
     
         if(desktop.getAllFrames().length == 0){
-            usuario.setVisible(true);
-            desktop.add(usuario);
-            usuario.toFront();
+            produto.setVisible(true);
+            desktop.add(produto);
+            produto.toFront();
         }else{
             desktop.remove(desktop.getAllFrames()[0]);
-            usuario.setVisible(true);
-            desktop.add(usuario);
+            produto.setVisible(true);
+            desktop.add(produto);
+            produto.toFront();
         }
     }
     public void abrirCadastrarServico(){
@@ -39,6 +57,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             desktop.remove(desktop.getAllFrames()[0]);
             servico.setVisible(true);
             desktop.add(servico);
+            servico.toFront();
         }
         //servico.setVisible(true);
         //desktop.add(servico);
@@ -54,6 +73,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             desktop.remove(desktop.getAllFrames()[0]);
             usuario.setVisible(true);
             desktop.add(usuario);
+            usuario.toFront();
         }
     }
     public void sairDoSistema(){
@@ -63,6 +83,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     public MenuPrincipal() {
         initComponents();
+        controller = new MenuPrincipalController(this);
+        controller.preencherTabelaAgendamentos();
     }
 
     @SuppressWarnings("unchecked")
@@ -70,125 +92,80 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         desktop = new javax.swing.JDesktopPane();
-        campoPesquisa = new javax.swing.JTextField();
-        btnPesquisar = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaAgenda = new javax.swing.JTable();
-        jSeparator2 = new javax.swing.JSeparator();
         textAgenda = new javax.swing.JLabel();
+        btnAtualizarTabela = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabela = new javax.swing.JTable();
+        backgroundBlack = new javax.swing.JLabel();
+        backgroundImage = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         menuAgenda = new javax.swing.JMenu();
+        menuItemAgenda = new javax.swing.JMenuItem();
         menuCadastro = new javax.swing.JMenu();
         menuItemCliente = new javax.swing.JMenuItem();
         menuItemServicos = new javax.swing.JMenuItem();
         menuItemUsuario = new javax.swing.JMenuItem();
+        menuItemProduto = new javax.swing.JMenuItem();
         menuRelatorio = new javax.swing.JMenu();
         menuOpcoes = new javax.swing.JMenu();
         menuItemSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(930, 570));
+        setResizable(false);
 
         desktop.setBackground(new java.awt.Color(102, 102, 102));
         desktop.setAlignmentX(0.0F);
         desktop.setAlignmentY(0.0F);
         desktop.setPreferredSize(new java.awt.Dimension(930, 570));
 
-        campoPesquisa.setBackground(new java.awt.Color(250, 250, 250));
-        campoPesquisa.setPreferredSize(new java.awt.Dimension(290, 30));
-        campoPesquisa.setSelectionEnd(5);
-        campoPesquisa.setSelectionStart(5);
-        campoPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoPesquisaActionPerformed(evt);
-            }
-        });
-
-        btnPesquisar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnPesquisar.setText("PESQUISAR");
-        btnPesquisar.setPreferredSize(new java.awt.Dimension(115, 30));
-        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarActionPerformed(evt);
-            }
-        });
-
-        tabelaAgenda.setBackground(new java.awt.Color(250, 250, 250));
-        tabelaAgenda.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Cliente", "Data", "Hora", "Serviço"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tabelaAgenda);
-
         textAgenda.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         textAgenda.setForeground(new java.awt.Color(255, 255, 255));
         textAgenda.setText("Agenda");
+        desktop.add(textAgenda);
+        textAgenda.setBounds(410, 20, 110, 30);
 
-        desktop.setLayer(campoPesquisa, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(btnPesquisar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(jSeparator1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(jSeparator2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(textAgenda, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        btnAtualizarTabela.setText("Atualizar");
+        btnAtualizarTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarTabelaActionPerformed(evt);
+            }
+        });
+        desktop.add(btnAtualizarTabela);
+        btnAtualizarTabela.setBounds(765, 160, 90, 22);
 
-        javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
-        desktop.setLayout(desktopLayout);
-        desktopLayout.setHorizontalGroup(
-            desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, desktopLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jSeparator1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, desktopLayout.createSequentialGroup()
-                        .addComponent(campoPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator2))
-                .addGap(30, 30, 30))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, desktopLayout.createSequentialGroup()
-                .addContainerGap(398, Short.MAX_VALUE)
-                .addComponent(textAgenda)
-                .addGap(430, 430, 430))
-        );
-        desktopLayout.setVerticalGroup(
-            desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(desktopLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(textAgenda)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
-        );
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Hora", "Data", "Cliente", "Serviço", "Barbeiro"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabela.setPreferredSize(new java.awt.Dimension(810, 80));
+        jScrollPane1.setViewportView(tabela);
+
+        desktop.add(jScrollPane1);
+        jScrollPane1.setBounds(50, 190, 810, 286);
+
+        backgroundBlack.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alessandra\\Downloads\\fundo(4).png")); // NOI18N
+        backgroundBlack.setPreferredSize(new java.awt.Dimension(900, 570));
+        desktop.add(backgroundBlack);
+        backgroundBlack.setBounds(16, 20, 880, 470);
+
+        backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/fundo.png"))); // NOI18N
+        backgroundImage.setName(""); // NOI18N
+        backgroundImage.setPreferredSize(new java.awt.Dimension(915, 518));
+        desktop.add(backgroundImage);
+        backgroundImage.setBounds(0, 0, 915, 518);
 
         menuBar.setBackground(new java.awt.Color(204, 204, 204));
         menuBar.setBorder(null);
@@ -196,10 +173,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuBar.setPreferredSize(new java.awt.Dimension(208, 25));
 
         menuAgenda.setText("Agenda");
+
+        menuItemAgenda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menuItemAgenda.setText("Agenda");
+        menuItemAgenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAgendaActionPerformed(evt);
+            }
+        });
+        menuAgenda.add(menuItemAgenda);
+
         menuBar.add(menuAgenda);
 
         menuCadastro.setText("Cadastro");
 
+        menuItemCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menuItemCliente.setText("Cliente");
         menuItemCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,7 +196,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         menuCadastro.add(menuItemCliente);
 
-        menuItemServicos.setText("Serviços");
+        menuItemServicos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menuItemServicos.setText("Serviço");
         menuItemServicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemServicosActionPerformed(evt);
@@ -216,6 +205,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         menuCadastro.add(menuItemServicos);
 
+        menuItemUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menuItemUsuario.setText("Usuário");
         menuItemUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,6 +213,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         menuCadastro.add(menuItemUsuario);
+
+        menuItemProduto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menuItemProduto.setText("Produto");
+        menuItemProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemProdutoActionPerformed(evt);
+            }
+        });
+        menuCadastro.add(menuItemProduto);
 
         menuBar.add(menuCadastro);
 
@@ -280,13 +279,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         sairDoSistema();
     }//GEN-LAST:event_menuItemSairActionPerformed
 
-    private void campoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPesquisaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoPesquisaActionPerformed
+    private void menuItemProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemProdutoActionPerformed
+        abrirCadastrarProduto();
+    }//GEN-LAST:event_menuItemProdutoActionPerformed
 
-    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPesquisarActionPerformed
+    private void menuItemAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAgendaActionPerformed
+        abrirAgenda();
+    }//GEN-LAST:event_menuItemAgendaActionPerformed
+
+    private void btnAtualizarTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarTabelaActionPerformed
+        controller.preencherTabelaAgendamentos();
+    }//GEN-LAST:event_btnAtualizarTabelaActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -320,23 +323,32 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
     }
 
+    public JTable getTabela() {
+        return tabela;
+    }
+
+    public void setTabela(JTable tabela) {
+        this.tabela = tabela;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPesquisar;
-    private javax.swing.JTextField campoPesquisa;
+    private javax.swing.JLabel backgroundBlack;
+    private javax.swing.JLabel backgroundImage;
+    private javax.swing.JButton btnAtualizarTabela;
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JMenu menuAgenda;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCadastro;
+    private javax.swing.JMenuItem menuItemAgenda;
     private javax.swing.JMenuItem menuItemCliente;
+    private javax.swing.JMenuItem menuItemProduto;
     private javax.swing.JMenuItem menuItemSair;
     private javax.swing.JMenuItem menuItemServicos;
     private javax.swing.JMenuItem menuItemUsuario;
     private javax.swing.JMenu menuOpcoes;
     private javax.swing.JMenu menuRelatorio;
-    private javax.swing.JTable tabelaAgenda;
+    private javax.swing.JTable tabela;
     private javax.swing.JLabel textAgenda;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,102 +1,164 @@
 package view;
 
+import controller.TelaProdutoController;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTextField;
+
 public class TelaProduto extends javax.swing.JInternalFrame {
 
+    private final TelaProdutoController controller;
+    
     public TelaProduto() {
         initComponents();
+        controller = new TelaProdutoController(this);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        campoPesquisar = new javax.swing.JTextField();
-        btnCadastrarServico1 = new javax.swing.JButton();
+        separaatorVBP = new javax.swing.JSeparator();
+        separaatorVCP = new javax.swing.JSeparator();
+        separaatorVEP = new javax.swing.JSeparator();
+        separaatorVDP = new javax.swing.JSeparator();
+        textIdPesquisa = new javax.swing.JLabel();
+        campoPesquisa = new javax.swing.JTextField();
+        btnPesquisar = new javax.swing.JButton();
+        separatorVCM = new javax.swing.JSeparator();
+        separatorVEM = new javax.swing.JSeparator();
+        separatorVDM = new javax.swing.JSeparator();
+        separatorVBM = new javax.swing.JSeparator();
+        textId = new javax.swing.JLabel();
+        campoId = new javax.swing.JTextField();
         textNome = new javax.swing.JLabel();
-        campoNome1 = new javax.swing.JTextField();
+        campoNome = new javax.swing.JTextField();
         textPreco = new javax.swing.JLabel();
         campoPreco = new javax.swing.JTextField();
-        textPreco1 = new javax.swing.JLabel();
-        campoPreco1 = new javax.swing.JTextField();
-        btnCadastrarServico3 = new javax.swing.JButton();
-        btnCadastrarServico4 = new javax.swing.JButton();
-        btnCadastrarServico2 = new javax.swing.JButton();
+        btnNovo = new javax.swing.JButton();
+        btnCadastrar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        separatorVBM2 = new javax.swing.JSeparator();
 
-        campoPesquisar.setBackground(new java.awt.Color(250, 250, 250));
-        campoPesquisar.setPreferredSize(new java.awt.Dimension(290, 30));
-        campoPesquisar.setSelectionEnd(5);
-        campoPesquisar.setSelectionStart(5);
-        campoPesquisar.addActionListener(new java.awt.event.ActionListener() {
+        setClosable(true);
+        setTitle("Produto");
+        setPreferredSize(new java.awt.Dimension(915, 507));
+
+        separaatorVBP.setPreferredSize(new java.awt.Dimension(850, 3));
+
+        separaatorVCP.setPreferredSize(new java.awt.Dimension(850, 3));
+
+        separaatorVEP.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        separaatorVEP.setPreferredSize(new java.awt.Dimension(3, 100));
+
+        separaatorVDP.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        separaatorVDP.setPreferredSize(new java.awt.Dimension(3, 100));
+
+        textIdPesquisa.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        textIdPesquisa.setText("Código:");
+
+        campoPesquisa.setBackground(new java.awt.Color(255, 255, 255));
+        campoPesquisa.setPreferredSize(new java.awt.Dimension(640, 28));
+        campoPesquisa.setSelectionEnd(5);
+        campoPesquisa.setSelectionStart(5);
+        campoPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoPesquisarActionPerformed(evt);
+                campoPesquisaActionPerformed(evt);
             }
         });
 
-        btnCadastrarServico1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnCadastrarServico1.setText("PESQUISAR");
-        btnCadastrarServico1.setPreferredSize(new java.awt.Dimension(115, 30));
-        btnCadastrarServico1.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnPesquisar.setText("PESQUISAR");
+        btnPesquisar.setPreferredSize(new java.awt.Dimension(115, 30));
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarServico1ActionPerformed(evt);
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+
+        separatorVCM.setPreferredSize(new java.awt.Dimension(850, 3));
+
+        separatorVEM.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        separatorVEM.setPreferredSize(new java.awt.Dimension(3, 300));
+
+        separatorVDM.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        separatorVDM.setPreferredSize(new java.awt.Dimension(3, 300));
+
+        separatorVBM.setPreferredSize(new java.awt.Dimension(850, 3));
+
+        textId.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        textId.setText("CÓDIGO");
+        textId.setPreferredSize(new java.awt.Dimension(37, 28));
+
+        campoId.setEnabled(false);
+        campoId.setPreferredSize(new java.awt.Dimension(700, 28));
+        campoId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoIdActionPerformed(evt);
             }
         });
 
         textNome.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        textNome.setText("CÓDIGO");
+        textNome.setText("NOME");
+        textNome.setPreferredSize(new java.awt.Dimension(38, 28));
 
-        campoNome1.setPreferredSize(new java.awt.Dimension(200, 30));
-        campoNome1.addActionListener(new java.awt.event.ActionListener() {
+        campoNome.setPreferredSize(new java.awt.Dimension(700, 28));
+        campoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNome1ActionPerformed(evt);
+                campoNomeActionPerformed(evt);
             }
         });
 
         textPreco.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        textPreco.setText("NOME");
+        textPreco.setText("PREÇO");
+        textPreco.setPreferredSize(new java.awt.Dimension(64, 28));
 
-        campoPreco.setPreferredSize(new java.awt.Dimension(200, 30));
+        campoPreco.setPreferredSize(new java.awt.Dimension(700, 28));
         campoPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoPrecoActionPerformed(evt);
             }
         });
 
-        textPreco1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        textPreco1.setText("PREÇO");
-
-        campoPreco1.setPreferredSize(new java.awt.Dimension(200, 30));
-        campoPreco1.addActionListener(new java.awt.event.ActionListener() {
+        btnNovo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnNovo.setText("NOVO");
+        btnNovo.setPreferredSize(new java.awt.Dimension(120, 45));
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoPreco1ActionPerformed(evt);
+                btnNovoActionPerformed(evt);
             }
         });
 
-        btnCadastrarServico3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnCadastrarServico3.setText("SALVAR");
-        btnCadastrarServico3.setPreferredSize(new java.awt.Dimension(120, 45));
-        btnCadastrarServico3.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnCadastrar.setText("CADASTRAR");
+        btnCadastrar.setPreferredSize(new java.awt.Dimension(120, 45));
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarServico3ActionPerformed(evt);
+                btnCadastrarActionPerformed(evt);
             }
         });
 
-        btnCadastrarServico4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnCadastrarServico4.setText("EDITAR");
-        btnCadastrarServico4.setPreferredSize(new java.awt.Dimension(120, 45));
-        btnCadastrarServico4.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnEditar.setText("EDITAR");
+        btnEditar.setPreferredSize(new java.awt.Dimension(120, 45));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarServico4ActionPerformed(evt);
+                btnEditarActionPerformed(evt);
             }
         });
 
-        btnCadastrarServico2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnCadastrarServico2.setText("EXCLUIR");
-        btnCadastrarServico2.setPreferredSize(new java.awt.Dimension(120, 45));
-        btnCadastrarServico2.addActionListener(new java.awt.event.ActionListener() {
+        btnExcluir.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnExcluir.setText("EXCLUIR");
+        btnExcluir.setPreferredSize(new java.awt.Dimension(120, 45));
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarServico2ActionPerformed(evt);
+                btnExcluirActionPerformed(evt);
             }
         });
+
+        separatorVBM2.setPreferredSize(new java.awt.Dimension(850, 3));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,61 +167,107 @@ public class TelaProduto extends javax.swing.JInternalFrame {
             .addGap(0, 903, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(30, 30, 30)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(70, 70, 70)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(campoPreco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(campoNome1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(campoPreco1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(0, 263, Short.MAX_VALUE)
-                            .addComponent(btnCadastrarServico3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(70, 70, 70)
-                            .addComponent(btnCadastrarServico4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(70, 70, 70)
-                            .addComponent(btnCadastrarServico2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(80, 80, 80))
+                            .addGap(847, 847, 847)
+                            .addComponent(separaatorVDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
+                            .addGap(33, 33, 33)
+                            .addComponent(campoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(33, 33, 33)
+                            .addComponent(textIdPesquisa))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(703, 703, 703)
+                            .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(separaatorVCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(separaatorVEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(separaatorVBP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(separatorVEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(30, 30, 30)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textPreco)
-                                .addComponent(textNome)
-                                .addComponent(textPreco1)
+                                .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(16, 16, 16)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(campoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(campoPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(campoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnCadastrarServico1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(0, 0, Short.MAX_VALUE)))
-                    .addGap(30, 30, 30)))
+                                    .addGap(140, 140, 140)
+                                    .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(100, 100, 100)
+                                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(100, 100, 100)
+                                    .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(34, 34, 34)
+                            .addComponent(separatorVDM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(33, 33, 33)
+                            .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(separatorVBM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(separatorVCM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(separatorVBM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 506, Short.MAX_VALUE)
+            .addGap(0, 471, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(30, 30, 30)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(campoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnCadastrarServico1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(68, 68, 68)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(textNome)
-                        .addComponent(campoNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(25, 25, 25)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(textPreco)
-                        .addComponent(campoPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(25, 25, 25)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(textPreco1)
-                        .addComponent(campoPreco1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                        .addComponent(btnCadastrarServico3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnCadastrarServico4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnCadastrarServico2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(30, 30, 30)))
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(separaatorVDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(53, 53, 53)
+                            .addComponent(campoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(23, 23, 23)
+                            .addComponent(textIdPesquisa))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(53, 53, 53)
+                            .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(separaatorVCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(separaatorVEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(separaatorVBP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(separatorVEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(100, 100, 100)
+                                    .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(22, 22, 22)
+                                    .addComponent(textPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(50, 50, 50)
+                                    .addComponent(campoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(22, 22, 22)
+                                    .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(22, 22, 22)
+                                    .addComponent(campoPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(62, 62, 62)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(separatorVDM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(240, 240, 240)
+                                    .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(220, 220, 220)
+                                    .addComponent(separatorVBM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(separatorVCM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(80, 80, 80)
+                            .addComponent(textId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(separatorVBM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         getAccessibleContext().setAccessibleName("Tela de Produtos");
@@ -167,50 +275,113 @@ public class TelaProduto extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPesquisarActionPerformed
+    private void campoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPesquisaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoPesquisarActionPerformed
+    }//GEN-LAST:event_campoPesquisaActionPerformed
 
-    private void btnCadastrarServico1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarServico1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCadastrarServico1ActionPerformed
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        try {
+            controller.pesquisar();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
-    private void campoNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNome1ActionPerformed
+    private void campoIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoNome1ActionPerformed
+    }//GEN-LAST:event_campoIdActionPerformed
+
+    private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoNomeActionPerformed
 
     private void campoPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPrecoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoPrecoActionPerformed
 
-    private void campoPreco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPreco1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoPreco1ActionPerformed
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        try {
+            controller.novoProduto();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-    private void btnCadastrarServico3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarServico3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCadastrarServico3ActionPerformed
+    }//GEN-LAST:event_btnNovoActionPerformed
 
-    private void btnCadastrarServico4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarServico4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCadastrarServico4ActionPerformed
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        controller.cadastrarProduto();
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void btnCadastrarServico2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarServico2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCadastrarServico2ActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        try {
+            controller.editarProduto();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        try {
+            controller.excluirProduto();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    public JTextField getCampoId() {
+        return campoId;
+    }
+
+    public void setCampoId(JTextField campoId) {
+        this.campoId = campoId;
+    }
+
+    public JTextField getCampoNome() {
+        return campoNome;
+    }
+
+    public void setCampoNome(JTextField campoNome) {
+        this.campoNome = campoNome;
+    }
+
+    public JTextField getCampoPesquisa() {
+        return campoPesquisa;
+    }
+
+    public void setCampoPesquisa(JTextField campoPesquisa) {
+        this.campoPesquisa = campoPesquisa;
+    }
+
+    public JTextField getCampoPreco() {
+        return campoPreco;
+    }
+
+    public void setCampoPreco(JTextField campoPreco) {
+        this.campoPreco = campoPreco;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastrarServico1;
-    private javax.swing.JButton btnCadastrarServico2;
-    private javax.swing.JButton btnCadastrarServico3;
-    private javax.swing.JButton btnCadastrarServico4;
-    private javax.swing.JTextField campoNome1;
-    private javax.swing.JTextField campoPesquisar;
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnNovo;
+    private javax.swing.JButton btnPesquisar;
+    private javax.swing.JTextField campoId;
+    private javax.swing.JTextField campoNome;
+    private javax.swing.JTextField campoPesquisa;
     private javax.swing.JTextField campoPreco;
-    private javax.swing.JTextField campoPreco1;
+    private javax.swing.JSeparator separaatorVBP;
+    private javax.swing.JSeparator separaatorVCP;
+    private javax.swing.JSeparator separaatorVDP;
+    private javax.swing.JSeparator separaatorVEP;
+    private javax.swing.JSeparator separatorVBM;
+    private javax.swing.JSeparator separatorVBM2;
+    private javax.swing.JSeparator separatorVCM;
+    private javax.swing.JSeparator separatorVDM;
+    private javax.swing.JSeparator separatorVEM;
+    private javax.swing.JLabel textId;
+    private javax.swing.JLabel textIdPesquisa;
     private javax.swing.JLabel textNome;
     private javax.swing.JLabel textPreco;
-    private javax.swing.JLabel textPreco1;
     // End of variables declaration//GEN-END:variables
 }
