@@ -1,40 +1,61 @@
 package util;
 
+import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.table.AbstractTableModel;
+import model.Agendamento;
+import model.Servico;
 
 public class ModeloTabela extends AbstractTableModel{
-    private List linhas = null;
-    private String[] colunas = null;
+    
+    public static final int COL_DATA_AGENDAMENTO = 0;
+    public static final int COL_CLIENTE_AGENDAMENTO = 1;
+    public static final int COL_SERVICO_AGENDAMENTO = 2;
+    public static final int COL_BARBEIRO_AGENDAMENTO = 3;
+    
+    public ArrayList<Agendamento> list = null;
+    
+    public ModeloTabela(ArrayList<Agendamento>l){
+        list = new ArrayList<Agendamento>(l);
+    }
 
-    public ModeloTabela(List lin, String[] col) {
-        setLinhas(lin);
-        setColunas(col);
+    @Override
+    public int getRowCount() {
+        return list.size();
     }
-    public List getLinhas(){
-        return linhas;
+
+    @Override
+    public int getColumnCount() {
+        return 4;
     }
-    public void setLinhas(List dados){
-        linhas = dados;
+
+    @Override
+    public Object getValueAt(int linhas, int colunas) {
+        Agendamento agendamento = list.get(linhas);
+        Data data = new Data(agendamento.getData());
+        if(colunas == COL_DATA_AGENDAMENTO) return data.dataFormatadaEHoraString();
+        if(colunas == COL_CLIENTE_AGENDAMENTO) return agendamento.getCliente().getNome();
+        if(colunas == COL_SERVICO_AGENDAMENTO){
+            String servicos = "";
+            if(agendamento.getServicos().size() > 1){
+                for(Servico agen : agendamento.getServicos()){
+                    servicos += agen.getNome() + "  ";
+                }
+            }else{
+                servicos = agendamento.getServicos().get(0).getNome();
+            }
+            return servicos;
+        }
+        if(colunas == COL_BARBEIRO_AGENDAMENTO) return agendamento.getUsuario().getNome();
+        return "";
     }
-    public String[] getColunas(){
-        return colunas;
-    }
-    public void setColunas(String[] nomes){
-        colunas = nomes;
-    }
-    public int getColumnCount(){
-        return colunas.length;
-    }
-    public int getRowCount(){
-        return linhas.size();
-    }
-    public String getColumnName(int numCol){
-        return colunas[numCol];
-    }
-    public Object getValueAt(int numLin, int numCol){
-        Object[] linha = (Object[])getLinhas().get(numLin);
-        return linha[numCol];
+    
+    @Override
+    public String getColumnName(int colunas){
+        if(colunas == COL_DATA_AGENDAMENTO) return "Data";
+        if(colunas == COL_CLIENTE_AGENDAMENTO) return "Cliente";
+        if(colunas == COL_SERVICO_AGENDAMENTO) return "Serviço";
+        if(colunas == COL_BARBEIRO_AGENDAMENTO) return "Barbeiro";
+        return "";
     }
 }

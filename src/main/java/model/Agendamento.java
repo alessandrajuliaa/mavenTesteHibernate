@@ -1,6 +1,8 @@
 package model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,10 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import util.Data;
 
 @Entity
 @Table(name = "agendamento", uniqueConstraints={@UniqueConstraint(columnNames = {"id"})})
-public class Agendamento implements Serializable {
+public class Agendamento implements Serializable, Comparable<Agendamento> {
         
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +25,8 @@ public class Agendamento implements Serializable {
     private List<Servico> servicos;
     private List<Produto> produtos;
     private Usuario usuario;
-    @Column(length = 25)
-    private String data;
-    @Column(length = 25)
-    private String hora;
-
+    private Date data;
+    
     public Agendamento() {
     }
 
@@ -38,23 +38,21 @@ public class Agendamento implements Serializable {
         this.cliente = cliente;
     }
 
-    public Agendamento(Cliente cliente, List<Servico> servicos, List<Produto> produtos, Usuario usuario, String data, String hora) {
+    public Agendamento(Cliente cliente, List<Servico> servicos, List<Produto> produtos, Usuario usuario, Date data) {
         this.cliente = cliente;
         this.servicos = servicos;
         this.produtos = produtos;
         this.usuario = usuario;
         this.data = data;
-        this.hora = hora;
     }
 
-    public Agendamento(Long id, Cliente cliente, List<Servico> servicos, List<Produto> produtos, Usuario usuario, String data, String hora) {
+    public Agendamento(Long id, Cliente cliente, List<Servico> servicos, List<Produto> produtos, Usuario usuario, Date data) {
         this.id = id;
         this.cliente = cliente;
         this.servicos = servicos;
         this.produtos = produtos;
         this.usuario = usuario;
         this.data = data;
-        this.hora = hora;
     }
 
     public Long getId() {
@@ -97,21 +95,43 @@ public class Agendamento implements Serializable {
         this.usuario = usuario;
     }
 
-    public String getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
-    public String getHora() {
-        return hora;
+    /*@Override
+    public int compareTo(Agendamento o) {
+        Data dataThis = new Data(this.data);
+        Data dataO = new Data(o.getData());
+        String teste = dataO.dataFormatadaEHoraString();
+        return dataThis.before(teste);
+    }
+    
+    public int compare(Agendamento o){
+        return this.data.compareTo(o.getData());
+    }*/
+    
+    
+    @Override
+    public int compareTo(Agendamento o) {
+        //System.out.println(this.data);
+        //System.out.println(o.getData());
+        //Date dataTeste = new Date("24/12/2020");
+        //System.out.println(dataTeste.before(new Date("01/12/2020")));
+        if(this.data.before(o.getData())){
+            return -1;
+        }else if(this.data.after(o.getData())){
+            return 1;
+        }else{
+            return 0;
+        }
+        
+        
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-       
     
 }

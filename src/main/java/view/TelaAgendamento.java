@@ -345,7 +345,7 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
 
     private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
         controller.cadastrarAgendamento();
-        controllerMenu.preencherTabelaAgendamentos();
+        controllerMenu.preencherTabela();
     }//GEN-LAST:event_btnAgendarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed

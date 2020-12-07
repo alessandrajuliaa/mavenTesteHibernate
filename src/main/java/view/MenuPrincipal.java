@@ -1,11 +1,24 @@
 package view;
 
 import controller.MenuPrincipalController;
+import dao.AgendamentoDAO;
+import dao.JPAUtil;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import model.Agendamento;
+import util.Data;
+import util.ModeloTabela;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
     private final MenuPrincipalController controller;
+    Agendamento agendamento = new Agendamento();
+    
     
     public void abrirAgenda(){
         TelaAgendamento agenda = new TelaAgendamento();
@@ -83,17 +96,34 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     public MenuPrincipal() {
         initComponents();
+        Data data = new Data(new Date());
+        //data.dataFormatadaString()
+        //this.getPesquisa().setText("05/12/2020");
         controller = new MenuPrincipalController(this);
-        controller.preencherTabelaAgendamentos();
+        controller.preencherTabela();
+        //controller.preencherComboBoxUsuario();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         desktop = new javax.swing.JDesktopPane();
-        textAgenda = new javax.swing.JLabel();
+        btnPesquisaData = new javax.swing.JButton();
+        pesquisa = new javax.swing.JTextField();
+        textPesquisarAgendamento = new javax.swing.JLabel();
+        textDe3 = new javax.swing.JLabel();
+        textDe1 = new javax.swing.JLabel();
+        textDe = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        textDe4 = new javax.swing.JLabel();
+        pesquisa1 = new javax.swing.JTextField();
+        textAte = new javax.swing.JLabel();
         btnAtualizarTabela = new javax.swing.JButton();
+        comboBoxBarbeiro = new javax.swing.JComboBox<>();
+        caixaPesquisa = new javax.swing.JLabel();
+        textAgenda = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
         backgroundBlack = new javax.swing.JLabel();
@@ -111,7 +141,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuItemSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(930, 570));
         setResizable(false);
 
         desktop.setBackground(new java.awt.Color(102, 102, 102));
@@ -119,53 +148,153 @@ public class MenuPrincipal extends javax.swing.JFrame {
         desktop.setAlignmentY(0.0F);
         desktop.setPreferredSize(new java.awt.Dimension(930, 570));
 
-        textAgenda.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
-        textAgenda.setForeground(new java.awt.Color(255, 255, 255));
-        textAgenda.setText("Agenda");
-        desktop.add(textAgenda);
-        textAgenda.setBounds(410, 20, 110, 30);
+        btnPesquisaData.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        btnPesquisaData.setText("Pesquisar");
+        btnPesquisaData.setPreferredSize(new java.awt.Dimension(100, 25));
+        btnPesquisaData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisaDataActionPerformed(evt);
+            }
+        });
+        desktop.add(btnPesquisaData);
+        btnPesquisaData.setBounds(270, 233, 100, 25);
 
-        btnAtualizarTabela.setText("Atualizar");
+        pesquisa.setPreferredSize(new java.awt.Dimension(70, 25));
+        pesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisaActionPerformed(evt);
+            }
+        });
+        pesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pesquisaKeyPressed(evt);
+            }
+        });
+        desktop.add(pesquisa);
+        pesquisa.setBounds(70, 233, 70, 25);
+
+        textPesquisarAgendamento.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        textPesquisarAgendamento.setForeground(new java.awt.Color(255, 255, 255));
+        textPesquisarAgendamento.setText("Pesquisar:");
+        desktop.add(textPesquisarAgendamento);
+        textPesquisarAgendamento.setBounds(30, 200, 70, 16);
+
+        textDe3.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        textDe3.setForeground(new java.awt.Color(255, 255, 255));
+        textDe3.setText("Período:");
+        desktop.add(textDe3);
+        textDe3.setBounds(40, 220, 60, 15);
+
+        textDe1.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        textDe1.setForeground(new java.awt.Color(255, 255, 255));
+        textDe1.setText("Barbeiro:");
+        desktop.add(textDe1);
+        textDe1.setBounds(570, 220, 110, 15);
+
+        textDe.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        textDe.setForeground(new java.awt.Color(255, 255, 255));
+        textDe.setText("De:");
+        desktop.add(textDe);
+        textDe.setBounds(40, 240, 30, 16);
+
+        jTextField1.setText("jTextField1");
+        jTextField1.setPreferredSize(new java.awt.Dimension(160, 25));
+        desktop.add(jTextField1);
+        jTextField1.setBounds(390, 233, 160, 25);
+
+        textDe4.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        textDe4.setForeground(new java.awt.Color(255, 255, 255));
+        textDe4.setText("Nome do cliente:");
+        desktop.add(textDe4);
+        textDe4.setBounds(390, 220, 110, 15);
+
+        pesquisa1.setToolTipText("");
+        pesquisa1.setName(""); // NOI18N
+        pesquisa1.setPreferredSize(new java.awt.Dimension(70, 25));
+        pesquisa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisa1ActionPerformed(evt);
+            }
+        });
+        pesquisa1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pesquisa1KeyPressed(evt);
+            }
+        });
+        desktop.add(pesquisa1);
+        pesquisa1.setBounds(190, 233, 70, 25);
+
+        textAte.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        textAte.setForeground(new java.awt.Color(255, 255, 255));
+        textAte.setText("Até:");
+        desktop.add(textAte);
+        textAte.setBounds(150, 240, 30, 16);
+
+        btnAtualizarTabela.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnAtualizarTabela.setText("Atualizar Tabela");
+        btnAtualizarTabela.setPreferredSize(new java.awt.Dimension(140, 25));
         btnAtualizarTabela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualizarTabelaActionPerformed(evt);
             }
         });
         desktop.add(btnAtualizarTabela);
-        btnAtualizarTabela.setBounds(765, 160, 90, 22);
+        btnAtualizarTabela.setBounds(750, 233, 140, 25);
+
+        comboBoxBarbeiro.setPreferredSize(new java.awt.Dimension(160, 25));
+        comboBoxBarbeiro.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBoxBarbeiroItemStateChanged(evt);
+            }
+        });
+        comboBoxBarbeiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxBarbeiroActionPerformed(evt);
+            }
+        });
+        comboBoxBarbeiro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                comboBoxBarbeiroKeyPressed(evt);
+            }
+        });
+        desktop.add(comboBoxBarbeiro);
+        comboBoxBarbeiro.setBounds(570, 233, 160, 25);
+
+        caixaPesquisa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        caixaPesquisa.setPreferredSize(new java.awt.Dimension(850, 50));
+        desktop.add(caixaPesquisa);
+        caixaPesquisa.setBounds(30, 220, 870, 50);
+
+        textAgenda.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        textAgenda.setForeground(new java.awt.Color(255, 255, 255));
+        textAgenda.setText("Agenda");
+        desktop.add(textAgenda);
+        textAgenda.setBounds(400, 70, 110, 30);
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Id", "Hora", "Data", "Cliente", "Serviço", "Barbeiro"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true
-            };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
             }
-        });
-        tabela.setPreferredSize(new java.awt.Dimension(810, 80));
+        ));
         jScrollPane1.setViewportView(tabela);
 
         desktop.add(jScrollPane1);
-        jScrollPane1.setBounds(50, 190, 810, 286);
+        jScrollPane1.setBounds(30, 270, 870, 250);
 
-        backgroundBlack.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alessandra\\Downloads\\fundo(4).png")); // NOI18N
+        backgroundBlack.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        backgroundBlack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/fundoBlack.png"))); // NOI18N
         backgroundBlack.setPreferredSize(new java.awt.Dimension(900, 570));
         desktop.add(backgroundBlack);
-        backgroundBlack.setBounds(16, 20, 880, 470);
+        backgroundBlack.setBounds(0, 0, 930, 570);
 
-        backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/fundo.png"))); // NOI18N
+        backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/backgroundImage.jpg"))); // NOI18N
         backgroundImage.setName(""); // NOI18N
         backgroundImage.setPreferredSize(new java.awt.Dimension(915, 518));
         desktop.add(backgroundImage);
-        backgroundImage.setBounds(0, 0, 915, 518);
+        backgroundImage.setBounds(0, 0, 930, 570);
 
         menuBar.setBackground(new java.awt.Color(204, 204, 204));
         menuBar.setBorder(null);
@@ -288,8 +417,51 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemAgendaActionPerformed
 
     private void btnAtualizarTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarTabelaActionPerformed
-        controller.preencherTabelaAgendamentos();
+        controller.preencherTabela();
     }//GEN-LAST:event_btnAtualizarTabelaActionPerformed
+
+    private void pesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisaKeyPressed
+        
+    }//GEN-LAST:event_pesquisaKeyPressed
+
+    private void comboBoxBarbeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxBarbeiroActionPerformed
+        
+    }//GEN-LAST:event_comboBoxBarbeiroActionPerformed
+
+    private void comboBoxBarbeiroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_comboBoxBarbeiroKeyPressed
+        
+    }//GEN-LAST:event_comboBoxBarbeiroKeyPressed
+
+    private void comboBoxBarbeiroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxBarbeiroItemStateChanged
+        String pesquisa = this.getComboBoxBarbeiro().getSelectedItem().toString();
+        System.out.println(pesquisa);
+        EntityManager em = new JPAUtil().getEntityManager();
+        em.getTransaction().begin();
+        this.getTabela().setModel(new ModeloTabela(new AgendamentoDAO(em).selectPorBarbeiro(pesquisa)));
+        em.getTransaction().commit();
+        em.close();
+    }//GEN-LAST:event_comboBoxBarbeiroItemStateChanged
+
+    private void pesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pesquisaActionPerformed
+
+    private void btnPesquisaDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaDataActionPerformed
+        String pesquisa = this.getPesquisa().getText();
+        EntityManager em = new JPAUtil().getEntityManager();
+        em.getTransaction().begin();
+        this.getTabela().setModel(new ModeloTabela(new AgendamentoDAO(em).selectPorData(pesquisa)));
+        em.getTransaction().commit();
+        em.close();
+    }//GEN-LAST:event_btnPesquisaDataActionPerformed
+
+    private void pesquisa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisa1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pesquisa1ActionPerformed
+
+    private void pesquisa1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisa1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pesquisa1KeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -330,13 +502,35 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public void setTabela(JTable tabela) {
         this.tabela = tabela;
     }
+
+    public JTextField getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(JTextField pesquisa) {
+        this.pesquisa = pesquisa;
+    }
+
+    public JComboBox<String> getComboBoxBarbeiro() {
+        return comboBoxBarbeiro;
+    }
+
+    public void setComboBoxBarbeiro(JComboBox<String> comboBoxBarbeiro) {
+        this.comboBoxBarbeiro = comboBoxBarbeiro;
+    }
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroundBlack;
     private javax.swing.JLabel backgroundImage;
     private javax.swing.JButton btnAtualizarTabela;
+    private javax.swing.JButton btnPesquisaData;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel caixaPesquisa;
+    private javax.swing.JComboBox<String> comboBoxBarbeiro;
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JMenu menuAgenda;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCadastro;
@@ -348,7 +542,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemUsuario;
     private javax.swing.JMenu menuOpcoes;
     private javax.swing.JMenu menuRelatorio;
+    private javax.swing.JTextField pesquisa;
+    private javax.swing.JTextField pesquisa1;
     private javax.swing.JTable tabela;
     private javax.swing.JLabel textAgenda;
+    private javax.swing.JLabel textAte;
+    private javax.swing.JLabel textDe;
+    private javax.swing.JLabel textDe1;
+    private javax.swing.JLabel textDe3;
+    private javax.swing.JLabel textDe4;
+    private javax.swing.JLabel textPesquisarAgendamento;
     // End of variables declaration//GEN-END:variables
 }

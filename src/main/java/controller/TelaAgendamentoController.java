@@ -21,6 +21,7 @@ import model.Cliente;
 import model.Produto;
 import model.Servico;
 import model.Usuario;
+import util.Data;
 import view.TelaAgendamento;
 import view.TelaServico;
 
@@ -39,12 +40,12 @@ public class TelaAgendamentoController {
         String hora = view.getCampoHora().getText();
         Usuario usuario = pegarUsuario();
         Cliente cliente = pegarCliente();
+        Data date = new Data(data, hora);
         
-
         if(!"".equals(data) && !"".equals(hora) && !servicos.isEmpty()){
            
            if("Barbeiro".equals(usuario.getCargo()) || "Gestor".equals(usuario.getCargo())){
-                Agendamento agendamento = new Agendamento(cliente, servicos, produtos, usuario, data, hora);
+                Agendamento agendamento = new Agendamento(cliente, servicos, produtos, usuario, date.date());
                 try {
                     EntityManager em = new JPAUtil().getEntityManager();
                     em.getTransaction().begin();
@@ -71,10 +72,11 @@ public class TelaAgendamentoController {
         String hora = view.getCampoHora().getText();
         Usuario usuario = pegarUsuario();
         Cliente cliente = pegarCliente();
+        Data date = new Data(data, hora);
         
         if(!"".equals(data) && !"".equals(hora) && !servicos.isEmpty()){
             if("Barbeiro".equals(usuario.getCargo()) || "Gestor".equals(usuario.getCargo())){
-                Agendamento agendamento = new Agendamento(id, cliente, servicos, produtos, usuario, data, hora);
+                Agendamento agendamento = new Agendamento(id, cliente, servicos, produtos, usuario, date.date());
                 try {
                     EntityManager em = new JPAUtil().getEntityManager();
                     em.getTransaction().begin();
@@ -97,12 +99,6 @@ public class TelaAgendamentoController {
     
     public void excluirAgendamento() throws SQLException{
         long id = Integer.parseInt(view.getCampoId().getText());
-        view.getCampoHora().getText();
-        view.getCampoHora().getText();
-        view.getComboBoxBarbeiro().getSelectedItem().toString();
-        view.getCampoHora().getText();
-        view.getCampoData().getText();
-        view.getCampoPreco().getText();
         if(!"".equals(id)){
             Agendamento agendamento = new Agendamento(id);
             try {
@@ -153,6 +149,7 @@ public class TelaAgendamentoController {
                 em.close();
                 
                 if(agendamentoEncontrado != null){
+                    Data date = new Data(agendamentoEncontrado.getData());
                     view.getComboBoxCliente().setSelectedItem(agendamentoEncontrado.getCliente().getNome());
                     view.getComboBoxCliente().setEnabled(true);
                     view.getCampoId().setText(String.valueOf(agendamentoEncontrado.getId()));
@@ -161,9 +158,9 @@ public class TelaAgendamentoController {
                     view.getComboBoxServico().setEnabled(true);
                     view.getComboBoxBarbeiro().setSelectedItem(agendamentoEncontrado.getUsuario().getNome());
                     view.getComboBoxBarbeiro().setEnabled(true);
-                    view.getCampoData().setText(agendamentoEncontrado.getData());
+                    view.getCampoData().setText(date.dataFormatadaString());
                     view.getCampoData().setEnabled(true);
-                    view.getCampoHora().setText(agendamentoEncontrado.getHora());
+                    view.getCampoHora().setText(date.horaFormatadaString());
                     view.getCampoHora().setEnabled(true);
                     view.getCampoPreco().setText("0");
                     view.getCampoPreco().setEnabled(true);
@@ -178,14 +175,6 @@ public class TelaAgendamentoController {
                 JOptionPane.showMessageDialog(null, "Agendamento não encontrado!");
             }
         }else{
-            /*EntityManager em = new JPAUtil().getEntityManager();
-            em.getTransaction().begin();
-            List<Agendamento> servicos = new AgendamentoDAO(em).selectAll();
-            for(Servico servico : servicos){
-                System.out.println(servico.getId()+ " - " + servico.getNome() + " - " + servico.getPreco());
-            }
-            em.getTransaction().commit();
-            em.close();*/
             JOptionPane.showMessageDialog(null, "O campo id não pode estar vazio.");
         }
     }
