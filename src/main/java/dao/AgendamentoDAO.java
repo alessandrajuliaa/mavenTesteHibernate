@@ -2,15 +2,12 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
-import jdk.nashorn.internal.objects.Global;
 import model.Agendamento;
-import util.Data;
 
 public class AgendamentoDAO {
     
@@ -53,6 +50,8 @@ public class AgendamentoDAO {
                 agen.setCliente(agendamento.getCliente());
                 agen.setServicos(agendamento.getServicos());
                 agen.setUsuario(agendamento.getUsuario());
+                agen.setProdutos(agendamento.getProdutos());
+                agen.setPreco(agendamento.getPreco());
                 lista.add(agen);
             }
             System.out.println(lista);
@@ -65,59 +64,57 @@ public class AgendamentoDAO {
     public ArrayList<Agendamento> selectAll(){
         String consultaJPQL = "select u from Agendamento as u";
         Query query = em.createQuery(consultaJPQL);
-        ArrayList<Agendamento> teste = retornarListaComBaseNaConsulta(query);
-        int tamanho  = teste.size() - 1;
-        Collections.sort(teste);
-        for(Agendamento test : teste){
-            System.out.println(test.getData());
-        }
-        return teste;
+        ArrayList<Agendamento> ordenar = retornarListaComBaseNaConsulta(query);
+        Collections.sort(ordenar);
+        return ordenar;
     }
     
     public Agendamento selectPorId(Agendamento agendamento){
         return em.find(Agendamento.class, agendamento.getId());
     }
     
-    public ArrayList<Agendamento> selectPorCliente(String pesquisa){
-        String consultaJPQL = "SELECT a FROM Agendamento a WHERE a.cliente.nome LIKE :nomeCliente ";
+    public ArrayList<Agendamento> selectPorCliente(String dataDe, String dataAte, String nome){
+        String de = dataDe.substring(5, 10) + "/" + dataDe.substring(3, 5) + "/" + dataDe.substring(0, 2) + " 00:00";
+        String ate = dataAte.substring(5, 10) + "/" + dataAte.substring(3, 5) + "/" + dataAte.substring(0, 2) + " 23:59";
+        Date deData = new Date(de);
+        Date ateData = new Date(ate);
+        System.out.println(nome);
+        String consultaJPQL = "SELECT a FROM Agendamento a join a.cliente c WHERE a.data BETWEEN :datade and :dataate AND c.nome LIKE :nomeCliente ";
+        //String consultaJPQL = "SELECT a FROM Agendamento a join a.cliente c WHERE a.data = :dataate and c.nome LIKE :nomeCliente ";
+        // "SELECT u from Usuario u join u.pessoa p where p.matricula = :matricula and u.senha = :senha "
         Query query = em.createQuery(consultaJPQL);
-        query.setParameter("nomeCliente", "%" + pesquisa + "%");
-        return retornarListaComBaseNaConsulta(query);
-        //return em.find(Agendamento.class, agendamento.getId());
+        query.setParameter("datade", deData);
+        query.setParameter("dataate", ateData);
+        query.setParameter("nomeCliente", nome + "%");
+        ArrayList<Agendamento> ordenar = retornarListaComBaseNaConsulta(query);
+        Collections.sort(ordenar);
+        return ordenar;
     }
-    public ArrayList<Agendamento> selectPorData(String pesquisa){
-        Data data1 = new Data(pesquisa, "00:00");
-        Data data2 = new Data("06/12/2020", "23:59");
-        String consultaJPQL = "SELECT a FROM Agendamento a WHERE a.data BETWEEN '2020-12-05 00:00' AND '2020-12-06 23:59' ";
-        System.out.println(data1);
+    public ArrayList<Agendamento> selectPorData(String dataDe, String dataAte){
+        String de = dataDe.substring(5, 10) + "/" + dataDe.substring(3, 5) + "/" + dataDe.substring(0, 2) + " 00:00";
+        String ate = dataAte.substring(5, 10) + "/" + dataAte.substring(3, 5) + "/" + dataAte.substring(0, 2) + " 23:59";
+        Date deData = new Date(de);
+        Date ateData = new Date(ate);
+        String consultaJPQL = "SELECT a FROM Agendamento a WHERE a.data BETWEEN :datade and :dataate ";
         Query query = em.createQuery(consultaJPQL);
-        //query.setParameter("data", "%" + pesquisa.toString() + "%");
-//        query.setParameter("data1", data1);
- //       query.setParameter("data2", data2);
-        return retornarListaComBaseNaConsulta(query);
-        //return em.find(Agendamento.class, agendamento.getId());
+        query.setParameter("datade", deData);
+        query.setParameter("dataate", ateData);
+        ArrayList<Agendamento> ordenar = retornarListaComBaseNaConsulta(query);
+        Collections.sort(ordenar);
+        return ordenar;
     }
-    public ArrayList<Agendamento> selectPorBarbeiro(String pesquisa){
-        String consultaJPQL = "SELECT a FROM Agendamento a WHERE a.usuario.nome LIKE :nomeBarbeiro ";
+    public ArrayList<Agendamento> selectPorBarbeiro(String dataDe, String dataAte, String barbeiro){
+        String de = dataDe.substring(5, 10) + "/" + dataDe.substring(3, 5) + "/" + dataDe.substring(0, 2) + " 00:00";
+        String ate = dataAte.substring(5, 10) + "/" + dataAte.substring(3, 5) + "/" + dataAte.substring(0, 2) + " 23:59";
+        Date deData = new Date(de);
+        Date ateData = new Date(ate);
+        String consultaJPQL = "SELECT a FROM Agendamento a join a.usuario u WHERE a.data BETWEEN :datade and :dataate AND u.nome = :nomeBarbeiro ";
         Query query = em.createQuery(consultaJPQL);
-        query.setParameter("nomeBarbeiro", pesquisa + "%");
-        ArrayList<Agendamento> agen = retornarListaComBaseNaConsulta(query);
-        //System.out.println(Global.getDate(agen.get(0)));
-        /*agen.sort(new Comparator<Agendamento>() {
-            @Override
-            public int compare(Agendamento a, Agendamento b) {
-                if(a.getHora()  < b.getHora()){
-                    System.out.println(Global.getDate(a));
-                    return -1;
-                }
-                if(a.getHora() > b.getHora()){
-                    return 1;
-                }
-                return 0;
-            }
-        });*/
-        return agen;
-    
-        //return em.find(Agendamento.class, agendamento.getId());
+        query.setParameter("datade", deData);
+        query.setParameter("dataate", ateData);
+        query.setParameter("nomeBarbeiro", barbeiro);
+        ArrayList<Agendamento> ordenar = retornarListaComBaseNaConsulta(query);
+        Collections.sort(ordenar);
+        return ordenar;
     }
 }

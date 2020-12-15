@@ -35,18 +35,23 @@ public class ProdutoDAO {
         em.remove(em.merge(produto));
     }
     
-    private List<Produto> retornarListaComBaseNaConsulta(Query query) {
+    private ArrayList<Produto> retornarListaComBaseNaConsulta(Query query) {
         List<Produto> produtoList;
+        ArrayList<Produto> lista = new ArrayList<>();
         try{
             produtoList = query.getResultList();
+            for(Produto produto : produtoList){
+                lista.add(produto);
+            }
+            System.out.println(lista);
         }catch(NoResultException e){
             produtoList = new ArrayList<>();
         }
-        return produtoList;
+        return lista;
     }
     
-    public List<Produto> selectAll(){
-        String consultaJPQL = "select u from Produto as u";
+    public ArrayList<Produto> selectAll(){
+        String consultaJPQL = "select p from Produto as p";
         Query query = em.createQuery(consultaJPQL);
         return retornarListaComBaseNaConsulta(query);
     }
@@ -55,14 +60,17 @@ public class ProdutoDAO {
         return em.find(Produto.class, produto.getId());
     }
     
-    public Produto selectPorNome(Produto prod){
-        Produto produtoEcontrado = null;
-        List<Produto> produtos = new ProdutoDAO(em).selectAll();
-        
-        for(Produto produto : produtos){
-            if(produto.getNome() == prod.getNome())
-                produtoEcontrado = produto;
-        }
-        return produtoEcontrado;
+    public ArrayList<Produto> selectPorNome(String nomeProduto){
+        String consultaJPQL = "SELECT p FROM Produto p WHERE p.nome = :nome";
+        Query query = em.createQuery(consultaJPQL);
+        query.setParameter("nome", nomeProduto);
+        return retornarListaComBaseNaConsulta(query);
+    }
+    
+    public ArrayList<Produto> selectPorNomeCampo(String nomeProduto){
+        String consultaJPQL = "SELECT p from Produto p WHERE p.nome LIKE :nome";
+        Query query = em.createQuery(consultaJPQL);
+        query.setParameter("nome", "%" + nomeProduto + "%");
+        return retornarListaComBaseNaConsulta(query);
     }
 }

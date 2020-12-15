@@ -19,277 +19,172 @@ public class TelaProduto extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        separaatorVBP = new javax.swing.JSeparator();
-        separaatorVCP = new javax.swing.JSeparator();
-        separaatorVEP = new javax.swing.JSeparator();
-        separaatorVDP = new javax.swing.JSeparator();
+        campoPesquisaProduto = new javax.swing.JTextField();
+        btnPesquisarAgendamento = new javax.swing.JButton();
         textIdPesquisa = new javax.swing.JLabel();
-        campoPesquisa = new javax.swing.JTextField();
-        btnPesquisar = new javax.swing.JButton();
-        separatorVCM = new javax.swing.JSeparator();
-        separatorVEM = new javax.swing.JSeparator();
-        separatorVDM = new javax.swing.JSeparator();
-        separatorVBM = new javax.swing.JSeparator();
+        textPesquisarProduto = new javax.swing.JLabel();
+        caixaPesquisa = new javax.swing.JLabel();
+        textInfo = new javax.swing.JLabel();
         textId = new javax.swing.JLabel();
         campoId = new javax.swing.JTextField();
         textNome = new javax.swing.JLabel();
         campoNome = new javax.swing.JTextField();
         textPreco = new javax.swing.JLabel();
         campoPreco = new javax.swing.JTextField();
-        btnNovo = new javax.swing.JButton();
-        btnCadastrar = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
+        caixaInfo = new javax.swing.JLabel();
         btnExcluir = new javax.swing.JButton();
-        separatorVBM2 = new javax.swing.JSeparator();
+        btnEditar = new javax.swing.JButton();
+        btnCadastrar = new javax.swing.JButton();
+        btnNovo = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Produto");
+        setMaximumSize(new java.awt.Dimension(915, 507));
+        setMinimumSize(new java.awt.Dimension(915, 507));
         setPreferredSize(new java.awt.Dimension(915, 507));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        separaatorVBP.setPreferredSize(new java.awt.Dimension(850, 3));
+        campoPesquisaProduto.setMinimumSize(new java.awt.Dimension(64, 28));
+        campoPesquisaProduto.setPreferredSize(new java.awt.Dimension(630, 28));
+        campoPesquisaProduto.setSelectionEnd(5);
+        campoPesquisaProduto.setSelectionStart(5);
+        campoPesquisaProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoPesquisaProdutoActionPerformed(evt);
+            }
+        });
+        campoPesquisaProduto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                campoPesquisaProdutoKeyPressed(evt);
+            }
+        });
+        getContentPane().add(campoPesquisaProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
 
-        separaatorVCP.setPreferredSize(new java.awt.Dimension(850, 3));
-
-        separaatorVEP.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        separaatorVEP.setPreferredSize(new java.awt.Dimension(3, 100));
-
-        separaatorVDP.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        separaatorVDP.setPreferredSize(new java.awt.Dimension(3, 100));
+        btnPesquisarAgendamento.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnPesquisarAgendamento.setText("PESQUISAR");
+        btnPesquisarAgendamento.setPreferredSize(new java.awt.Dimension(110, 28));
+        btnPesquisarAgendamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarAgendamentoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPesquisarAgendamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 40, -1, -1));
 
         textIdPesquisa.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        textIdPesquisa.setText("Código:");
+        textIdPesquisa.setText("Nome:");
+        textIdPesquisa.setPreferredSize(new java.awt.Dimension(50, 28));
+        getContentPane().add(textIdPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 50, -1));
 
-        campoPesquisa.setBackground(new java.awt.Color(255, 255, 255));
-        campoPesquisa.setPreferredSize(new java.awt.Dimension(640, 28));
-        campoPesquisa.setSelectionEnd(5);
-        campoPesquisa.setSelectionStart(5);
-        campoPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoPesquisaActionPerformed(evt);
-            }
-        });
+        textPesquisarProduto.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        textPesquisarProduto.setText("Pesquisar produto:");
+        getContentPane().add(textPesquisarProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 13, -1, -1));
 
-        btnPesquisar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnPesquisar.setText("PESQUISAR");
-        btnPesquisar.setPreferredSize(new java.awt.Dimension(115, 30));
-        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarActionPerformed(evt);
-            }
-        });
+        caixaPesquisa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        caixaPesquisa.setPreferredSize(new java.awt.Dimension(850, 50));
+        getContentPane().add(caixaPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 30, -1, -1));
 
-        separatorVCM.setPreferredSize(new java.awt.Dimension(850, 3));
+        textInfo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        textInfo.setText("Outras informações:");
+        getContentPane().add(textInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 20));
 
-        separatorVEM.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        separatorVEM.setPreferredSize(new java.awt.Dimension(3, 300));
-
-        separatorVDM.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        separatorVDM.setPreferredSize(new java.awt.Dimension(3, 300));
-
-        separatorVBM.setPreferredSize(new java.awt.Dimension(850, 3));
-
-        textId.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        textId.setText("CÓDIGO");
-        textId.setPreferredSize(new java.awt.Dimension(37, 28));
+        textId.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        textId.setText("Id:");
+        textId.setPreferredSize(new java.awt.Dimension(42, 28));
+        getContentPane().add(textId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 30, -1));
 
         campoId.setEnabled(false);
-        campoId.setPreferredSize(new java.awt.Dimension(700, 28));
-        campoId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoIdActionPerformed(evt);
-            }
-        });
+        campoId.setPreferredSize(new java.awt.Dimension(760, 28));
+        getContentPane().add(campoId, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
-        textNome.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        textNome.setText("NOME");
-        textNome.setPreferredSize(new java.awt.Dimension(38, 28));
+        textNome.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        textNome.setText("Nome:");
+        textNome.setPreferredSize(new java.awt.Dimension(42, 28));
+        getContentPane().add(textNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 50, -1));
 
-        campoNome.setPreferredSize(new java.awt.Dimension(700, 28));
+        campoNome.setEnabled(false);
+        campoNome.setPreferredSize(new java.awt.Dimension(760, 28));
         campoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoNomeActionPerformed(evt);
             }
         });
+        getContentPane().add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
-        textPreco.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        textPreco.setText("PREÇO");
-        textPreco.setPreferredSize(new java.awt.Dimension(64, 28));
+        textPreco.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        textPreco.setText("Preço:");
+        textPreco.setPreferredSize(new java.awt.Dimension(42, 28));
+        getContentPane().add(textPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 50, -1));
 
-        campoPreco.setPreferredSize(new java.awt.Dimension(700, 28));
+        campoPreco.setToolTipText("");
+        campoPreco.setEnabled(false);
+        campoPreco.setPreferredSize(new java.awt.Dimension(760, 28));
         campoPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoPrecoActionPerformed(evt);
             }
         });
+        getContentPane().add(campoPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
 
-        btnNovo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnNovo.setText("NOVO");
-        btnNovo.setPreferredSize(new java.awt.Dimension(120, 45));
-        btnNovo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNovoActionPerformed(evt);
-            }
-        });
-
-        btnCadastrar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnCadastrar.setText("CADASTRAR");
-        btnCadastrar.setPreferredSize(new java.awt.Dimension(120, 45));
-        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarActionPerformed(evt);
-            }
-        });
-
-        btnEditar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnEditar.setText("EDITAR");
-        btnEditar.setPreferredSize(new java.awt.Dimension(120, 45));
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
+        caixaInfo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        caixaInfo.setPreferredSize(new java.awt.Dimension(850, 170));
+        getContentPane().add(caixaInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, 130));
 
         btnExcluir.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnExcluir.setText("EXCLUIR");
-        btnExcluir.setPreferredSize(new java.awt.Dimension(120, 45));
+        btnExcluir.setPreferredSize(new java.awt.Dimension(110, 35));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
             }
         });
+        getContentPane().add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 420, -1, -1));
 
-        separatorVBM2.setPreferredSize(new java.awt.Dimension(850, 3));
+        btnEditar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnEditar.setText("EDITAR");
+        btnEditar.setPreferredSize(new java.awt.Dimension(110, 35));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 903, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(847, 847, 847)
-                            .addComponent(separaatorVDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(33, 33, 33)
-                            .addComponent(campoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(33, 33, 33)
-                            .addComponent(textIdPesquisa))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(703, 703, 703)
-                            .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(separaatorVCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(separaatorVEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(separaatorVBP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(separatorVEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(30, 30, 30)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(16, 16, 16)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(campoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(campoPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(140, 140, 140)
-                                    .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(100, 100, 100)
-                                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(100, 100, 100)
-                                    .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(34, 34, 34)
-                            .addComponent(separatorVDM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(33, 33, 33)
-                            .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(separatorVBM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(separatorVCM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(separatorVBM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(separaatorVDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(53, 53, 53)
-                            .addComponent(campoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addComponent(textIdPesquisa))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(53, 53, 53)
-                            .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(separaatorVCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(separaatorVEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(separaatorVBP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(separatorVEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(100, 100, 100)
-                                    .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(22, 22, 22)
-                                    .addComponent(textPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(50, 50, 50)
-                                    .addComponent(campoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(22, 22, 22)
-                                    .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(22, 22, 22)
-                                    .addComponent(campoPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(62, 62, 62)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(separatorVDM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(240, 240, 240)
-                                    .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(220, 220, 220)
-                                    .addComponent(separatorVBM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(separatorVCM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(80, 80, 80)
-                            .addComponent(textId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(separatorVBM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        btnCadastrar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnCadastrar.setText("CADASTRAR");
+        btnCadastrar.setPreferredSize(new java.awt.Dimension(110, 35));
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, -1, -1));
+
+        btnNovo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnNovo.setText("NOVO");
+        btnNovo.setPreferredSize(new java.awt.Dimension(110, 35));
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnNovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
 
         getAccessibleContext().setAccessibleName("Tela de Produtos");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPesquisaActionPerformed
+    private void campoPesquisaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPesquisaProdutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoPesquisaActionPerformed
+    }//GEN-LAST:event_campoPesquisaProdutoActionPerformed
 
-    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+    private void btnPesquisarAgendamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarAgendamentoActionPerformed
         try {
-            controller.pesquisar();
+            controller.pesquisarPorNome();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnPesquisarActionPerformed
-
-    private void campoIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoIdActionPerformed
+    }//GEN-LAST:event_btnPesquisarAgendamentoActionPerformed
 
     private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
         // TODO add your handling code here:
@@ -299,34 +194,41 @@ public class TelaProduto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoPrecoActionPerformed
 
-    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         try {
-            controller.novoProduto();
+            controller.excluirProduto();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-    }//GEN-LAST:event_btnNovoActionPerformed
-
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        controller.cadastrarProduto();
-    }//GEN-LAST:event_btnCadastrarActionPerformed
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         try {
             controller.editarProduto();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
-    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        controller.cadastrarProduto();
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         try {
-            controller.excluirProduto();
+            controller.novoProduto();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnNovoActionPerformed
+
+    private void campoPesquisaProdutoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoPesquisaProdutoKeyPressed
+        try {
+            controller.pesquisarPorNomeCampo();
         } catch (SQLException ex) {
             Logger.getLogger(TelaProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnExcluirActionPerformed
+    }//GEN-LAST:event_campoPesquisaProdutoKeyPressed
 
     public JTextField getCampoId() {
         return campoId;
@@ -344,12 +246,12 @@ public class TelaProduto extends javax.swing.JInternalFrame {
         this.campoNome = campoNome;
     }
 
-    public JTextField getCampoPesquisa() {
-        return campoPesquisa;
+    public JTextField getCampoPesquisaProduto() {
+        return campoPesquisaProduto;
     }
 
-    public void setCampoPesquisa(JTextField campoPesquisa) {
-        this.campoPesquisa = campoPesquisa;
+    public void setCampoPesquisaProduto(JTextField campoPesquisaProduto) {
+        this.campoPesquisaProduto = campoPesquisaProduto;
     }
 
     public JTextField getCampoPreco() {
@@ -360,28 +262,25 @@ public class TelaProduto extends javax.swing.JInternalFrame {
         this.campoPreco = campoPreco;
     }
 
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnNovo;
-    private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnPesquisarAgendamento;
+    private javax.swing.JLabel caixaInfo;
+    private javax.swing.JLabel caixaPesquisa;
     private javax.swing.JTextField campoId;
     private javax.swing.JTextField campoNome;
-    private javax.swing.JTextField campoPesquisa;
+    private javax.swing.JTextField campoPesquisaProduto;
     private javax.swing.JTextField campoPreco;
-    private javax.swing.JSeparator separaatorVBP;
-    private javax.swing.JSeparator separaatorVCP;
-    private javax.swing.JSeparator separaatorVDP;
-    private javax.swing.JSeparator separaatorVEP;
-    private javax.swing.JSeparator separatorVBM;
-    private javax.swing.JSeparator separatorVBM2;
-    private javax.swing.JSeparator separatorVCM;
-    private javax.swing.JSeparator separatorVDM;
-    private javax.swing.JSeparator separatorVEM;
     private javax.swing.JLabel textId;
     private javax.swing.JLabel textIdPesquisa;
+    private javax.swing.JLabel textInfo;
     private javax.swing.JLabel textNome;
+    private javax.swing.JLabel textPesquisarProduto;
     private javax.swing.JLabel textPreco;
     // End of variables declaration//GEN-END:variables
 }

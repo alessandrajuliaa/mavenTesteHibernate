@@ -6,10 +6,10 @@ import javax.persistence.Persistence;
 
 /**
  *
- * @author tiago
+ * @author Alessandra
  */
 public class JPAUtil {
-    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("testepostgre");
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("postgreBarberTime");
     //private static final EntityManagerFactory emfAdonai = Persistence.createEntityManagerFactory("adonai-teste-postgres");
 
     /**

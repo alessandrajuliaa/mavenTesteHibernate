@@ -15,7 +15,6 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import model.Agendamento;
 import model.Cliente;
 import model.Produto;
@@ -41,11 +40,13 @@ public class TelaAgendamentoController {
         Usuario usuario = pegarUsuario();
         Cliente cliente = pegarCliente();
         Data date = new Data(data, hora);
+        String priceString = view.getCampoPreco().getText().replace(",", ".");
+        double price = Double.parseDouble(priceString);
         
-        if(!"".equals(data) && !"".equals(hora) && !servicos.isEmpty()){
+        if(!"".equals(data) && !"".equals(hora) && (!"".equals(servicos) || !"".equals(produtos))){
            
            if("Barbeiro".equals(usuario.getCargo()) || "Gestor".equals(usuario.getCargo())){
-                Agendamento agendamento = new Agendamento(cliente, servicos, produtos, usuario, date.date());
+                Agendamento agendamento = new Agendamento(cliente, servicos, produtos, usuario, date.date(), price);
                 try {
                     EntityManager em = new JPAUtil().getEntityManager();
                     em.getTransaction().begin();
@@ -65,7 +66,6 @@ public class TelaAgendamentoController {
             JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio.");
         }
     }
-    
     public void editarAgendamento() throws SQLException{
         long id = Integer.parseInt(view.getCampoId().getText());
         String data = view.getCampoData().getText();
@@ -73,10 +73,12 @@ public class TelaAgendamentoController {
         Usuario usuario = pegarUsuario();
         Cliente cliente = pegarCliente();
         Data date = new Data(data, hora);
+        String priceString = view.getCampoPreco().getText().replace(",", ".");
+        double price = Double.parseDouble(priceString);
         
         if(!"".equals(data) && !"".equals(hora) && !servicos.isEmpty()){
             if("Barbeiro".equals(usuario.getCargo()) || "Gestor".equals(usuario.getCargo())){
-                Agendamento agendamento = new Agendamento(id, cliente, servicos, produtos, usuario, date.date());
+                Agendamento agendamento = new Agendamento(id, cliente, servicos, produtos, usuario, date.date(), price);
                 try {
                     EntityManager em = new JPAUtil().getEntityManager();
                     em.getTransaction().begin();
@@ -96,7 +98,6 @@ public class TelaAgendamentoController {
             JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio.");
         }
     }
-    
     public void excluirAgendamento() throws SQLException{
         long id = Integer.parseInt(view.getCampoId().getText());
         if(!"".equals(id)){
@@ -119,20 +120,26 @@ public class TelaAgendamentoController {
             JOptionPane.showMessageDialog(null, "O campo id não pode estar vazio!");
         }
     }
-    
     public void novoAgendamento() throws SQLException{
         view.getCampoPesquisaCliente().setText("");
+        view.getCampoId().setText("");
+        view.getCampoData().setText("");
+        view.getCampoHora().setText("");
+        view.getCampoPreco().setText("");
+        preco = 0;
+        produtos = new ArrayList<>();
+        servicos = new ArrayList<>();
+        habilitarCampos();
+    }
+    
+    public void habilitarCampos(){
         view.getCampoPesquisaCliente().setEnabled(true);
         view.getComboBoxCliente().setEnabled(true);
-        view.getCampoId().setText("");
         view.getComboBoxServico().setEnabled(true);
         view.getComboBoxBarbeiro().setEnabled(true);
         view.getComboBoxProduto().setEnabled(true);
-        view.getCampoData().setText("");
         view.getCampoData().setEnabled(true);
-        view.getCampoHora().setText("");
         view.getCampoHora().setEnabled(true);
-        view.getCampoPreco().setText("");
         view.getCampoPreco().setEnabled(true);
     }
     
@@ -178,25 +185,32 @@ public class TelaAgendamentoController {
             JOptionPane.showMessageDialog(null, "O campo id não pode estar vazio.");
         }
     }
+    
     public void preencherComboBoxServico(){
         DefaultComboBoxModel comboServico = (DefaultComboBoxModel) view.getComboBoxServico().getModel();
         EntityManager em = new JPAUtil().getEntityManager();
         em.getTransaction().begin();
         List<Servico> servicos = new ServicoDAO(em).selectAll();
-        for(Servico servico : servicos){
-            comboServico.addElement(servico.getNome());
+        if(servicos.size() != 0){
+            for(Servico servico : servicos){
+                System.out.println(servico.getClass());
+                    comboServico.addElement(servico.getNome());
+            }
         }
         em.getTransaction().commit();
         em.close();
     }
+    
     public void preencherComboBoxUsuario(){
         DefaultComboBoxModel comboUsuario = (DefaultComboBoxModel) view.getComboBoxBarbeiro().getModel();
         EntityManager em = new JPAUtil().getEntityManager();
         em.getTransaction().begin();
         List<Usuario> usuarios = new UsuarioDAO(em).selectAll();
-        for(Usuario usuario : usuarios){
-            if("Barbeiro".equals(usuario.getCargo())){
-                comboUsuario.addElement(usuario.getNome());
+        if(usuarios.size() != 0){
+            for(Usuario usuario : usuarios){
+                if("Barbeiro".equals(usuario.getCargo())){
+                    comboUsuario.addElement(usuario.getNome());
+                }
             }
         }
         em.getTransaction().commit();
@@ -207,8 +221,10 @@ public class TelaAgendamentoController {
         EntityManager em = new JPAUtil().getEntityManager();
         em.getTransaction().begin();
         List<Cliente> clientes = new ClienteDAO(em).selectAll();
-        for(Cliente cliente : clientes){
-            comboCliente.addElement(cliente.getNome());
+        if(clientes.size() != 0){
+            for(Cliente cliente : clientes){
+                comboCliente.addElement(cliente.getNome());
+            }
         }
         em.getTransaction().commit();
         em.close();
@@ -218,14 +234,96 @@ public class TelaAgendamentoController {
         EntityManager em = new JPAUtil().getEntityManager();
         em.getTransaction().begin();
         List<Produto> produtos = new ProdutoDAO(em).selectAll();
-        for(Produto produto : produtos){
-            comboProduto.addElement(produto.getNome());
+        if(produtos.size() != 0){
+            for(Produto produto : produtos){
+                comboProduto.addElement(produto.getNome());
+            }
         }
         em.getTransaction().commit();
         em.close();
     }
+    public void iniciarAgenda(){
+        preencherComboBoxCliente();
+        preencherComboBoxServico();
+        preencherComboBoxProduto();
+        preencherComboBoxUsuario();
+    }
+    public void adicionarServico(){
+        String servicoNome = view.getComboBoxServico().getSelectedItem().toString();
+        EntityManager em = new JPAUtil().getEntityManager();
+        em.getTransaction().begin();
+        servicos.add(new ServicoDAO(em).selectPorNome(servicoNome).get(0));
+        preco += new ServicoDAO(em).selectPorNome(servicoNome).get(0).getPreco();
+        view.getCampoPreco().setText("");
+        view.getCampoPreco().setText("" + preco);
+        em.getTransaction().commit();
+        em.close();
+    }
     
-    /*public void preencherTabelaAgendamentos(){
+    public void removerServico(){
+        if(servicos.size() != 0){
+            String servicoNome = view.getComboBoxServico().getSelectedItem().toString();
+            EntityManager em = new JPAUtil().getEntityManager();
+            em.getTransaction().begin();
+            servicos.remove(new ServicoDAO(em).selectPorNome(servicoNome).get(0));
+            preco -= new ServicoDAO(em).selectPorNome(servicoNome).get(0).getPreco();
+            view.getCampoPreco().setText("");
+            view.getCampoPreco().setText("" + preco);
+            em.getTransaction().commit();
+            em.close();
+        }else{
+            JOptionPane.showMessageDialog(null, "Você ainda não adicionou nenhum serviço.");
+        }
+    }
+    public void adicionarProduto(){
+        String produtoNome = view.getComboBoxProduto().getSelectedItem().toString();
+        EntityManager em = new JPAUtil().getEntityManager();
+        em.getTransaction().begin();
+        produtos.add(new ProdutoDAO(em).selectPorNome(produtoNome).get(0));
+        preco += new ProdutoDAO(em).selectPorNome(produtoNome).get(0).getPreco();
+        view.getCampoPreco().setText("");
+        view.getCampoPreco().setText("" + preco);
+        em.getTransaction().commit();
+        em.close();
+    }
+    public void removerProduto(){
+        if(produtos.size() != 0){
+            String produtoNome = view.getComboBoxProduto().getSelectedItem().toString();
+            EntityManager em = new JPAUtil().getEntityManager();
+            em.getTransaction().begin();
+            produtos.remove(new ProdutoDAO(em).selectPorNome(produtoNome).get(0));
+            preco -= new ProdutoDAO(em).selectPorNome(produtoNome).get(0).getPreco();
+            view.getCampoPreco().setText("");
+            view.getCampoPreco().setText("" + preco);
+            em.getTransaction().commit();
+            em.close();
+        }else{
+            JOptionPane.showMessageDialog(null, "Você ainda não adicionou nenhum produto.");
+        }
+        
+    }
+    public Cliente pegarCliente(){
+        String clienteNome = view.getComboBoxCliente().getSelectedItem().toString();
+        Cliente clienteEcontrado;
+        EntityManager em = new JPAUtil().getEntityManager();
+        em.getTransaction().begin();
+        clienteEcontrado = new ClienteDAO(em).selectPorNome(clienteNome).get(0);
+        em.getTransaction().commit();
+        em.close();
+        return clienteEcontrado;
+    }
+    public Usuario pegarUsuario(){
+        String usuarioNome = view.getComboBoxBarbeiro().getSelectedItem().toString();
+        Usuario usuarioEcontrado;
+        EntityManager em = new JPAUtil().getEntityManager();
+        em.getTransaction().begin();
+        usuarioEcontrado = new UsuarioDAO(em).selectPorNome(usuarioNome).get(0);
+        em.getTransaction().commit();
+        em.close();
+        return usuarioEcontrado;
+    }
+}
+/*public void preencherTabelaAgendamentos(){
         DefaultTableModel tabelaModelo = (DefaultTableModel) view.getTabela().getModel();
         EntityManager em = new JPAUtil().getEntityManager();
         em.getTransaction().begin();
@@ -247,59 +345,3 @@ public class TelaAgendamentoController {
         em.getTransaction().commit();
         em.close();
     }*/
-    
-    public void iniciarAgenda(){
-        preencherComboBoxCliente();
-        preencherComboBoxServico();
-        preencherComboBoxProduto();
-        preencherComboBoxUsuario();
-    }
-    
-    public void adicionarServico(){
-        String servicoNome = view.getComboBoxServico().getSelectedItem().toString();
-        Servico servico = new Servico(servicoNome);
-
-        EntityManager em = new JPAUtil().getEntityManager();
-        em.getTransaction().begin();
-        servicos.add(new ServicoDAO(em).selectPorNome(servico));
-        em.getTransaction().commit();
-        em.close();
-    }
-    
-    public void adicionarProduto(){
-        String produtoNome = view.getComboBoxProduto().getSelectedItem().toString();
-        Produto produto = new Produto(produtoNome);
-
-        EntityManager em = new JPAUtil().getEntityManager();
-        em.getTransaction().begin();
-        produtos.add(new ProdutoDAO(em).selectPorNome(produto));
-        em.getTransaction().commit();
-        em.close();
-    }
-    
-    public Cliente pegarCliente(){
-        String clienteNome = view.getComboBoxCliente().getSelectedItem().toString();
-        Cliente cliente = new Cliente(clienteNome);
-        Cliente clienteEcontrado;
-        
-        EntityManager em = new JPAUtil().getEntityManager();
-        em.getTransaction().begin();
-        clienteEcontrado = new ClienteDAO(em).selectPorNome(cliente);
-        em.getTransaction().commit();
-        em.close();
-        return clienteEcontrado;
-    }
-    
-    public Usuario pegarUsuario(){
-        String usuarioNome = view.getComboBoxBarbeiro().getSelectedItem().toString();
-        Usuario usuario = new Usuario(usuarioNome);
-        Usuario usuarioEcontrado;
-        
-        EntityManager em = new JPAUtil().getEntityManager();
-        em.getTransaction().begin();
-        usuarioEcontrado = new UsuarioDAO(em).selectPorNome(usuario);
-        em.getTransaction().commit();
-        em.close();
-        return usuarioEcontrado;
-    }
-}

@@ -36,17 +36,21 @@ public class ServicoDAO {
         em.remove(em.merge(servico));
     }
     
-    private List<Servico> retornarListaComBaseNaConsulta(Query query) {
+    private ArrayList<Servico> retornarListaComBaseNaConsulta(Query query) {
         List<Servico> servicoList;
+        ArrayList<Servico> lista = new ArrayList<>();
         try{
             servicoList = query.getResultList();
+            for(Servico serv : servicoList){
+                lista.add(serv);
+            }
         }catch(NoResultException e){
             servicoList = new ArrayList<>();
         }
-        return servicoList;
+        return lista;
     }
     
-    public List<Servico> selectAll(){
+    public ArrayList<Servico> selectAll(){
         String consultaJPQL = "select u from Servico as u";
         Query query = em.createQuery(consultaJPQL);
         return retornarListaComBaseNaConsulta(query);
@@ -56,14 +60,17 @@ public class ServicoDAO {
         return em.find(Servico.class, servico.getId());
     }
     
-    public Servico selectPorNome(Servico serv){
-        Servico servicoEcontrado = null;
-        List<Servico> servicos = new ServicoDAO(em).selectAll();
-        
-        for(Servico servico : servicos){
-            if(servico.getNome() == serv.getNome())
-                servicoEcontrado = servico;
-        }
-        return servicoEcontrado;
+    public ArrayList<Servico> selectPorNome(String servicoNome){
+        String consultaJPQL = "SELECT s FROM Servico s WHERE s.nome = :nome";
+        Query query = em.createQuery(consultaJPQL);
+        query.setParameter("nome", servicoNome);
+        return retornarListaComBaseNaConsulta(query);
+    }
+    
+    public ArrayList<Servico> selectPorNomeCampo(String servicoNome){
+        String consultaJPQL = "SELECT s FROM Servico s WHERE s.nome like :nome";
+        Query query = em.createQuery(consultaJPQL);
+        query.setParameter("nome", "%" + servicoNome + "%");
+        return retornarListaComBaseNaConsulta(query);
     }
 }

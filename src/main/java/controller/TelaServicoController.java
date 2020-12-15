@@ -4,7 +4,7 @@ import dao.JPAUtil;
 import dao.ServicoDAO;
 import java.awt.HeadlessException;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -21,10 +21,9 @@ public class TelaServicoController {
     }
     
     public void cadastrarServico(){
-        String nome = view.getCampoNome().getText();
-        double preco = Double.parseDouble(view.getCampoPreco().getText());
-        
-        if(!"".equals(nome) && !"".equals(preco)){
+        if(!"".equals(view.getCampoNome().getText()) && !"".equals(view.getCampoPreco().getText())){
+            String nome = view.getCampoNome().getText();
+            double preco = Double.parseDouble(view.getCampoPreco().getText().replace(",", "."));
             Servico servico = new Servico(nome, preco);
             try {
                 EntityManager em = new JPAUtil().getEntityManager();
@@ -44,28 +43,33 @@ public class TelaServicoController {
     }
     
     public void editarServico() throws SQLException{
-        String codigo = view.getCampoId().getText();
-        String nome = view.getCampoNome().getText();
-        double preco = Double.parseDouble(view.getCampoPreco().getText());
-        
-        if(!"".equals(nome) && !"".equals(codigo) && !"".equals(preco)){
-            int id = Integer.parseInt(codigo);
-            Servico servico = new Servico(id, nome, preco);
-            try {
-                EntityManager em = new JPAUtil().getEntityManager();
-                em.getTransaction().begin();
-                new ServicoDAO(em).update(servico);
-                em.getTransaction().commit();
-                em.close();
+        if(view.getCampoNome().isEnabled()){
+            String codigo = view.getCampoId().getText();
+            String nome = view.getCampoNome().getText();
+            double preco = Double.parseDouble(view.getCampoPreco().getText());
 
-                JOptionPane.showMessageDialog(null, "Serviço editado com sucesso!");
-            }catch(HeadlessException e){
-                Logger.getLogger(TelaServico.class.getName()).log(Level.SEVERE, null, e);
-                JOptionPane.showMessageDialog(null, "Desculpe, não consegui editar o serviço. Tente mais tarde.");
+            if(!"".equals(nome) && !"".equals(codigo) && !"".equals(preco)){
+                int id = Integer.parseInt(codigo);
+                Servico servico = new Servico(id, nome, preco);
+                try {
+                    EntityManager em = new JPAUtil().getEntityManager();
+                    em.getTransaction().begin();
+                    new ServicoDAO(em).update(servico);
+                    em.getTransaction().commit();
+                    em.close();
+
+                    JOptionPane.showMessageDialog(null, "Serviço editado com sucesso!");
+                }catch(HeadlessException e){
+                    Logger.getLogger(TelaServico.class.getName()).log(Level.SEVERE, null, e);
+                    JOptionPane.showMessageDialog(null, "Desculpe, não consegui editar o serviço. Tente mais tarde.");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio.");
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio.");
+            habilitarCampos();
         }
+        
     }
     
     public void excluirServico() throws SQLException{
@@ -95,24 +99,28 @@ public class TelaServicoController {
         view.getCampoNome().setText("");
         view.getCampoPreco().setText("");
         view.getCampoId().setText("");
+        habilitarCampos();
     }
     
-    public void pesquisar() throws SQLException{
-        String pesquisa = view.getCampoPesquisa().getText();
-        if(!"".equals(pesquisa)){
-            int id = Integer.parseInt(pesquisa);
-            Servico servico = new Servico(id);
+    public void habilitarCampos(){
+        view.getCampoNome().setEnabled(true);
+        view.getCampoPreco().setEnabled(true);
+    }
+    
+    public void pesquisarPorNome() throws SQLException{
+        String nomePesquisado = view.getCampoPesquisaServico().getText();
+        if(!"".equals(nomePesquisado)){
             try {
                 EntityManager em = new JPAUtil().getEntityManager();
                 em.getTransaction().begin();
-                Servico servicoEncontrado = new ServicoDAO(em).selectPorId(servico);
+                ArrayList<Servico> servicos = new ServicoDAO(em).selectPorNome(nomePesquisado);
                 em.getTransaction().commit();
                 em.close();
-                
-                if(servicoEncontrado != null){
-                    view.getCampoNome().setText(servicoEncontrado.getNome());
-                    view.getCampoPreco().setText(String.valueOf(servicoEncontrado.getPreco()));
-                    view.getCampoId().setText(String.valueOf(servicoEncontrado.getId()));
+                if(servicos.size() != 0){
+                    Servico serv = servicos.get(0);
+                    view.getCampoId().setText(String.valueOf(serv.getId()));
+                    view.getCampoNome().setText(serv.getNome());
+                    view.getCampoPreco().setText(String.valueOf(serv.getPreco()));
                 }else{
                     JOptionPane.showMessageDialog(null, "Serviço não existe!");
                 }
@@ -120,15 +128,22 @@ public class TelaServicoController {
                 Logger.getLogger(TelaServico.class.getName()).log(Level.SEVERE, null, e);
                 JOptionPane.showMessageDialog(null, "Serviço não encontrado, ou não excluído!");
             }
-        }else{
-            EntityManager em = new JPAUtil().getEntityManager();
-            em.getTransaction().begin();
-            List<Servico> servicos = new ServicoDAO(em).selectAll();
-            for(Servico servico : servicos){
-                System.out.println(servico.getId()+ " - " + servico.getNome() + " - " + servico.getPreco());
-            }
-            em.getTransaction().commit();
-            em.close();
+        }
+    }
+    
+    public void pesquisarPorNomeCampo() throws SQLException{
+        String pesquisa = view.getCampoPesquisaServico().getText();
+            
+        EntityManager em = new JPAUtil().getEntityManager();
+        em.getTransaction().begin();
+        ArrayList<Servico> produtos = new ServicoDAO(em).selectPorNomeCampo(pesquisa);
+        em.getTransaction().commit();
+        em.close();
+        if(produtos.size() != 0){
+            Servico serv = produtos.get(0);
+            view.getCampoId().setText(String.valueOf(serv.getId()));
+            view.getCampoNome().setText(serv.getNome());
+            view.getCampoPreco().setText(String.valueOf(serv.getPreco()));
         }
     }
 }

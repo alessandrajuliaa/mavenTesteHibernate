@@ -10,10 +10,11 @@ import model.Produto;
 import model.Servico;
 import model.Usuario;
 
-@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2020-12-07T10:05:15")
+@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2020-12-15T10:36:02")
 @StaticMetamodel(Agendamento.class)
 public class Agendamento_ { 
 
+    public static volatile SingularAttribute<Agendamento, Double> preco;
     public static volatile SingularAttribute<Agendamento, Cliente> cliente;
     public static volatile ListAttribute<Agendamento, Servico> servicos;
     public static volatile SingularAttribute<Agendamento, Date> data;

@@ -36,17 +36,21 @@ public class ClienteDAO {
         em.remove(em.merge(cliente));
     }
     
-    private List<Cliente> retornarListaComBaseNaConsulta(Query query) {
+    private ArrayList<Cliente> retornarListaComBaseNaConsulta(Query query) {
         List<Cliente> clienteList;
+        ArrayList<Cliente> lista = new ArrayList<>();
         try{
             clienteList = query.getResultList();
+            for(Cliente cliente : clienteList){
+                lista.add(cliente);
+            }
         }catch(NoResultException e){
             clienteList = new ArrayList<>();
         }
-        return clienteList;
+        return lista;
     }
     
-    public List<Cliente> selectAll(){
+    public ArrayList<Cliente> selectAll(){
         String consultaJPQL = "select u from Cliente as u";
         Query query = em.createQuery(consultaJPQL);
         return retornarListaComBaseNaConsulta(query);
@@ -56,14 +60,17 @@ public class ClienteDAO {
         return em.find(Cliente.class, cliente.getTelefone());
     }
     
-    public Cliente selectPorNome(Cliente cli){
-        Cliente clienteEcontrado = null;
-        List<Cliente> clientes = new ClienteDAO(em).selectAll();
-        
-        for(Cliente cliente : clientes){
-            if(cliente.getNome() == cli.getNome())
-                clienteEcontrado = cliente;
-        }
-        return clienteEcontrado;
+    public ArrayList<Cliente> selectPorNome(String clienteNome){
+        String consultaJPQL = "SELECT c FROM Cliente c WHERE c.nome = :nome";
+        Query query = em.createQuery(consultaJPQL);
+        query.setParameter("nome", clienteNome);
+        return retornarListaComBaseNaConsulta(query);
+    }
+    
+    public ArrayList<Cliente> selectPorNomeCampo(String clienteNome){
+        String consultaJPQL = "SELECT c FROM Cliente c WHERE c.nome LIKE :nome";
+        Query query = em.createQuery(consultaJPQL);
+        query.setParameter("nome", "%" + clienteNome + "%");
+        return retornarListaComBaseNaConsulta(query);
     }
 }

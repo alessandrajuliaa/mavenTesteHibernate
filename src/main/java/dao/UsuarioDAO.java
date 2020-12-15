@@ -37,17 +37,21 @@ public class UsuarioDAO {
         em.remove(em.merge(usuario));
     }
     
-    private List<Usuario> retornarListaComBaseNaConsulta(Query query) {
+    private ArrayList<Usuario> retornarListaComBaseNaConsulta(Query query) {
         List<Usuario> usuarioList;
+        ArrayList<Usuario> lista = new ArrayList<>();
         try{
             usuarioList = query.getResultList();
+            for(Usuario usuario : usuarioList){
+                lista.add(usuario);
+            }
         }catch(NoResultException e){
             usuarioList = new ArrayList<>();
         }
-        return usuarioList;
+        return lista;
     }
     
-    public List<Usuario> selectAll(){
+    public ArrayList<Usuario> selectAll(){
         String consultaJPQL = "select u from Usuario as u";
         Query query = em.createQuery(consultaJPQL);
         return retornarListaComBaseNaConsulta(query);
@@ -57,15 +61,18 @@ public class UsuarioDAO {
         return em.find(Usuario.class, usuario.getEmail());
     }
     
-    public Usuario selectPorNome(Usuario user){
-        Usuario usuarioEcontrado = null;
-        List<Usuario> usuarios = new UsuarioDAO(em).selectAll();
-        
-        for(Usuario usuario : usuarios){
-            if(usuario.getNome() == user.getNome())
-                usuarioEcontrado = usuario;
-        }
-        return usuarioEcontrado;
+    public ArrayList<Usuario> selectPorNome(String usuarioNome){
+        String consultaJPQL = "SELECT u FROM Usuario u WHERE u.nome = :nome";
+        Query query = em.createQuery(consultaJPQL);
+        query.setParameter("nome", usuarioNome);
+        return retornarListaComBaseNaConsulta(query);
+    }
+    
+    public ArrayList<Usuario> selectPorNomeCampo(String usuarioNome){
+        String consultaJPQL = "SELECT u FROM Usuario u WHERE u.nome LIKE :nome";
+        Query query = em.createQuery(consultaJPQL);
+        query.setParameter("nome", "%" + usuarioNome + "%");
+        return retornarListaComBaseNaConsulta(query);
     }
     
     public boolean existePorUsuarioESenha(Usuario usuarioNovo){

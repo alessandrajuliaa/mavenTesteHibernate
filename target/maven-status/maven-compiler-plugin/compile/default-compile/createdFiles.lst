@@ -4,6 +4,10 @@ view\TelaUsuario$1.class
 controller\TelaServicoController.class
 view\TelaServico$9.class
 view\Login$2.class
+view\MenuPrincipal$15.class
+view\TelaUsuario$11.class
+view\MenuPrincipal$18.class
+view\TelaAgendamento$16.class
 view\TelaServico$1.class
 view\MenuPrincipal$8.class
 view\TelaUsuario.class
@@ -21,9 +25,11 @@ view\TelaProduto$4.class
 view\TelaProduto$7.class
 view\TelaUsuario$7.class
 view\TelaCliente$8.class
+view\MenuPrincipal$20.class
 controller\MenuPrincipalController.class
 view\MenuPrincipal$2.class
 model\Usuario.class
+util\RelatorioCalculos.class
 view\TelaProduto.class
 view\TelaAgendamento$4.class
 controller\LoginController.class
@@ -56,12 +62,15 @@ view\TelaServico$5.class
 model\Agendamento_.class
 view\TelaProduto$8.class
 controller\TelaProdutoController.class
+view\TelaCliente$9.class
 model\Cliente.class
 model\Produto.class
 view\TelaAgendamento$14.class
 dao\ClienteDAO.class
 view\TelaUsuario$8.class
+view\TelaAgendamento$17.class
 view\TelaAgendamento$6.class
+view\MenuPrincipal$16.class
 dao\AgendamentoDAO.class
 view\TelaAgendamento$1.class
 dao\ProdutoDAO.class
@@ -70,7 +79,9 @@ model\Servico_.class
 view\Login$1.class
 view\TelaAgendamento.class
 model\Servico.class
+view\TelaUsuario$12.class
 model\Cliente_.class
+view\MenuPrincipal$19.class
 view\MenuPrincipal$4.class
 model\Produto_.class
 controller\TelaClienteController.class
@@ -81,6 +92,7 @@ view\TelaAgendamento$7.class
 view\TelaUsuario$6.class
 view\TelaCliente.class
 view\TelaCliente$1.class
+view\TelaAgendamento$15.class
 view\Login$4.class
 dao\UsuarioDAO.class
 view\TelaProduto$3.class
@@ -98,4 +110,5 @@ view\Login.class
 view\TelaServico.class
 view\TelaProduto$9.class
 view\TelaProduto$2.class
+view\MenuPrincipal$17.class
 view\TelaUsuario$10.class
