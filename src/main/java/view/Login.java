@@ -29,10 +29,13 @@ public class Login extends javax.swing.JFrame {
         separadorSenha = new javax.swing.JPanel();
         campoSenha = new javax.swing.JPasswordField();
         btnLogar = new javax.swing.JButton();
-        textEsqueceuSenha = new javax.swing.JLabel();
+        btnCadastrar = new javax.swing.JButton();
         jPanelLoginEsquerda = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(680, 460));
+        setMinimumSize(new java.awt.Dimension(680, 460));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelLoginEsquerda1.setBackground(new java.awt.Color(255, 204, 0));
@@ -128,25 +131,44 @@ public class Login extends javax.swing.JFrame {
         });
         jPanelLoginEsquerda1.add(btnLogar, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 312, -1, -1));
 
-        textEsqueceuSenha.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        textEsqueceuSenha.setForeground(new java.awt.Color(0, 0, 0));
-        textEsqueceuSenha.setText("Esqueceu a senha?");
-        jPanelLoginEsquerda1.add(textEsqueceuSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 362, -1, -1));
+        btnCadastrar.setBackground(new java.awt.Color(255, 255, 255));
+        btnCadastrar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnCadastrar.setForeground(new java.awt.Color(0, 0, 0));
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.setAlignmentY(0.0F);
+        btnCadastrar.setBorder(null);
+        btnCadastrar.setBorderPainted(false);
+        btnCadastrar.setIconTextGap(0);
+        btnCadastrar.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnCadastrar.setPreferredSize(new java.awt.Dimension(155, 35));
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
+        jPanelLoginEsquerda1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 365, -1, -1));
 
         getContentPane().add(jPanelLoginEsquerda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, -1, -1));
 
         jPanelLoginEsquerda.setBackground(new java.awt.Color(255, 255, 255));
         jPanelLoginEsquerda.setPreferredSize(new java.awt.Dimension(325, 460));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/logo.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanelLoginEsquerdaLayout = new javax.swing.GroupLayout(jPanelLoginEsquerda);
         jPanelLoginEsquerda.setLayout(jPanelLoginEsquerdaLayout);
         jPanelLoginEsquerdaLayout.setHorizontalGroup(
             jPanelLoginEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLoginEsquerdaLayout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelLoginEsquerdaLayout.setVerticalGroup(
             jPanelLoginEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanelLoginEsquerdaLayout.createSequentialGroup()
+                .addGap(156, 156, 156)
+                .addComponent(jLabel1)
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelLoginEsquerda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 460));
@@ -170,6 +192,14 @@ public class Login extends javax.swing.JFrame {
     private void campoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoSenhaActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        try {
+            controller.cadastrar();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -213,15 +243,16 @@ public class Login extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnLogar;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JPasswordField campoSenha;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelLoginEsquerda;
     private javax.swing.JPanel jPanelLoginEsquerda1;
     private javax.swing.JPanel separadorEmail;
     private javax.swing.JPanel separadorSenha;
     private javax.swing.JLabel textEmail;
-    private javax.swing.JLabel textEsqueceuSenha;
     private javax.swing.JLabel textLogin;
     private javax.swing.JLabel textSenha;
     // End of variables declaration//GEN-END:variables

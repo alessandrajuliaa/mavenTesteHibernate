@@ -65,7 +65,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(915, 545));
         setMinimumSize(new java.awt.Dimension(915, 545));
-        setPreferredSize(new java.awt.Dimension(915, 545));
         setResizable(false);
 
         desktop.setBackground(new java.awt.Color(102, 102, 102));

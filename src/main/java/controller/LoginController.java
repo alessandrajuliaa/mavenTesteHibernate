@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import model.Usuario;
 import view.Login;
 import view.MenuPrincipal;
+import view.TelaCadastrar;
 
 public class LoginController {
     private Login view;
@@ -37,10 +38,10 @@ public class LoginController {
         
         em.getTransaction().commit();
         em.close();
-        
-        
-        
-        
-        
+    }
+    
+    public void cadastrar() throws SQLException{
+        new TelaCadastrar().setVisible(true);
+        view.dispose(); 
     }
 }
