@@ -67,16 +67,18 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
         setMaximumSize(new java.awt.Dimension(915, 507));
         setMinimumSize(new java.awt.Dimension(915, 507));
         setPreferredSize(new java.awt.Dimension(915, 507));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         textPesquisarAgendamento.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         textPesquisarAgendamento.setText("Pesquisar agendamento:");
-        getContentPane().add(textPesquisarAgendamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 13, -1, -1));
+        getContentPane().add(textPesquisarAgendamento);
+        textPesquisarAgendamento.setBounds(27, 13, 163, 16);
 
         textIdPesquisa.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textIdPesquisa.setText("Id:");
         textIdPesquisa.setPreferredSize(new java.awt.Dimension(50, 28));
-        getContentPane().add(textIdPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 30, -1));
+        getContentPane().add(textIdPesquisa);
+        textIdPesquisa.setBounds(40, 40, 30, 28);
 
         campoPesquisaAgendamento.setMinimumSize(new java.awt.Dimension(64, 28));
         campoPesquisaAgendamento.setPreferredSize(new java.awt.Dimension(210, 28));
@@ -87,7 +89,8 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 campoPesquisaAgendamentoActionPerformed(evt);
             }
         });
-        getContentPane().add(campoPesquisaAgendamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 660, -1));
+        getContentPane().add(campoPesquisaAgendamento);
+        campoPesquisaAgendamento.setBounds(70, 40, 660, 28);
 
         btnPesquisarAgendamento.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnPesquisarAgendamento.setText("PESQUISAR");
@@ -97,20 +100,24 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 btnPesquisarAgendamentoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPesquisarAgendamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 40, -1, -1));
+        getContentPane().add(btnPesquisarAgendamento);
+        btnPesquisarAgendamento.setBounds(750, 40, 110, 28);
 
         caixaPesquisa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         caixaPesquisa.setPreferredSize(new java.awt.Dimension(850, 50));
-        getContentPane().add(caixaPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 30, -1, -1));
+        getContentPane().add(caixaPesquisa);
+        caixaPesquisa.setBounds(27, 30, 850, 50);
 
         textCliente.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         textCliente.setText("Cliente:");
-        getContentPane().add(textCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        getContentPane().add(textCliente);
+        textCliente.setBounds(30, 110, 51, 16);
 
         textNome.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textNome.setText("Nome:");
         textNome.setPreferredSize(new java.awt.Dimension(50, 28));
-        getContentPane().add(textNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        getContentPane().add(textNome);
+        textNome.setBounds(40, 140, 50, 28);
 
         campoPesquisaCliente.setEnabled(false);
         campoPesquisaCliente.setMinimumSize(new java.awt.Dimension(64, 28));
@@ -122,7 +129,8 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 campoPesquisaClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(campoPesquisaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 270, -1));
+        getContentPane().add(campoPesquisaCliente);
+        campoPesquisaCliente.setBounds(110, 140, 270, 28);
 
         btnPesquisarCliente.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnPesquisarCliente.setText("PESQUISAR");
@@ -132,33 +140,40 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 btnPesquisarClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPesquisarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
+        getContentPane().add(btnPesquisarCliente);
+        btnPesquisarCliente.setBounds(400, 140, 110, 28);
 
         comboBoxCliente.setEnabled(false);
         comboBoxCliente.setPreferredSize(new java.awt.Dimension(49, 28));
-        getContentPane().add(comboBoxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 330, -1));
+        getContentPane().add(comboBoxCliente);
+        comboBoxCliente.setBounds(530, 140, 330, 28);
 
         caixaCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         caixaCliente.setPreferredSize(new java.awt.Dimension(850, 50));
-        getContentPane().add(caixaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 129, -1, -1));
+        getContentPane().add(caixaCliente);
+        caixaCliente.setBounds(30, 129, 850, 50);
 
         textInfo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         textInfo.setText("Outras informações:");
-        getContentPane().add(textInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, 20));
+        getContentPane().add(textInfo);
+        textInfo.setBounds(30, 210, 135, 20);
 
         textId.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textId.setText("Id:");
         textId.setPreferredSize(new java.awt.Dimension(42, 28));
-        getContentPane().add(textId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 50, -1));
+        getContentPane().add(textId);
+        textId.setBounds(40, 240, 50, 28);
 
         campoId.setEnabled(false);
         campoId.setPreferredSize(new java.awt.Dimension(240, 28));
-        getContentPane().add(campoId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 750, -1));
+        getContentPane().add(campoId);
+        campoId.setBounds(110, 240, 750, 28);
 
         textServico.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textServico.setText("Serviço:");
         textServico.setPreferredSize(new java.awt.Dimension(42, 28));
-        getContentPane().add(textServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 60, -1));
+        getContentPane().add(textServico);
+        textServico.setBounds(40, 280, 60, 28);
 
         comboBoxServico.setEnabled(false);
         comboBoxServico.setMinimumSize(new java.awt.Dimension(130, 28));
@@ -168,7 +183,8 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 comboBoxServicoActionPerformed(evt);
             }
         });
-        getContentPane().add(comboBoxServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, -1, -1));
+        getContentPane().add(comboBoxServico);
+        comboBoxServico.setBounds(110, 280, 240, 28);
 
         btnAdicionarServico.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnAdicionarServico.setText("ADICIONAR");
@@ -178,7 +194,8 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 btnAdicionarServicoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAdicionarServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
+        getContentPane().add(btnAdicionarServico);
+        btnAdicionarServico.setBounds(370, 280, 110, 28);
 
         btnRemoverServico.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnRemoverServico.setText("REMOVER");
@@ -188,12 +205,14 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 btnRemoverServicoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRemoverServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, -1, -1));
+        getContentPane().add(btnRemoverServico);
+        btnRemoverServico.setBounds(500, 280, 110, 28);
 
         textHora.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textHora.setText("Hora:");
         textHora.setPreferredSize(new java.awt.Dimension(42, 28));
-        getContentPane().add(textHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 280, 50, -1));
+        getContentPane().add(textHora);
+        textHora.setBounds(630, 280, 50, 28);
 
         campoHora.setEnabled(false);
         campoHora.setPreferredSize(new java.awt.Dimension(180, 28));
@@ -202,17 +221,20 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 campoHoraActionPerformed(evt);
             }
         });
-        getContentPane().add(campoHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 280, -1, -1));
+        getContentPane().add(campoHora);
+        campoHora.setBounds(680, 280, 180, 28);
 
         textProduto.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textProduto.setText("Produto:");
         textProduto.setPreferredSize(new java.awt.Dimension(42, 28));
-        getContentPane().add(textProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 70, -1));
+        getContentPane().add(textProduto);
+        textProduto.setBounds(40, 320, 70, 28);
 
         comboBoxProduto.setEnabled(false);
         comboBoxProduto.setMinimumSize(new java.awt.Dimension(130, 28));
         comboBoxProduto.setPreferredSize(new java.awt.Dimension(240, 28));
-        getContentPane().add(comboBoxProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
+        getContentPane().add(comboBoxProduto);
+        comboBoxProduto.setBounds(110, 320, 240, 28);
 
         btnAdicionarProduto.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnAdicionarProduto.setText("ADICIONAR");
@@ -222,7 +244,8 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 btnAdicionarProdutoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAdicionarProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, -1, -1));
+        getContentPane().add(btnAdicionarProduto);
+        btnAdicionarProduto.setBounds(370, 320, 110, 28);
 
         btnRemoverProduto.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnRemoverProduto.setText("REMOVER");
@@ -232,12 +255,14 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 btnRemoverProdutoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRemoverProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, -1, -1));
+        getContentPane().add(btnRemoverProduto);
+        btnRemoverProduto.setBounds(500, 320, 110, 28);
 
         textData.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textData.setText("Data:");
         textData.setPreferredSize(new java.awt.Dimension(42, 28));
-        getContentPane().add(textData, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, 50, -1));
+        getContentPane().add(textData);
+        textData.setBounds(630, 320, 50, 28);
 
         campoData.setToolTipText("");
         campoData.setEnabled(false);
@@ -247,12 +272,14 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 campoDataActionPerformed(evt);
             }
         });
-        getContentPane().add(campoData, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 320, -1, -1));
+        getContentPane().add(campoData);
+        campoData.setBounds(680, 320, 180, 28);
 
         textBarbeiro.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textBarbeiro.setText("Barbeiro:");
         textBarbeiro.setPreferredSize(new java.awt.Dimension(42, 28));
-        getContentPane().add(textBarbeiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 70, -1));
+        getContentPane().add(textBarbeiro);
+        textBarbeiro.setBounds(40, 360, 70, 28);
 
         comboBoxBarbeiro.setEnabled(false);
         comboBoxBarbeiro.setPreferredSize(new java.awt.Dimension(370, 28));
@@ -261,12 +288,14 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 comboBoxBarbeiroActionPerformed(evt);
             }
         });
-        getContentPane().add(comboBoxBarbeiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, -1));
+        getContentPane().add(comboBoxBarbeiro);
+        comboBoxBarbeiro.setBounds(110, 360, 370, 28);
 
         textPreco.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textPreco.setText("Preço:");
         textPreco.setPreferredSize(new java.awt.Dimension(42, 28));
-        getContentPane().add(textPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, 50, -1));
+        getContentPane().add(textPreco);
+        textPreco.setBounds(500, 360, 50, 28);
 
         campoPreco.setToolTipText("");
         campoPreco.setEnabled(false);
@@ -276,11 +305,13 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 campoPrecoActionPerformed(evt);
             }
         });
-        getContentPane().add(campoPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 360, -1, -1));
+        getContentPane().add(campoPreco);
+        campoPreco.setBounds(550, 360, 310, 28);
 
         caixaInfo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         caixaInfo.setPreferredSize(new java.awt.Dimension(850, 170));
-        getContentPane().add(caixaInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+        getContentPane().add(caixaInfo);
+        caixaInfo.setBounds(30, 230, 850, 170);
 
         btnNovo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnNovo.setText("NOVO");
@@ -290,7 +321,8 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 btnNovoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
+        getContentPane().add(btnNovo);
+        btnNovo.setBounds(30, 420, 110, 35);
 
         btnAgendar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnAgendar.setText("AGENDAR");
@@ -300,7 +332,8 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 btnAgendarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, -1, -1));
+        getContentPane().add(btnAgendar);
+        btnAgendar.setBounds(280, 420, 110, 35);
 
         btnEditar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnEditar.setText("EDITAR");
@@ -310,7 +343,8 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 btnEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, -1, -1));
+        getContentPane().add(btnEditar);
+        btnEditar.setBounds(530, 420, 110, 35);
 
         btnExcluir.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnExcluir.setText("EXCLUIR");
@@ -320,7 +354,8 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 btnExcluirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 420, -1, -1));
+        getContentPane().add(btnExcluir);
+        btnExcluir.setBounds(770, 420, 110, 35);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

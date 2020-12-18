@@ -36,24 +36,26 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(680, 460));
         setMinimumSize(new java.awt.Dimension(680, 460));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         jPanelLoginEsquerda1.setBackground(new java.awt.Color(255, 204, 0));
         jPanelLoginEsquerda1.setAlignmentX(0.0F);
         jPanelLoginEsquerda1.setAlignmentY(0.0F);
         jPanelLoginEsquerda1.setPreferredSize(new java.awt.Dimension(360, 460));
-        jPanelLoginEsquerda1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelLoginEsquerda1.setLayout(null);
 
         textLogin.setBackground(new java.awt.Color(0, 0, 0));
         textLogin.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         textLogin.setForeground(new java.awt.Color(0, 0, 0));
         textLogin.setText("LOGIN");
-        jPanelLoginEsquerda1.add(textLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 55, -1, -1));
+        jPanelLoginEsquerda1.add(textLogin);
+        textLogin.setBounds(137, 55, 87, 30);
 
         textEmail.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         textEmail.setForeground(new java.awt.Color(0, 0, 0));
         textEmail.setText("EMAIL");
-        jPanelLoginEsquerda1.add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 150, -1, -1));
+        jPanelLoginEsquerda1.add(textEmail);
+        textEmail.setBounds(48, 150, 51, 18);
 
         separadorEmail.setBackground(new java.awt.Color(255, 255, 255));
         separadorEmail.setPreferredSize(new java.awt.Dimension(259, 3));
@@ -69,7 +71,8 @@ public class Login extends javax.swing.JFrame {
             .addGap(0, 3, Short.MAX_VALUE)
         );
 
-        jPanelLoginEsquerda1.add(separadorEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 200, -1, -1));
+        jPanelLoginEsquerda1.add(separadorEmail);
+        separadorEmail.setBounds(48, 200, 259, 3);
 
         campoEmail.setBackground(new java.awt.Color(255, 204, 0));
         campoEmail.setForeground(new java.awt.Color(0, 0, 0));
@@ -80,12 +83,14 @@ public class Login extends javax.swing.JFrame {
                 campoEmailActionPerformed(evt);
             }
         });
-        jPanelLoginEsquerda1.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 170, -1, -1));
+        jPanelLoginEsquerda1.add(campoEmail);
+        campoEmail.setBounds(48, 170, 259, 35);
 
         textSenha.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         textSenha.setForeground(new java.awt.Color(0, 0, 0));
         textSenha.setText("SENHA");
-        jPanelLoginEsquerda1.add(textSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 222, -1, -1));
+        jPanelLoginEsquerda1.add(textSenha);
+        textSenha.setBounds(48, 222, 53, 18);
 
         separadorSenha.setBackground(new java.awt.Color(255, 255, 255));
         separadorSenha.setPreferredSize(new java.awt.Dimension(259, 3));
@@ -101,7 +106,8 @@ public class Login extends javax.swing.JFrame {
             .addGap(0, 3, Short.MAX_VALUE)
         );
 
-        jPanelLoginEsquerda1.add(separadorSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 272, -1, -1));
+        jPanelLoginEsquerda1.add(separadorSenha);
+        separadorSenha.setBounds(48, 272, 259, 3);
 
         campoSenha.setBackground(new java.awt.Color(255, 204, 0));
         campoSenha.setForeground(new java.awt.Color(0, 0, 0));
@@ -112,7 +118,8 @@ public class Login extends javax.swing.JFrame {
                 campoSenhaActionPerformed(evt);
             }
         });
-        jPanelLoginEsquerda1.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 242, -1, -1));
+        jPanelLoginEsquerda1.add(campoSenha);
+        campoSenha.setBounds(48, 242, 259, 35);
 
         btnLogar.setBackground(new java.awt.Color(255, 255, 255));
         btnLogar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -129,7 +136,8 @@ public class Login extends javax.swing.JFrame {
                 btnLogarActionPerformed(evt);
             }
         });
-        jPanelLoginEsquerda1.add(btnLogar, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 312, -1, -1));
+        jPanelLoginEsquerda1.add(btnLogar);
+        btnLogar.setBounds(96, 312, 155, 35);
 
         btnCadastrar.setBackground(new java.awt.Color(255, 255, 255));
         btnCadastrar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -146,9 +154,11 @@ public class Login extends javax.swing.JFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
-        jPanelLoginEsquerda1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 365, -1, -1));
+        jPanelLoginEsquerda1.add(btnCadastrar);
+        btnCadastrar.setBounds(96, 365, 155, 35);
 
-        getContentPane().add(jPanelLoginEsquerda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, -1, -1));
+        getContentPane().add(jPanelLoginEsquerda1);
+        jPanelLoginEsquerda1.setBounds(320, 0, 360, 460);
 
         jPanelLoginEsquerda.setBackground(new java.awt.Color(255, 255, 255));
         jPanelLoginEsquerda.setPreferredSize(new java.awt.Dimension(325, 460));
@@ -171,7 +181,8 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(158, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanelLoginEsquerda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 460));
+        getContentPane().add(jPanelLoginEsquerda);
+        jPanelLoginEsquerda.setBounds(0, 0, 320, 460);
 
         pack();
         setLocationRelativeTo(null);

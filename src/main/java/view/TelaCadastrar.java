@@ -41,25 +41,26 @@ public class TelaCadastrar extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(680, 460));
         setMinimumSize(new java.awt.Dimension(680, 460));
-        setPreferredSize(new java.awt.Dimension(680, 460));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         jPanelLoginEsquerda1.setBackground(new java.awt.Color(255, 204, 0));
         jPanelLoginEsquerda1.setPreferredSize(new java.awt.Dimension(680, 460));
-        jPanelLoginEsquerda1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelLoginEsquerda1.setLayout(null);
 
         textEmail.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textEmail.setForeground(new java.awt.Color(0, 0, 0));
         textEmail.setText("Email:");
         textEmail.setPreferredSize(new java.awt.Dimension(42, 28));
-        jPanelLoginEsquerda1.add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 70, -1));
+        jPanelLoginEsquerda1.add(textEmail);
+        textEmail.setBounds(20, 150, 70, 28);
 
         textNome.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textNome.setForeground(new java.awt.Color(0, 0, 0));
         textNome.setText("Nome:");
         textNome.setPreferredSize(new java.awt.Dimension(42, 28));
-        jPanelLoginEsquerda1.add(textNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 50, -1));
+        jPanelLoginEsquerda1.add(textNome);
+        textNome.setBounds(20, 110, 50, 28);
 
         btnCadastrar.setBackground(new java.awt.Color(255, 255, 255));
         btnCadastrar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -71,36 +72,42 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
-        jPanelLoginEsquerda1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, -1, -1));
+        jPanelLoginEsquerda1.add(btnCadastrar);
+        btnCadastrar.setBounds(250, 330, 150, 35);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Usuário");
-        jPanelLoginEsquerda1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        jPanelLoginEsquerda1.add(jLabel1);
+        jLabel1.setBounds(280, 20, 102, 30);
 
         textTelefone.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textTelefone.setForeground(new java.awt.Color(0, 0, 0));
         textTelefone.setText("Telefone:");
         textTelefone.setPreferredSize(new java.awt.Dimension(42, 28));
-        jPanelLoginEsquerda1.add(textTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 70, -1));
+        jPanelLoginEsquerda1.add(textTelefone);
+        textTelefone.setBounds(20, 190, 70, 28);
 
         textFuncao.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textFuncao.setForeground(new java.awt.Color(0, 0, 0));
         textFuncao.setText("Função:");
         textFuncao.setPreferredSize(new java.awt.Dimension(42, 28));
-        jPanelLoginEsquerda1.add(textFuncao, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 70, -1));
+        jPanelLoginEsquerda1.add(textFuncao);
+        textFuncao.setBounds(20, 230, 70, 28);
 
         textConfirmarSenha.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textConfirmarSenha.setForeground(new java.awt.Color(0, 0, 0));
         textConfirmarSenha.setText("Confirmar senha:");
         textConfirmarSenha.setPreferredSize(new java.awt.Dimension(42, 28));
-        jPanelLoginEsquerda1.add(textConfirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 130, -1));
+        jPanelLoginEsquerda1.add(textConfirmarSenha);
+        textConfirmarSenha.setBounds(320, 270, 130, 28);
 
         textSenha.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textSenha.setForeground(new java.awt.Color(0, 0, 0));
         textSenha.setText("Senha:");
         textSenha.setPreferredSize(new java.awt.Dimension(42, 28));
-        jPanelLoginEsquerda1.add(textSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 50, -1));
+        jPanelLoginEsquerda1.add(textSenha);
+        textSenha.setBounds(20, 270, 50, 28);
 
         campoTelefone.setToolTipText("");
         campoTelefone.setPreferredSize(new java.awt.Dimension(540, 28));
@@ -109,7 +116,8 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 campoTelefoneActionPerformed(evt);
             }
         });
-        jPanelLoginEsquerda1.add(campoTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        jPanelLoginEsquerda1.add(campoTelefone);
+        campoTelefone.setBounds(100, 190, 540, 28);
 
         campoEmail.setToolTipText("");
         campoEmail.setPreferredSize(new java.awt.Dimension(540, 28));
@@ -118,12 +126,14 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 campoEmailActionPerformed(evt);
             }
         });
-        jPanelLoginEsquerda1.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
+        jPanelLoginEsquerda1.add(campoEmail);
+        campoEmail.setBounds(100, 150, 540, 28);
 
         campoSenha.setMaximumSize(new java.awt.Dimension(150, 28));
         campoSenha.setMinimumSize(new java.awt.Dimension(150, 28));
         campoSenha.setPreferredSize(new java.awt.Dimension(200, 28));
-        jPanelLoginEsquerda1.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
+        jPanelLoginEsquerda1.add(campoSenha);
+        campoSenha.setBounds(100, 270, 200, 28);
 
         campoNome.setPreferredSize(new java.awt.Dimension(540, 28));
         campoNome.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +141,8 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 campoNomeActionPerformed(evt);
             }
         });
-        jPanelLoginEsquerda1.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
+        jPanelLoginEsquerda1.add(campoNome);
+        campoNome.setBounds(100, 110, 540, 28);
 
         comboBoxFuncao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Barbeiro", "Gestor" }));
         comboBoxFuncao.setPreferredSize(new java.awt.Dimension(540, 28));
@@ -140,7 +151,8 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 comboBoxFuncaoActionPerformed(evt);
             }
         });
-        jPanelLoginEsquerda1.add(comboBoxFuncao, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, -1, -1));
+        jPanelLoginEsquerda1.add(comboBoxFuncao);
+        comboBoxFuncao.setBounds(100, 230, 540, 28);
 
         campoConfirmarSenha.setMaximumSize(new java.awt.Dimension(150, 28));
         campoConfirmarSenha.setMinimumSize(new java.awt.Dimension(150, 28));
@@ -150,7 +162,8 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 campoConfirmarSenhaActionPerformed(evt);
             }
         });
-        jPanelLoginEsquerda1.add(campoConfirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, -1, -1));
+        jPanelLoginEsquerda1.add(campoConfirmarSenha);
+        campoConfirmarSenha.setBounds(460, 270, 180, 28);
 
         btnLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnLogin.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -162,9 +175,11 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        jPanelLoginEsquerda1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, -1, -1));
+        jPanelLoginEsquerda1.add(btnLogin);
+        btnLogin.setBounds(250, 370, 150, 35);
 
-        getContentPane().add(jPanelLoginEsquerda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jPanelLoginEsquerda1);
+        jPanelLoginEsquerda1.setBounds(0, 0, 680, 460);
 
         pack();
         setLocationRelativeTo(null);

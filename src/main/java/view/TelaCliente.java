@@ -39,16 +39,18 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         setMaximumSize(new java.awt.Dimension(915, 507));
         setMinimumSize(new java.awt.Dimension(915, 507));
         setPreferredSize(new java.awt.Dimension(915, 507));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         textPesquisarCliente.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         textPesquisarCliente.setText("Pesquisar cliente:");
-        getContentPane().add(textPesquisarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 13, -1, -1));
+        getContentPane().add(textPesquisarCliente);
+        textPesquisarCliente.setBounds(27, 13, 118, 16);
 
         textPesquisaNome.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textPesquisaNome.setText("Nome:");
         textPesquisaNome.setPreferredSize(new java.awt.Dimension(50, 28));
-        getContentPane().add(textPesquisaNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 50, -1));
+        getContentPane().add(textPesquisaNome);
+        textPesquisaNome.setBounds(40, 40, 50, 28);
 
         campoPesquisaCliente.setMinimumSize(new java.awt.Dimension(64, 28));
         campoPesquisaCliente.setPreferredSize(new java.awt.Dimension(630, 28));
@@ -64,7 +66,8 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 campoPesquisaClienteKeyPressed(evt);
             }
         });
-        getContentPane().add(campoPesquisaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+        getContentPane().add(campoPesquisaCliente);
+        campoPesquisaCliente.setBounds(100, 40, 630, 28);
 
         btnPesquisarCliente.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnPesquisarCliente.setText("PESQUISAR");
@@ -74,20 +77,24 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 btnPesquisarClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPesquisarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 40, -1, -1));
+        getContentPane().add(btnPesquisarCliente);
+        btnPesquisarCliente.setBounds(750, 40, 110, 28);
 
         caixaPesquisa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         caixaPesquisa.setPreferredSize(new java.awt.Dimension(850, 50));
-        getContentPane().add(caixaPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 30, -1, -1));
+        getContentPane().add(caixaPesquisa);
+        caixaPesquisa.setBounds(27, 30, 850, 50);
 
         textInfo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         textInfo.setText("Outras informações:");
-        getContentPane().add(textInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 20));
+        getContentPane().add(textInfo);
+        textInfo.setBounds(30, 150, 135, 20);
 
         textNome.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textNome.setText("Nome:");
         textNome.setPreferredSize(new java.awt.Dimension(42, 28));
-        getContentPane().add(textNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 50, -1));
+        getContentPane().add(textNome);
+        textNome.setBounds(40, 180, 50, 28);
 
         campoNome.setEnabled(false);
         campoNome.setPreferredSize(new java.awt.Dimension(740, 28));
@@ -96,12 +103,14 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 campoNomeActionPerformed(evt);
             }
         });
-        getContentPane().add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
+        getContentPane().add(campoNome);
+        campoNome.setBounds(120, 180, 740, 28);
 
         textTelefone.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textTelefone.setText("Telefone:");
         textTelefone.setPreferredSize(new java.awt.Dimension(42, 28));
-        getContentPane().add(textTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 70, -1));
+        getContentPane().add(textTelefone);
+        textTelefone.setBounds(40, 220, 70, 28);
 
         campoTelefone.setToolTipText("");
         campoTelefone.setEnabled(false);
@@ -111,11 +120,13 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 campoTelefoneActionPerformed(evt);
             }
         });
-        getContentPane().add(campoTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
+        getContentPane().add(campoTelefone);
+        campoTelefone.setBounds(120, 220, 740, 28);
 
         caixaInfo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         caixaInfo.setPreferredSize(new java.awt.Dimension(850, 170));
-        getContentPane().add(caixaInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, 90));
+        getContentPane().add(caixaInfo);
+        caixaInfo.setBounds(30, 170, 850, 90);
 
         btnExcluir.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnExcluir.setText("EXCLUIR");
@@ -125,7 +136,8 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 btnExcluirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 420, -1, -1));
+        getContentPane().add(btnExcluir);
+        btnExcluir.setBounds(770, 420, 110, 35);
 
         btnEditar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnEditar.setText("EDITAR");
@@ -135,7 +147,8 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 btnEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, -1, -1));
+        getContentPane().add(btnEditar);
+        btnEditar.setBounds(530, 420, 110, 35);
 
         btnCadastrar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnCadastrar.setText("CADASTRAR");
@@ -145,7 +158,8 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, -1, -1));
+        getContentPane().add(btnCadastrar);
+        btnCadastrar.setBounds(280, 420, 110, 35);
 
         btnNovo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnNovo.setText("NOVO");
@@ -155,7 +169,8 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 btnNovoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
+        getContentPane().add(btnNovo);
+        btnNovo.setBounds(30, 420, 110, 35);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
