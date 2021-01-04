@@ -253,6 +253,12 @@ public class TelaAgendamentoController {
         EntityManager em = new JPAUtil().getEntityManager();
         em.getTransaction().begin();
         servicos.add(new ServicoDAO(em).selectPorNome(servicoNome).get(0));
+        if(servicos.size() != 0){
+            for(Servico servico : servicos){
+                System.out.println(servico.getClass());
+                    System.out.println(servico.getNome());
+            }
+        }
         preco += new ServicoDAO(em).selectPorNome(servicoNome).get(0).getPreco();
         view.getCampoPreco().setText("");
         view.getCampoPreco().setText("" + preco);
@@ -266,6 +272,12 @@ public class TelaAgendamentoController {
             EntityManager em = new JPAUtil().getEntityManager();
             em.getTransaction().begin();
             servicos.remove(new ServicoDAO(em).selectPorNome(servicoNome).get(0));
+            if(servicos.size() != 0){
+            for(Servico servico : servicos){
+                System.out.println(servico.getClass());
+                    System.out.println(servico.getNome());
+                }
+            }
             preco -= new ServicoDAO(em).selectPorNome(servicoNome).get(0).getPreco();
             view.getCampoPreco().setText("");
             view.getCampoPreco().setText("" + preco);
@@ -280,6 +292,12 @@ public class TelaAgendamentoController {
         EntityManager em = new JPAUtil().getEntityManager();
         em.getTransaction().begin();
         produtos.add(new ProdutoDAO(em).selectPorNome(produtoNome).get(0));
+        if(produtos.size() != 0){
+            for(Produto servico : produtos){
+                System.out.println(servico.getClass());
+                    System.out.println(servico.getNome());
+            }
+        }
         preco += new ProdutoDAO(em).selectPorNome(produtoNome).get(0).getPreco();
         view.getCampoPreco().setText("");
         view.getCampoPreco().setText("" + preco);
@@ -292,6 +310,12 @@ public class TelaAgendamentoController {
             EntityManager em = new JPAUtil().getEntityManager();
             em.getTransaction().begin();
             produtos.remove(new ProdutoDAO(em).selectPorNome(produtoNome).get(0));
+            if(produtos.size() != 0){
+            for(Produto servico : produtos){
+                System.out.println(servico.getClass());
+                    System.out.println(servico.getNome());
+                }
+            }
             preco -= new ProdutoDAO(em).selectPorNome(produtoNome).get(0).getPreco();
             view.getCampoPreco().setText("");
             view.getCampoPreco().setText("" + preco);
@@ -323,25 +347,3 @@ public class TelaAgendamentoController {
         return usuarioEcontrado;
     }
 }
-/*public void preencherTabelaAgendamentos(){
-        DefaultTableModel tabelaModelo = (DefaultTableModel) view.getTabela().getModel();
-        EntityManager em = new JPAUtil().getEntityManager();
-        em.getTransaction().begin();
-        List<Agendamento> agendamentos = new AgendamentoDAO(em).selectAll();
-        tabelaModelo.setNumRows(0);
-        for(Agendamento agendamento : agendamentos){
-            //System.out.println(agendamento.getCliente().getNome() + " - " + agendamento.getUsuario().getNome() 
-            //            + " - " + agendamento.getProdutos() + " - " + agendamento.getServicos());
-            System.out.println(agendamento.getCliente());
-            tabelaModelo.addRow(new Object[]{
-                agendamento.getHora(),
-                agendamento.getData()
-                //agendamento.getCliente().getNome()
-                //agendamento.getUsuario().getNome() ,
-                //agendamento.getProdutos(),
-               // agendamento.getServicos()
-            });
-        }
-        em.getTransaction().commit();
-        em.close();
-    }*/

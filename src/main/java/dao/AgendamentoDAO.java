@@ -54,7 +54,7 @@ public class AgendamentoDAO {
                 agen.setPreco(agendamento.getPreco());
                 lista.add(agen);
             }
-            System.out.println(lista);
+            //System.out.println(lista);
         }catch(NoResultException e){
             agendamentoList = null;
         }
