@@ -72,6 +72,9 @@
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[64, 28]"/>
         </Property>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="btnPesquisarAgendamento"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[210, 28]"/>
         </Property>
@@ -260,6 +263,9 @@
     <Component class="javax.swing.JTextField" name="campoId">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="comboBoxServico"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[240, 28]"/>
         </Property>
@@ -295,6 +301,9 @@
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[130, 28]"/>
         </Property>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="btnAdicionarServico"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[240, 28]"/>
         </Property>
@@ -307,7 +316,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="110" y="280" width="-1" height="-1"/>
+          <AbsoluteConstraints x="110" y="280" width="470" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -317,8 +326,11 @@
           <Font name="Verdana" size="12" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="ADICIONAR"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="btnRemoverServico"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[110, 28]"/>
+          <Dimension value="[120, 28]"/>
         </Property>
       </Properties>
       <Events>
@@ -326,7 +338,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="370" y="280" width="-1" height="-1"/>
+          <AbsoluteConstraints x="600" y="280" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -336,8 +348,11 @@
           <Font name="Verdana" size="12" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="REMOVER"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="campoData"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[110, 28]"/>
+          <Dimension value="[120, 28]"/>
         </Property>
       </Properties>
       <Events>
@@ -345,7 +360,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="500" y="280" width="-1" height="-1"/>
+          <AbsoluteConstraints x="740" y="280" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -361,15 +376,18 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="630" y="280" width="50" height="-1"/>
+          <AbsoluteConstraints x="470" y="320" width="50" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="campoHora">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="comboBoxBarbeiro"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[180, 28]"/>
+          <Dimension value="[340, 28]"/>
         </Property>
       </Properties>
       <Events>
@@ -377,7 +395,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="680" y="280" width="-1" height="-1"/>
+          <AbsoluteConstraints x="520" y="320" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -393,7 +411,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="630" y="320" width="50" height="-1"/>
+          <AbsoluteConstraints x="40" y="320" width="50" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -401,8 +419,11 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="enabled" type="boolean" value="false"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="campoHora"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[180, 28]"/>
+          <Dimension value="[340, 28]"/>
         </Property>
       </Properties>
       <Events>
@@ -410,7 +431,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="680" y="320" width="-1" height="-1"/>
+          <AbsoluteConstraints x="110" y="320" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -436,9 +457,13 @@
           <StringArray count="0"/>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[370, 28]"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="campoPreco"/>
         </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[340, 28]"/>
+        </Property>
+        <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxBarbeiroActionPerformed"/>
@@ -464,7 +489,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="500" y="360" width="50" height="-1"/>
+          <AbsoluteConstraints x="470" y="360" width="50" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -472,8 +497,11 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="enabled" type="boolean" value="false"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="btnNovo"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[310, 28]"/>
+          <Dimension value="[340, 28]"/>
         </Property>
       </Properties>
       <Events>
@@ -481,7 +509,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="550" y="360" width="-1" height="-1"/>
+          <AbsoluteConstraints x="520" y="360" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -508,6 +536,9 @@
           <Font name="Verdana" size="12" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="NOVO"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="btnAgendar"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[110, 35]"/>
         </Property>
@@ -527,6 +558,9 @@
           <Font name="Verdana" size="12" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="AGENDAR"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="btnEditar"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[110, 35]"/>
         </Property>
@@ -546,6 +580,9 @@
           <Font name="Verdana" size="12" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="EDITAR"/>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="btnExcluir"/>
+        </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[110, 35]"/>
         </Property>

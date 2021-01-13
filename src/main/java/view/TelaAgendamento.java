@@ -77,6 +77,7 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
         textIdPesquisa.setBounds(40, 40, 30, 28);
 
         campoPesquisaAgendamento.setMinimumSize(new java.awt.Dimension(64, 28));
+        campoPesquisaAgendamento.setNextFocusableComponent(btnPesquisarAgendamento);
         campoPesquisaAgendamento.setPreferredSize(new java.awt.Dimension(210, 28));
         campoPesquisaAgendamento.setSelectionEnd(5);
         campoPesquisaAgendamento.setSelectionStart(5);
@@ -161,6 +162,7 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
         textId.setBounds(40, 240, 50, 28);
 
         campoId.setEnabled(false);
+        campoId.setNextFocusableComponent(comboBoxServico);
         campoId.setPreferredSize(new java.awt.Dimension(240, 28));
         getContentPane().add(campoId);
         campoId.setBounds(110, 240, 750, 28);
@@ -173,6 +175,7 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
 
         comboBoxServico.setEnabled(false);
         comboBoxServico.setMinimumSize(new java.awt.Dimension(130, 28));
+        comboBoxServico.setNextFocusableComponent(btnAdicionarServico);
         comboBoxServico.setPreferredSize(new java.awt.Dimension(240, 28));
         comboBoxServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,62 +183,66 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(comboBoxServico);
-        comboBoxServico.setBounds(110, 280, 240, 28);
+        comboBoxServico.setBounds(110, 280, 470, 28);
 
         btnAdicionarServico.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnAdicionarServico.setText("ADICIONAR");
-        btnAdicionarServico.setPreferredSize(new java.awt.Dimension(110, 28));
+        btnAdicionarServico.setNextFocusableComponent(btnRemoverServico);
+        btnAdicionarServico.setPreferredSize(new java.awt.Dimension(120, 28));
         btnAdicionarServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdicionarServicoActionPerformed(evt);
             }
         });
         getContentPane().add(btnAdicionarServico);
-        btnAdicionarServico.setBounds(370, 280, 110, 28);
+        btnAdicionarServico.setBounds(600, 280, 120, 28);
 
         btnRemoverServico.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnRemoverServico.setText("REMOVER");
-        btnRemoverServico.setPreferredSize(new java.awt.Dimension(110, 28));
+        btnRemoverServico.setNextFocusableComponent(campoData);
+        btnRemoverServico.setPreferredSize(new java.awt.Dimension(120, 28));
         btnRemoverServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoverServicoActionPerformed(evt);
             }
         });
         getContentPane().add(btnRemoverServico);
-        btnRemoverServico.setBounds(500, 280, 110, 28);
+        btnRemoverServico.setBounds(740, 280, 120, 28);
 
         textHora.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textHora.setText("Hora:");
         textHora.setPreferredSize(new java.awt.Dimension(42, 28));
         getContentPane().add(textHora);
-        textHora.setBounds(630, 280, 50, 28);
+        textHora.setBounds(470, 320, 50, 28);
 
         campoHora.setEnabled(false);
-        campoHora.setPreferredSize(new java.awt.Dimension(180, 28));
+        campoHora.setNextFocusableComponent(comboBoxBarbeiro);
+        campoHora.setPreferredSize(new java.awt.Dimension(340, 28));
         campoHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoHoraActionPerformed(evt);
             }
         });
         getContentPane().add(campoHora);
-        campoHora.setBounds(680, 280, 180, 28);
+        campoHora.setBounds(520, 320, 340, 28);
 
         textData.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textData.setText("Data:");
         textData.setPreferredSize(new java.awt.Dimension(42, 28));
         getContentPane().add(textData);
-        textData.setBounds(630, 320, 50, 28);
+        textData.setBounds(40, 320, 50, 28);
 
         campoData.setToolTipText("");
         campoData.setEnabled(false);
-        campoData.setPreferredSize(new java.awt.Dimension(180, 28));
+        campoData.setNextFocusableComponent(campoHora);
+        campoData.setPreferredSize(new java.awt.Dimension(340, 28));
         campoData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoDataActionPerformed(evt);
             }
         });
         getContentPane().add(campoData);
-        campoData.setBounds(680, 320, 180, 28);
+        campoData.setBounds(110, 320, 340, 28);
 
         textBarbeiro.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textBarbeiro.setText("Barbeiro:");
@@ -244,31 +251,34 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
         textBarbeiro.setBounds(40, 360, 70, 28);
 
         comboBoxBarbeiro.setEnabled(false);
-        comboBoxBarbeiro.setPreferredSize(new java.awt.Dimension(370, 28));
+        comboBoxBarbeiro.setNextFocusableComponent(campoPreco);
+        comboBoxBarbeiro.setPreferredSize(new java.awt.Dimension(340, 28));
+        comboBoxBarbeiro.setVerifyInputWhenFocusTarget(false);
         comboBoxBarbeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxBarbeiroActionPerformed(evt);
             }
         });
         getContentPane().add(comboBoxBarbeiro);
-        comboBoxBarbeiro.setBounds(110, 360, 370, 28);
+        comboBoxBarbeiro.setBounds(110, 360, 340, 28);
 
         textPreco.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textPreco.setText("Preço:");
         textPreco.setPreferredSize(new java.awt.Dimension(42, 28));
         getContentPane().add(textPreco);
-        textPreco.setBounds(500, 360, 50, 28);
+        textPreco.setBounds(470, 360, 50, 28);
 
         campoPreco.setToolTipText("");
         campoPreco.setEnabled(false);
-        campoPreco.setPreferredSize(new java.awt.Dimension(310, 28));
+        campoPreco.setNextFocusableComponent(btnNovo);
+        campoPreco.setPreferredSize(new java.awt.Dimension(340, 28));
         campoPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoPrecoActionPerformed(evt);
             }
         });
         getContentPane().add(campoPreco);
-        campoPreco.setBounds(550, 360, 310, 28);
+        campoPreco.setBounds(520, 360, 340, 28);
 
         caixaInfo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         caixaInfo.setPreferredSize(new java.awt.Dimension(850, 170));
@@ -277,6 +287,7 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
 
         btnNovo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnNovo.setText("NOVO");
+        btnNovo.setNextFocusableComponent(btnAgendar);
         btnNovo.setPreferredSize(new java.awt.Dimension(110, 35));
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -288,6 +299,7 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
 
         btnAgendar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnAgendar.setText("AGENDAR");
+        btnAgendar.setNextFocusableComponent(btnEditar);
         btnAgendar.setPreferredSize(new java.awt.Dimension(110, 35));
         btnAgendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,6 +311,7 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
 
         btnEditar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnEditar.setText("EDITAR");
+        btnEditar.setNextFocusableComponent(btnExcluir);
         btnEditar.setPreferredSize(new java.awt.Dimension(110, 35));
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
