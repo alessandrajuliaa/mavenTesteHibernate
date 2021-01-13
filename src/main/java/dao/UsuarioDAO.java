@@ -26,7 +26,6 @@ public class UsuarioDAO {
     }
     
     public Usuario insertOrUpdate(Usuario usuario){
-        System.out.println(em.merge(usuario).getEmail().equals(usuario.getEmail()));
         if(em.merge(usuario).getEmail().equals(usuario.getEmail()))
             return this.update(usuario);
         else

@@ -29,7 +29,6 @@ public class Login extends javax.swing.JFrame {
         separadorSenha = new javax.swing.JPanel();
         campoSenha = new javax.swing.JPasswordField();
         btnLogar = new javax.swing.JButton();
-        btnCadastrar = new javax.swing.JButton();
         jPanelLoginEsquerda = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -55,7 +54,7 @@ public class Login extends javax.swing.JFrame {
         textEmail.setForeground(new java.awt.Color(0, 0, 0));
         textEmail.setText("EMAIL");
         jPanelLoginEsquerda1.add(textEmail);
-        textEmail.setBounds(48, 150, 51, 18);
+        textEmail.setBounds(50, 150, 51, 18);
 
         separadorEmail.setBackground(new java.awt.Color(255, 255, 255));
         separadorEmail.setPreferredSize(new java.awt.Dimension(259, 3));
@@ -72,7 +71,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         jPanelLoginEsquerda1.add(separadorEmail);
-        separadorEmail.setBounds(48, 200, 259, 3);
+        separadorEmail.setBounds(50, 200, 259, 3);
 
         campoEmail.setBackground(new java.awt.Color(255, 204, 0));
         campoEmail.setForeground(new java.awt.Color(0, 0, 0));
@@ -84,13 +83,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanelLoginEsquerda1.add(campoEmail);
-        campoEmail.setBounds(48, 170, 259, 35);
+        campoEmail.setBounds(50, 170, 259, 35);
 
         textSenha.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         textSenha.setForeground(new java.awt.Color(0, 0, 0));
         textSenha.setText("SENHA");
         jPanelLoginEsquerda1.add(textSenha);
-        textSenha.setBounds(48, 222, 53, 18);
+        textSenha.setBounds(50, 230, 53, 18);
 
         separadorSenha.setBackground(new java.awt.Color(255, 255, 255));
         separadorSenha.setPreferredSize(new java.awt.Dimension(259, 3));
@@ -107,7 +106,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         jPanelLoginEsquerda1.add(separadorSenha);
-        separadorSenha.setBounds(48, 272, 259, 3);
+        separadorSenha.setBounds(50, 280, 259, 3);
 
         campoSenha.setBackground(new java.awt.Color(255, 204, 0));
         campoSenha.setForeground(new java.awt.Color(0, 0, 0));
@@ -119,7 +118,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanelLoginEsquerda1.add(campoSenha);
-        campoSenha.setBounds(48, 242, 259, 35);
+        campoSenha.setBounds(50, 250, 259, 35);
 
         btnLogar.setBackground(new java.awt.Color(255, 255, 255));
         btnLogar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -137,25 +136,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanelLoginEsquerda1.add(btnLogar);
-        btnLogar.setBounds(96, 312, 155, 35);
-
-        btnCadastrar.setBackground(new java.awt.Color(255, 255, 255));
-        btnCadastrar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btnCadastrar.setForeground(new java.awt.Color(0, 0, 0));
-        btnCadastrar.setText("Cadastrar");
-        btnCadastrar.setAlignmentY(0.0F);
-        btnCadastrar.setBorder(null);
-        btnCadastrar.setBorderPainted(false);
-        btnCadastrar.setIconTextGap(0);
-        btnCadastrar.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        btnCadastrar.setPreferredSize(new java.awt.Dimension(155, 35));
-        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarActionPerformed(evt);
-            }
-        });
-        jPanelLoginEsquerda1.add(btnCadastrar);
-        btnCadastrar.setBounds(96, 365, 155, 35);
+        btnLogar.setBounds(110, 340, 155, 35);
 
         getContentPane().add(jPanelLoginEsquerda1);
         jPanelLoginEsquerda1.setBounds(320, 0, 360, 460);
@@ -204,14 +185,6 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoSenhaActionPerformed
 
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        try {
-            controller.cadastrar();
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnCadastrarActionPerformed
-
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -254,7 +227,6 @@ public class Login extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnLogar;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JPasswordField campoSenha;

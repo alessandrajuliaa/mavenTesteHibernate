@@ -36,9 +36,9 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Cliente");
-        setMaximumSize(new java.awt.Dimension(915, 507));
-        setMinimumSize(new java.awt.Dimension(915, 507));
-        setPreferredSize(new java.awt.Dimension(915, 507));
+        setMaximumSize(new java.awt.Dimension(915, 520));
+        setMinimumSize(new java.awt.Dimension(915, 520));
+        setPreferredSize(new java.awt.Dimension(915, 520));
         getContentPane().setLayout(null);
 
         textPesquisarCliente.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N

@@ -43,7 +43,6 @@ public class ProdutoDAO {
             for(Produto produto : produtoList){
                 lista.add(produto);
             }
-            System.out.println(lista);
         }catch(NoResultException e){
             produtoList = new ArrayList<>();
         }

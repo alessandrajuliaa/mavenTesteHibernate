@@ -44,10 +44,6 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
         btnRemoverServico = new javax.swing.JButton();
         textHora = new javax.swing.JLabel();
         campoHora = new javax.swing.JTextField();
-        textProduto = new javax.swing.JLabel();
-        comboBoxProduto = new javax.swing.JComboBox<>();
-        btnAdicionarProduto = new javax.swing.JButton();
-        btnRemoverProduto = new javax.swing.JButton();
         textData = new javax.swing.JLabel();
         campoData = new javax.swing.JTextField();
         textBarbeiro = new javax.swing.JLabel();
@@ -64,9 +60,9 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
         setForeground(new java.awt.Color(204, 204, 204));
         setTitle("Agendar");
         setEnabled(false);
-        setMaximumSize(new java.awt.Dimension(915, 507));
-        setMinimumSize(new java.awt.Dimension(915, 507));
-        setPreferredSize(new java.awt.Dimension(915, 507));
+        setMaximumSize(new java.awt.Dimension(915, 520));
+        setMinimumSize(new java.awt.Dimension(915, 520));
+        setPreferredSize(new java.awt.Dimension(915, 520));
         getContentPane().setLayout(null);
 
         textPesquisarAgendamento.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -224,40 +220,6 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
         getContentPane().add(campoHora);
         campoHora.setBounds(680, 280, 180, 28);
 
-        textProduto.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        textProduto.setText("Produto:");
-        textProduto.setPreferredSize(new java.awt.Dimension(42, 28));
-        getContentPane().add(textProduto);
-        textProduto.setBounds(40, 320, 70, 28);
-
-        comboBoxProduto.setEnabled(false);
-        comboBoxProduto.setMinimumSize(new java.awt.Dimension(130, 28));
-        comboBoxProduto.setPreferredSize(new java.awt.Dimension(240, 28));
-        getContentPane().add(comboBoxProduto);
-        comboBoxProduto.setBounds(110, 320, 240, 28);
-
-        btnAdicionarProduto.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnAdicionarProduto.setText("ADICIONAR");
-        btnAdicionarProduto.setPreferredSize(new java.awt.Dimension(110, 28));
-        btnAdicionarProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdicionarProdutoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAdicionarProduto);
-        btnAdicionarProduto.setBounds(370, 320, 110, 28);
-
-        btnRemoverProduto.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnRemoverProduto.setText("REMOVER");
-        btnRemoverProduto.setPreferredSize(new java.awt.Dimension(110, 28));
-        btnRemoverProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoverProdutoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnRemoverProduto);
-        btnRemoverProduto.setBounds(500, 320, 110, 28);
-
         textData.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textData.setText("Data:");
         textData.setPreferredSize(new java.awt.Dimension(42, 28));
@@ -377,11 +339,6 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPesquisarClienteActionPerformed
 
-    private void btnAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarProdutoActionPerformed
-        controller.adicionarProduto();
-        //controller.calcularPreco();
-    }//GEN-LAST:event_btnAdicionarProdutoActionPerformed
-
     private void campoDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDataActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoDataActionPerformed
@@ -443,11 +400,6 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
         controller.removerServico();
         //controller.calcularPreco();
     }//GEN-LAST:event_btnRemoverServicoActionPerformed
-
-    private void btnRemoverProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverProdutoActionPerformed
-        controller.removerProduto();
-        //controller.calcularPreco();
-    }//GEN-LAST:event_btnRemoverProdutoActionPerformed
 
     public JTextField getCampoData() {
         return campoData;
@@ -513,14 +465,6 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
         this.comboBoxCliente = comboBoxCliente;
     }
 
-    public JComboBox<String> getComboBoxProduto() {
-        return comboBoxProduto;
-    }
-
-    public void setComboBoxProduto(JComboBox<String> comboBoxProduto) {
-        this.comboBoxProduto = comboBoxProduto;
-    }
-
     public JComboBox<String> getComboBoxServico() {
         return comboBoxServico;
     }
@@ -530,7 +474,6 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdicionarProduto;
     private javax.swing.JButton btnAdicionarServico;
     private javax.swing.JButton btnAgendar;
     private javax.swing.JButton btnEditar;
@@ -538,7 +481,6 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnPesquisarAgendamento;
     private javax.swing.JButton btnPesquisarCliente;
-    private javax.swing.JButton btnRemoverProduto;
     private javax.swing.JButton btnRemoverServico;
     private javax.swing.JLabel caixaCliente;
     private javax.swing.JLabel caixaInfo;
@@ -551,7 +493,6 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
     private javax.swing.JTextField campoPreco;
     private javax.swing.JComboBox<String> comboBoxBarbeiro;
     private javax.swing.JComboBox<String> comboBoxCliente;
-    private javax.swing.JComboBox<String> comboBoxProduto;
     private javax.swing.JComboBox<String> comboBoxServico;
     private javax.swing.JLabel textBarbeiro;
     private javax.swing.JLabel textCliente;
@@ -563,7 +504,6 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
     private javax.swing.JLabel textNome;
     private javax.swing.JLabel textPesquisarAgendamento;
     private javax.swing.JLabel textPreco;
-    private javax.swing.JLabel textProduto;
     private javax.swing.JLabel textServico;
     // End of variables declaration//GEN-END:variables
 }

@@ -39,9 +39,9 @@ public class TelaProduto extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Produto");
-        setMaximumSize(new java.awt.Dimension(915, 507));
-        setMinimumSize(new java.awt.Dimension(915, 507));
-        setPreferredSize(new java.awt.Dimension(915, 507));
+        setMaximumSize(new java.awt.Dimension(915, 520));
+        setMinimumSize(new java.awt.Dimension(915, 520));
+        setPreferredSize(new java.awt.Dimension(915, 520));
         getContentPane().setLayout(null);
 
         campoPesquisaProduto.setMinimumSize(new java.awt.Dimension(64, 28));

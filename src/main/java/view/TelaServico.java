@@ -56,9 +56,9 @@ public class TelaServico extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Serviço");
-        setMaximumSize(new java.awt.Dimension(915, 507));
-        setMinimumSize(new java.awt.Dimension(915, 507));
-        setPreferredSize(new java.awt.Dimension(915, 507));
+        setMaximumSize(new java.awt.Dimension(915, 520));
+        setMinimumSize(new java.awt.Dimension(915, 520));
+        setPreferredSize(new java.awt.Dimension(915, 520));
         getContentPane().setLayout(null);
 
         campoPesquisaServico.setMaximumSize(new java.awt.Dimension(630, 28));

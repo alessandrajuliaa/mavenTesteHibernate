@@ -7,7 +7,6 @@ import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.draw.DottedLineSeparator;
 import com.itextpdf.text.pdf.draw.VerticalPositionMark;
@@ -23,7 +22,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import javax.swing.table.TableModel;
 import model.Agendamento;
 import model.Usuario;
 import util.Data;
@@ -170,11 +168,11 @@ public class MenuPrincipalController {
         servicos.add("R$" + relatorio.totalServicos());
         doc.add(servicos);
 
-        Paragraph produtos = new Paragraph("Produtos:", new Font(FontFamily.HELVETICA, 12));
+        /*Paragraph produtos = new Paragraph("Produtos:", new Font(FontFamily.HELVETICA, 12));
         produtos.setAlignment(Element.ALIGN_LEFT);
         produtos.add(new Chunk(glue));
         produtos.add("R$" + relatorio.totalProdutos());
-        doc.add(produtos);
+        doc.add(produtos);*/
         
         // Total
         Paragraph textTotalMensal = new Paragraph("Total:", new Font(FontFamily.HELVETICA, 12));
@@ -242,11 +240,11 @@ public class MenuPrincipalController {
         servicos.add("R$" + relatorio.totalServicos());
         doc.add(servicos);
 
-        Paragraph produtos = new Paragraph("Produtos:", new Font(FontFamily.HELVETICA, 12));
+        /*Paragraph produtos = new Paragraph("Produtos:", new Font(FontFamily.HELVETICA, 12));
         produtos.setAlignment(Element.ALIGN_LEFT);
         produtos.add(new Chunk(glue));
         produtos.add("R$" + relatorio.totalProdutos());
-        doc.add(produtos);
+        doc.add(produtos);*/
         
         // Total
         Paragraph textTotalMensal = new Paragraph("Total:", new Font(FontFamily.HELVETICA, 12));

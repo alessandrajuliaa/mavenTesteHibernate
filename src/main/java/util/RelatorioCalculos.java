@@ -24,7 +24,7 @@ public class RelatorioCalculos {
     public double totalServicos(){
         double total = 0;
         for(Agendamento agendamento : this.agendamentos){
-            List<Servico> servicos = agendamento.getServicos();
+            ArrayList<Servico> servicos = agendamento.getServicos();
             if((servicos != null)){
                 if(servicos.size() != 0){
                     for(Servico serv : servicos){
@@ -36,7 +36,7 @@ public class RelatorioCalculos {
         return total;
     }
     
-    public double totalProdutos(){
+    /*public double totalProdutos(){
         double total = 0;
         for(Agendamento agendamento : this.agendamentos){
             List<Produto> produtos = agendamento.getProdutos();
@@ -49,7 +49,7 @@ public class RelatorioCalculos {
             }
         }
         return total;
-    }
+    }*/
     
     public double total(){
         double total = 0;

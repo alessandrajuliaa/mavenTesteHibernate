@@ -13,7 +13,6 @@ C:\Users\Alessandra\Documents\barbertime\src\main\java\controller\TelaServicoCon
 C:\Users\Alessandra\Documents\barbertime\src\main\java\controller\TelaUsuarioController.java
 C:\Users\Alessandra\Documents\barbertime\src\main\java\model\Produto.java
 C:\Users\Alessandra\Documents\barbertime\src\main\java\view\TelaAgendamento.java
-C:\Users\Alessandra\Documents\barbertime\src\main\java\view\TelaCadastrar.java
 C:\Users\Alessandra\Documents\barbertime\src\main\java\view\TelaServico.java
 C:\Users\Alessandra\Documents\barbertime\src\main\java\controller\MenuPrincipalController.java
 C:\Users\Alessandra\Documents\barbertime\src\main\java\util\ModeloTabela.java
@@ -27,5 +26,4 @@ C:\Users\Alessandra\Documents\barbertime\src\main\java\dao\JPAUtil.java
 C:\Users\Alessandra\Documents\barbertime\src\main\java\model\Servico.java
 C:\Users\Alessandra\Documents\barbertime\src\main\java\controller\LoginController.java
 C:\Users\Alessandra\Documents\barbertime\src\main\java\view\MenuPrincipal.java
-C:\Users\Alessandra\Documents\barbertime\src\main\java\controller\TelaCadastrarController.java
 C:\Users\Alessandra\Documents\barbertime\src\main\java\controller\TelaProdutoController.java

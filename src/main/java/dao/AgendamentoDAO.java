@@ -50,11 +50,9 @@ public class AgendamentoDAO {
                 agen.setCliente(agendamento.getCliente());
                 agen.setServicos(agendamento.getServicos());
                 agen.setUsuario(agendamento.getUsuario());
-                agen.setProdutos(agendamento.getProdutos());
                 agen.setPreco(agendamento.getPreco());
                 lista.add(agen);
             }
-            //System.out.println(lista);
         }catch(NoResultException e){
             agendamentoList = null;
         }
@@ -77,11 +75,8 @@ public class AgendamentoDAO {
         String de = dataDe.substring(5, 10) + "/" + dataDe.substring(3, 5) + "/" + dataDe.substring(0, 2) + " 00:00";
         String ate = dataAte.substring(5, 10) + "/" + dataAte.substring(3, 5) + "/" + dataAte.substring(0, 2) + " 23:59";
         Date deData = new Date(de);
-        Date ateData = new Date(ate);
-        System.out.println(nome);
+        Date ateData = new Date(ate);        
         String consultaJPQL = "SELECT a FROM Agendamento a join a.cliente c WHERE a.data BETWEEN :datade and :dataate AND c.nome LIKE :nomeCliente ";
-        //String consultaJPQL = "SELECT a FROM Agendamento a join a.cliente c WHERE a.data = :dataate and c.nome LIKE :nomeCliente ";
-        // "SELECT u from Usuario u join u.pessoa p where p.matricula = :matricula and u.senha = :senha "
         Query query = em.createQuery(consultaJPQL);
         query.setParameter("datade", deData);
         query.setParameter("dataate", ateData);

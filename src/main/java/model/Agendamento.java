@@ -1,22 +1,13 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.MapKey;
-import javax.persistence.MapKeyColumn;
-import javax.persistence.MapKeyJoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -29,11 +20,7 @@ public class Agendamento implements Serializable, Comparable<Agendamento> {
     @Column(unique=true)
     private Long id;
     private Cliente cliente;
-    //@OneToMany(targetEntity=Servico.class, cascade = CascadeType.DETACH)
-    private List<Servico> servicos;
-    @OneToMany(targetEntity=Produto.class)
-    
-    private List<Produto> produtos;
+    private ArrayList<Servico> servicos;
     private Usuario usuario;
     private Date data;
     private double preco;
@@ -49,25 +36,23 @@ public class Agendamento implements Serializable, Comparable<Agendamento> {
         this.cliente = cliente;
     }
 
-    public Agendamento(Cliente cliente, List<Servico> servicos, List<Produto> produtos, Usuario usuario, Date data, double preco) {
+    public Agendamento(Cliente cliente, ArrayList<Servico> servicos, Usuario usuario, Date data, double preco) {
         this.cliente = cliente;
         this.servicos = servicos;
-        this.produtos = produtos;
         this.usuario = usuario;
         this.data = data;
         this.preco = preco;
     }
 
-    public Agendamento(Long id, Cliente cliente, List<Servico> servicos, List<Produto> produtos, Usuario usuario, Date data, double preco) {
+    public Agendamento(Long id, Cliente cliente, ArrayList<Servico> servicos, Usuario usuario, Date data, double preco) {
         this.id = id;
         this.cliente = cliente;
         this.servicos = servicos;
-        this.produtos = produtos;
         this.usuario = usuario;
         this.data = data;
         this.preco = preco;
     }
-
+    
     public Long getId() {
         return id;
     }
@@ -84,20 +69,12 @@ public class Agendamento implements Serializable, Comparable<Agendamento> {
         this.cliente = cliente;
     }
 
-    public List<Servico> getServicos() {
+    public ArrayList<Servico> getServicos() {
         return servicos;
     }
 
-    public void setServicos(List<Servico> servicos) {
+    public void setServicos(ArrayList<Servico> servicos) {
         this.servicos = servicos;
-    }
-
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
     }
 
     public Usuario getUsuario() {
@@ -123,19 +100,6 @@ public class Agendamento implements Serializable, Comparable<Agendamento> {
     public void setPreco(double preco) {
         this.preco = preco;
     }
-
-    /*@Override
-    public int compareTo(Agendamento o) {
-        Data dataThis = new Data(this.data);
-        Data dataO = new Data(o.getData());
-        String teste = dataO.dataFormatadaEHoraString();
-        return dataThis.before(teste);
-    }
-    
-    public int compare(Agendamento o){
-        return this.data.compareTo(o.getData());
-    }*/
-    
     
     @Override
     public int compareTo(Agendamento o) {
@@ -149,10 +113,6 @@ public class Agendamento implements Serializable, Comparable<Agendamento> {
             return 1;
         }else{
             return 0;
-        }
-        
-        
+        }    
     }
-
-    
 }
