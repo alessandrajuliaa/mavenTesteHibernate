@@ -98,7 +98,16 @@ public class AgendamentoDAO {
         Collections.sort(ordenar);
         return ordenar;
     }
-    public ArrayList<Agendamento> selectPorBarbeiro(String dataDe, String dataAte, String barbeiro){
+    public ArrayList<Agendamento> selectPorBarbeiro(String barbeiro){
+        String consultaJPQL = "SELECT a FROM Agendamento a join a.usuario u WHERE u.nome = :nomeBarbeiro ";
+        Query query = em.createQuery(consultaJPQL);
+        query.setParameter("nomeBarbeiro", barbeiro);
+        ArrayList<Agendamento> ordenar = retornarListaComBaseNaConsulta(query);
+        Collections.sort(ordenar);
+        return ordenar;
+    }
+    
+    public ArrayList<Agendamento> selectPorDataEBarbeiro(String dataDe, String dataAte, String barbeiro){
         String de = dataDe.substring(5, 10) + "/" + dataDe.substring(3, 5) + "/" + dataDe.substring(0, 2) + " 00:00";
         String ate = dataAte.substring(5, 10) + "/" + dataAte.substring(3, 5) + "/" + dataAte.substring(0, 2) + " 23:59";
         Date deData = new Date(de);

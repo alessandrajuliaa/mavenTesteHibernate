@@ -5,10 +5,10 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.EntityManager;
 import model.Servico;
-import view.TelaAgendamento;
+import view.TelaAgenda;
 
 public class TesteHiber {
-    private final TelaAgendamento view = new TelaAgendamento();
+    private final TelaAgenda view = new TelaAgenda();
     public static void main(String[] args) {
         ArrayList<Servico> servicos = new ArrayList<>();
         Set<Servico> set = new HashSet<Servico>();

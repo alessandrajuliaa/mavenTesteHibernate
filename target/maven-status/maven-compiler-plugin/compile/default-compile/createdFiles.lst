@@ -26,7 +26,6 @@ view\TelaProduto$4.class
 view\TelaProduto$7.class
 view\TelaUsuario$7.class
 view\TelaCliente$8.class
-view\MenuPrincipal$20.class
 controller\MenuPrincipalController.class
 view\MenuPrincipal$2.class
 model\Usuario.class

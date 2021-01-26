@@ -55,15 +55,16 @@ public class TelaServico extends javax.swing.JInternalFrame {
         btnNovo1 = new javax.swing.JButton();
 
         setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("Serviço");
-        setMaximumSize(new java.awt.Dimension(915, 520));
-        setMinimumSize(new java.awt.Dimension(915, 520));
-        setPreferredSize(new java.awt.Dimension(915, 520));
+        setMinimumSize(new java.awt.Dimension(820, 395));
+        setPreferredSize(new java.awt.Dimension(820, 395));
         getContentPane().setLayout(null);
 
         campoPesquisaServico.setMaximumSize(new java.awt.Dimension(630, 28));
-        campoPesquisaServico.setMinimumSize(new java.awt.Dimension(630, 28));
-        campoPesquisaServico.setPreferredSize(new java.awt.Dimension(630, 28));
+        campoPesquisaServico.setMinimumSize(new java.awt.Dimension(530, 28));
+        campoPesquisaServico.setPreferredSize(new java.awt.Dimension(530, 28));
         campoPesquisaServico.setSelectionEnd(5);
         campoPesquisaServico.setSelectionStart(5);
         campoPesquisaServico.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +78,7 @@ public class TelaServico extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(campoPesquisaServico);
-        campoPesquisaServico.setBounds(100, 40, 630, 28);
+        campoPesquisaServico.setBounds(100, 40, 530, 28);
 
         btnPesquisarAgendamento.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnPesquisarAgendamento.setText("PESQUISAR");
@@ -88,7 +89,7 @@ public class TelaServico extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnPesquisarAgendamento);
-        btnPesquisarAgendamento.setBounds(750, 40, 110, 28);
+        btnPesquisarAgendamento.setBounds(650, 40, 110, 28);
 
         textIdPesquisa.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textIdPesquisa.setText("Nome:");
@@ -99,66 +100,66 @@ public class TelaServico extends javax.swing.JInternalFrame {
         textPesquisarServico.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         textPesquisarServico.setText("Pesquisar serviço:");
         getContentPane().add(textPesquisarServico);
-        textPesquisarServico.setBounds(27, 13, 122, 16);
+        textPesquisarServico.setBounds(30, 10, 122, 16);
 
         caixaPesquisa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        caixaPesquisa.setPreferredSize(new java.awt.Dimension(850, 50));
+        caixaPesquisa.setPreferredSize(new java.awt.Dimension(750, 50));
         getContentPane().add(caixaPesquisa);
-        caixaPesquisa.setBounds(27, 30, 850, 50);
+        caixaPesquisa.setBounds(30, 30, 750, 50);
 
         textInfo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        textInfo.setText("Outras informações:");
+        textInfo.setText("Informações:");
         getContentPane().add(textInfo);
-        textInfo.setBounds(30, 150, 135, 20);
+        textInfo.setBounds(30, 100, 88, 20);
 
         textId.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textId.setText("Id:");
         textId.setPreferredSize(new java.awt.Dimension(42, 28));
         getContentPane().add(textId);
-        textId.setBounds(40, 180, 30, 28);
+        textId.setBounds(40, 130, 30, 28);
 
         campoId.setEnabled(false);
-        campoId.setPreferredSize(new java.awt.Dimension(760, 28));
+        campoId.setPreferredSize(new java.awt.Dimension(660, 28));
         getContentPane().add(campoId);
-        campoId.setBounds(100, 180, 760, 28);
+        campoId.setBounds(100, 130, 660, 28);
 
         textNome.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textNome.setText("Nome:");
         textNome.setPreferredSize(new java.awt.Dimension(42, 28));
         getContentPane().add(textNome);
-        textNome.setBounds(40, 220, 50, 28);
+        textNome.setBounds(40, 170, 50, 28);
 
         campoNome.setEnabled(false);
-        campoNome.setPreferredSize(new java.awt.Dimension(760, 28));
+        campoNome.setPreferredSize(new java.awt.Dimension(660, 28));
         campoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoNomeActionPerformed(evt);
             }
         });
         getContentPane().add(campoNome);
-        campoNome.setBounds(100, 220, 760, 28);
+        campoNome.setBounds(100, 170, 660, 28);
 
         textPreco.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textPreco.setText("Preço:");
         textPreco.setPreferredSize(new java.awt.Dimension(42, 28));
         getContentPane().add(textPreco);
-        textPreco.setBounds(40, 260, 50, 28);
+        textPreco.setBounds(40, 210, 50, 28);
 
         campoPreco.setToolTipText("");
         campoPreco.setEnabled(false);
-        campoPreco.setPreferredSize(new java.awt.Dimension(760, 28));
+        campoPreco.setPreferredSize(new java.awt.Dimension(660, 28));
         campoPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoPrecoActionPerformed(evt);
             }
         });
         getContentPane().add(campoPreco);
-        campoPreco.setBounds(100, 260, 760, 28);
+        campoPreco.setBounds(100, 210, 660, 28);
 
         caixaInfo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        caixaInfo.setPreferredSize(new java.awt.Dimension(850, 170));
+        caixaInfo.setPreferredSize(new java.awt.Dimension(750, 130));
         getContentPane().add(caixaInfo);
-        caixaInfo.setBounds(30, 170, 850, 130);
+        caixaInfo.setBounds(30, 120, 750, 130);
 
         btnExcluir.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnExcluir.setText("EXCLUIR");
@@ -169,7 +170,7 @@ public class TelaServico extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnExcluir);
-        btnExcluir.setBounds(770, 420, 110, 35);
+        btnExcluir.setBounds(670, 290, 110, 35);
 
         btnEditar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnEditar.setText("EDITAR");
@@ -180,7 +181,7 @@ public class TelaServico extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnEditar);
-        btnEditar.setBounds(530, 420, 110, 35);
+        btnEditar.setBounds(440, 290, 110, 35);
 
         btnCadastrar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnCadastrar.setText("CADASTRAR");
@@ -191,7 +192,7 @@ public class TelaServico extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnCadastrar);
-        btnCadastrar.setBounds(280, 420, 110, 35);
+        btnCadastrar.setBounds(240, 290, 110, 35);
 
         btnNovo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnNovo.setText("NOVO");
@@ -202,7 +203,7 @@ public class TelaServico extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnNovo);
-        btnNovo.setBounds(30, 420, 110, 35);
+        btnNovo.setBounds(30, 290, 110, 35);
 
         jInternalFrame1.setClosable(true);
         jInternalFrame1.setTitle("Serviço");
@@ -368,7 +369,7 @@ public class TelaServico extends javax.swing.JInternalFrame {
         try {
             controller.pesquisarPorNome();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaServico.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnPesquisarAgendamentoActionPerformed
 
@@ -376,15 +377,11 @@ public class TelaServico extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNomeActionPerformed
 
-    private void campoPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPrecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoPrecoActionPerformed
-
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         try {
             controller.excluirServico();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaServico.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -392,7 +389,7 @@ public class TelaServico extends javax.swing.JInternalFrame {
         try {
             controller.editarServico();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaServico.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -404,7 +401,7 @@ public class TelaServico extends javax.swing.JInternalFrame {
         try {
             controller.novoServico();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaServico.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -451,6 +448,10 @@ public class TelaServico extends javax.swing.JInternalFrame {
     private void btnNovo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovo1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNovo1ActionPerformed
+
+    private void campoPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPrecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoPrecoActionPerformed
 
     public JTextField getCampoId() {
         return campoId;

@@ -29,8 +29,24 @@ public class LoginController {
         boolean existe = new UsuarioDAO(em).existePorUsuarioESenha(usuarioAutenticar);
         
         if(existe){
-           new MenuPrincipal().setVisible(true);
-            view.dispose(); 
+            String cargo = new UsuarioDAO(em).selectPorEmail(usuarioAutenticar).getCargo();
+            
+            MenuPrincipal principal = new MenuPrincipal();
+            
+            if("Gestor".equals(new UsuarioDAO(em).selectPorEmail(usuarioAutenticar).getCargo())){
+                //principal.getBtnGerarRelatorio().setEnabled(true);
+                //principal.getBtnGerarRelatorioBarbeiro().setEnabled(true);
+                principal.getMenuItemUsuario().setEnabled(true);
+                principal.setVisible(true);
+                view.dispose();
+            }else if("Administrador".equals(cargo)){
+                principal.getMenuItemUsuario().setEnabled(true);
+                principal.setVisible(true);
+                view.dispose();
+            }else{
+                principal.setVisible(true);
+                view.dispose();
+            }
         }else{
             JOptionPane.showMessageDialog(view, "Usuário ou senha inválidos!");
         }

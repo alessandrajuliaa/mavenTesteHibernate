@@ -37,14 +37,14 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Cliente");
         setMaximumSize(new java.awt.Dimension(915, 520));
-        setMinimumSize(new java.awt.Dimension(915, 520));
-        setPreferredSize(new java.awt.Dimension(915, 520));
+        setMinimumSize(new java.awt.Dimension(820, 395));
+        setPreferredSize(new java.awt.Dimension(820, 360));
         getContentPane().setLayout(null);
 
         textPesquisarCliente.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         textPesquisarCliente.setText("Pesquisar cliente:");
         getContentPane().add(textPesquisarCliente);
-        textPesquisarCliente.setBounds(27, 13, 118, 16);
+        textPesquisarCliente.setBounds(30, 13, 118, 16);
 
         textPesquisaNome.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textPesquisaNome.setText("Nome:");
@@ -53,7 +53,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         textPesquisaNome.setBounds(40, 40, 50, 28);
 
         campoPesquisaCliente.setMinimumSize(new java.awt.Dimension(64, 28));
-        campoPesquisaCliente.setPreferredSize(new java.awt.Dimension(630, 28));
+        campoPesquisaCliente.setPreferredSize(new java.awt.Dimension(530, 28));
         campoPesquisaCliente.setSelectionEnd(5);
         campoPesquisaCliente.setSelectionStart(5);
         campoPesquisaCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +67,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(campoPesquisaCliente);
-        campoPesquisaCliente.setBounds(100, 40, 630, 28);
+        campoPesquisaCliente.setBounds(100, 40, 530, 28);
 
         btnPesquisarCliente.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnPesquisarCliente.setText("PESQUISAR");
@@ -78,55 +78,55 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnPesquisarCliente);
-        btnPesquisarCliente.setBounds(750, 40, 110, 28);
+        btnPesquisarCliente.setBounds(650, 40, 110, 28);
 
         caixaPesquisa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        caixaPesquisa.setPreferredSize(new java.awt.Dimension(850, 50));
+        caixaPesquisa.setPreferredSize(new java.awt.Dimension(750, 50));
         getContentPane().add(caixaPesquisa);
-        caixaPesquisa.setBounds(27, 30, 850, 50);
+        caixaPesquisa.setBounds(30, 30, 750, 50);
 
         textInfo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        textInfo.setText("Outras informações:");
+        textInfo.setText("Informações:");
         getContentPane().add(textInfo);
-        textInfo.setBounds(30, 150, 135, 20);
+        textInfo.setBounds(30, 100, 88, 20);
 
         textNome.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textNome.setText("Nome:");
         textNome.setPreferredSize(new java.awt.Dimension(42, 28));
         getContentPane().add(textNome);
-        textNome.setBounds(40, 180, 50, 28);
+        textNome.setBounds(40, 130, 50, 28);
 
         campoNome.setEnabled(false);
-        campoNome.setPreferredSize(new java.awt.Dimension(740, 28));
+        campoNome.setPreferredSize(new java.awt.Dimension(640, 28));
         campoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoNomeActionPerformed(evt);
             }
         });
         getContentPane().add(campoNome);
-        campoNome.setBounds(120, 180, 740, 28);
+        campoNome.setBounds(120, 130, 640, 28);
 
         textTelefone.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textTelefone.setText("Telefone:");
         textTelefone.setPreferredSize(new java.awt.Dimension(42, 28));
         getContentPane().add(textTelefone);
-        textTelefone.setBounds(40, 220, 70, 28);
+        textTelefone.setBounds(40, 170, 70, 28);
 
         campoTelefone.setToolTipText("");
         campoTelefone.setEnabled(false);
-        campoTelefone.setPreferredSize(new java.awt.Dimension(740, 28));
+        campoTelefone.setPreferredSize(new java.awt.Dimension(640, 28));
         campoTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoTelefoneActionPerformed(evt);
             }
         });
         getContentPane().add(campoTelefone);
-        campoTelefone.setBounds(120, 220, 740, 28);
+        campoTelefone.setBounds(120, 170, 640, 28);
 
         caixaInfo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        caixaInfo.setPreferredSize(new java.awt.Dimension(850, 170));
+        caixaInfo.setPreferredSize(new java.awt.Dimension(750, 90));
         getContentPane().add(caixaInfo);
-        caixaInfo.setBounds(30, 170, 850, 90);
+        caixaInfo.setBounds(30, 120, 750, 90);
 
         btnExcluir.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnExcluir.setText("EXCLUIR");
@@ -137,7 +137,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnExcluir);
-        btnExcluir.setBounds(770, 420, 110, 35);
+        btnExcluir.setBounds(670, 260, 110, 35);
 
         btnEditar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnEditar.setText("EDITAR");
@@ -148,7 +148,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnEditar);
-        btnEditar.setBounds(530, 420, 110, 35);
+        btnEditar.setBounds(450, 260, 110, 35);
 
         btnCadastrar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnCadastrar.setText("CADASTRAR");
@@ -159,7 +159,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnCadastrar);
-        btnCadastrar.setBounds(280, 420, 110, 35);
+        btnCadastrar.setBounds(230, 260, 110, 35);
 
         btnNovo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnNovo.setText("NOVO");
@@ -170,7 +170,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnNovo);
-        btnNovo.setBounds(30, 420, 110, 35);
+        btnNovo.setBounds(30, 250, 110, 35);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -183,7 +183,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         try {
             controller.pesquisarPorNome();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnPesquisarClienteActionPerformed
 
@@ -199,7 +199,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         try {
             controller.excluirCliente();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -207,7 +207,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         try {
             controller.editarCliente();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -223,7 +223,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         try {
             controller.novoCliente();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnNovoActionPerformed
 

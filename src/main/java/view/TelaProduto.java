@@ -199,7 +199,7 @@ public class TelaProduto extends javax.swing.JInternalFrame {
         try {
             controller.pesquisarPorNome();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnPesquisarAgendamentoActionPerformed
 
@@ -215,7 +215,7 @@ public class TelaProduto extends javax.swing.JInternalFrame {
         try {
             controller.excluirProduto();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -223,7 +223,7 @@ public class TelaProduto extends javax.swing.JInternalFrame {
         try {
             controller.editarProduto();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -235,7 +235,7 @@ public class TelaProduto extends javax.swing.JInternalFrame {
         try {
             controller.novoProduto();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnNovoActionPerformed
 

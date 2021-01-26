@@ -50,14 +50,14 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         setAlignmentX(0.0F);
         setAlignmentY(0.0F);
         setMaximumSize(new java.awt.Dimension(915, 520));
-        setMinimumSize(new java.awt.Dimension(915, 520));
-        setPreferredSize(new java.awt.Dimension(915, 520));
+        setMinimumSize(new java.awt.Dimension(820, 425));
+        setPreferredSize(new java.awt.Dimension(820, 425));
         getContentPane().setLayout(null);
 
         textPesquisarUsuario.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         textPesquisarUsuario.setText("Pesquisar usuário:");
         getContentPane().add(textPesquisarUsuario);
-        textPesquisarUsuario.setBounds(27, 13, 123, 16);
+        textPesquisarUsuario.setBounds(30, 13, 123, 16);
 
         textNomePesquisa.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textNomePesquisa.setText("Nome:");
@@ -66,8 +66,8 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         textNomePesquisa.setBounds(40, 40, 50, 28);
 
         campoPesquisaUsuario.setMaximumSize(new java.awt.Dimension(630, 28));
-        campoPesquisaUsuario.setMinimumSize(new java.awt.Dimension(630, 28));
-        campoPesquisaUsuario.setPreferredSize(new java.awt.Dimension(630, 28));
+        campoPesquisaUsuario.setMinimumSize(new java.awt.Dimension(530, 28));
+        campoPesquisaUsuario.setPreferredSize(new java.awt.Dimension(530, 28));
         campoPesquisaUsuario.setSelectionEnd(5);
         campoPesquisaUsuario.setSelectionStart(5);
         campoPesquisaUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +81,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(campoPesquisaUsuario);
-        campoPesquisaUsuario.setBounds(100, 40, 630, 28);
+        campoPesquisaUsuario.setBounds(100, 40, 530, 28);
 
         btnPesquisarUsuario.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnPesquisarUsuario.setText("PESQUISAR");
@@ -92,120 +92,120 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnPesquisarUsuario);
-        btnPesquisarUsuario.setBounds(750, 40, 110, 28);
+        btnPesquisarUsuario.setBounds(650, 40, 110, 28);
 
         caixaPesquisa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         caixaPesquisa.setPreferredSize(new java.awt.Dimension(850, 50));
         getContentPane().add(caixaPesquisa);
-        caixaPesquisa.setBounds(27, 30, 850, 50);
+        caixaPesquisa.setBounds(30, 30, 750, 50);
 
         textInfo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        textInfo.setText("Outras informações:");
+        textInfo.setText("Informações:");
         getContentPane().add(textInfo);
-        textInfo.setBounds(30, 150, 135, 20);
+        textInfo.setBounds(30, 100, 135, 20);
 
         textNome.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textNome.setText("Nome:");
         textNome.setPreferredSize(new java.awt.Dimension(42, 28));
         getContentPane().add(textNome);
-        textNome.setBounds(40, 180, 50, 28);
+        textNome.setBounds(50, 130, 50, 28);
 
         campoNome.setEnabled(false);
-        campoNome.setPreferredSize(new java.awt.Dimension(740, 28));
+        campoNome.setPreferredSize(new java.awt.Dimension(630, 28));
         campoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoNomeActionPerformed(evt);
             }
         });
         getContentPane().add(campoNome);
-        campoNome.setBounds(120, 180, 740, 28);
+        campoNome.setBounds(130, 130, 630, 28);
 
         textEmail.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textEmail.setText("Email:");
         textEmail.setPreferredSize(new java.awt.Dimension(42, 28));
         getContentPane().add(textEmail);
-        textEmail.setBounds(40, 220, 70, 28);
+        textEmail.setBounds(50, 170, 70, 28);
 
         campoEmail.setToolTipText("");
         campoEmail.setEnabled(false);
-        campoEmail.setPreferredSize(new java.awt.Dimension(740, 28));
+        campoEmail.setPreferredSize(new java.awt.Dimension(630, 28));
         campoEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoEmailActionPerformed(evt);
             }
         });
         getContentPane().add(campoEmail);
-        campoEmail.setBounds(120, 220, 740, 28);
+        campoEmail.setBounds(130, 170, 630, 28);
 
         textTelefone.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textTelefone.setText("Telefone:");
         textTelefone.setPreferredSize(new java.awt.Dimension(42, 28));
         getContentPane().add(textTelefone);
-        textTelefone.setBounds(40, 260, 70, 28);
+        textTelefone.setBounds(50, 210, 70, 28);
 
         campoTelefone.setToolTipText("");
         campoTelefone.setEnabled(false);
-        campoTelefone.setPreferredSize(new java.awt.Dimension(740, 28));
+        campoTelefone.setPreferredSize(new java.awt.Dimension(630, 28));
         campoTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoTelefoneActionPerformed(evt);
             }
         });
         getContentPane().add(campoTelefone);
-        campoTelefone.setBounds(120, 260, 740, 28);
+        campoTelefone.setBounds(130, 210, 630, 28);
 
         textFuncao.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textFuncao.setText("Função:");
         textFuncao.setPreferredSize(new java.awt.Dimension(42, 28));
         getContentPane().add(textFuncao);
-        textFuncao.setBounds(40, 300, 70, 28);
+        textFuncao.setBounds(50, 250, 70, 28);
 
         comboBoxFuncao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Barbeiro", "Gestor" }));
         comboBoxFuncao.setEnabled(false);
-        comboBoxFuncao.setPreferredSize(new java.awt.Dimension(370, 28));
+        comboBoxFuncao.setPreferredSize(new java.awt.Dimension(140, 28));
         comboBoxFuncao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxFuncaoActionPerformed(evt);
             }
         });
         getContentPane().add(comboBoxFuncao);
-        comboBoxFuncao.setBounds(120, 300, 230, 28);
+        comboBoxFuncao.setBounds(130, 250, 140, 28);
 
         textSenha.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textSenha.setText("Senha:");
         textSenha.setPreferredSize(new java.awt.Dimension(42, 28));
         getContentPane().add(textSenha);
-        textSenha.setBounds(360, 300, 50, 28);
+        textSenha.setBounds(280, 250, 50, 28);
 
         campoSenha.setEnabled(false);
         campoSenha.setMaximumSize(new java.awt.Dimension(150, 28));
         campoSenha.setMinimumSize(new java.awt.Dimension(150, 28));
-        campoSenha.setPreferredSize(new java.awt.Dimension(150, 28));
+        campoSenha.setPreferredSize(new java.awt.Dimension(140, 28));
         getContentPane().add(campoSenha);
-        campoSenha.setBounds(420, 300, 150, 28);
+        campoSenha.setBounds(340, 250, 140, 28);
 
         textConfirmarSenha.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         textConfirmarSenha.setText("Confirmar senha:");
         textConfirmarSenha.setPreferredSize(new java.awt.Dimension(42, 28));
         getContentPane().add(textConfirmarSenha);
-        textConfirmarSenha.setBounds(580, 300, 130, 28);
+        textConfirmarSenha.setBounds(490, 250, 130, 28);
 
         campoConfirmarSenha.setEnabled(false);
         campoConfirmarSenha.setMaximumSize(new java.awt.Dimension(150, 28));
         campoConfirmarSenha.setMinimumSize(new java.awt.Dimension(150, 28));
-        campoConfirmarSenha.setPreferredSize(new java.awt.Dimension(150, 28));
+        campoConfirmarSenha.setPreferredSize(new java.awt.Dimension(140, 28));
         campoConfirmarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoConfirmarSenhaActionPerformed(evt);
             }
         });
         getContentPane().add(campoConfirmarSenha);
-        campoConfirmarSenha.setBounds(710, 300, 150, 28);
+        campoConfirmarSenha.setBounds(620, 250, 140, 28);
 
         caixaInfo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         caixaInfo.setPreferredSize(new java.awt.Dimension(850, 170));
         getContentPane().add(caixaInfo);
-        caixaInfo.setBounds(20, 170, 850, 170);
+        caixaInfo.setBounds(30, 120, 750, 170);
 
         btnNovo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnNovo.setText("NOVO");
@@ -216,7 +216,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnNovo);
-        btnNovo.setBounds(30, 420, 110, 35);
+        btnNovo.setBounds(30, 320, 110, 35);
 
         btnCadastrar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnCadastrar.setText("CADASTRAR");
@@ -227,7 +227,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnCadastrar);
-        btnCadastrar.setBounds(280, 420, 110, 35);
+        btnCadastrar.setBounds(270, 320, 110, 35);
 
         btnEditar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnEditar.setText("EDITAR");
@@ -238,7 +238,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnEditar);
-        btnEditar.setBounds(530, 420, 110, 35);
+        btnEditar.setBounds(500, 320, 110, 35);
 
         btnExcluir.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnExcluir.setText("EXCLUIR");
@@ -249,7 +249,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnExcluir);
-        btnExcluir.setBounds(770, 420, 110, 35);
+        btnExcluir.setBounds(670, 320, 110, 35);
 
         getAccessibleContext().setAccessibleName("Tela de Usuário");
 
@@ -264,7 +264,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         try {
             controller.pesquisarPorNome();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnPesquisarUsuarioActionPerformed
 
@@ -280,7 +280,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         try {
             controller.novoUsuario();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -288,7 +288,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         try {
             controller.editarUsuario();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -296,7 +296,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         try {
             controller.excluirUsuario();
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAgendamento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 

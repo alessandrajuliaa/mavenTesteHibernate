@@ -76,6 +76,7 @@ public class Login extends javax.swing.JFrame {
         campoEmail.setBackground(new java.awt.Color(255, 204, 0));
         campoEmail.setForeground(new java.awt.Color(0, 0, 0));
         campoEmail.setBorder(null);
+        campoEmail.setNextFocusableComponent(campoSenha);
         campoEmail.setPreferredSize(new java.awt.Dimension(259, 35));
         campoEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +112,7 @@ public class Login extends javax.swing.JFrame {
         campoSenha.setBackground(new java.awt.Color(255, 204, 0));
         campoSenha.setForeground(new java.awt.Color(0, 0, 0));
         campoSenha.setBorder(null);
+        campoSenha.setNextFocusableComponent(btnLogar);
         campoSenha.setPreferredSize(new java.awt.Dimension(259, 35));
         campoSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +131,7 @@ public class Login extends javax.swing.JFrame {
         btnLogar.setBorderPainted(false);
         btnLogar.setIconTextGap(0);
         btnLogar.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnLogar.setNextFocusableComponent(campoEmail);
         btnLogar.setPreferredSize(new java.awt.Dimension(155, 35));
         btnLogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
