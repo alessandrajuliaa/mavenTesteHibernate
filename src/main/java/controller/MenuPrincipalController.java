@@ -1,5 +1,6 @@
 package controller;
 
+import javax.swing.JInternalFrame;
 import view.Login;
 import view.MenuPrincipal;
 import view.TelaAgenda;
@@ -15,6 +16,43 @@ public class MenuPrincipalController {
         this.view = view;
     }
     
+    public void abrirTelas(JInternalFrame tela){
+        if(view.getDesktop().getAllFrames().length == 0){
+            tela.setVisible(true);
+            view.getDesktop().add(tela);
+            tela.toFront();
+        }else{
+            for(JInternalFrame frame : view.getDesktop().getAllFrames()){
+                if(frame.getTitle()!= "Agenda"){
+                    view.getDesktop().remove(frame);
+                }
+            }            
+            tela.setVisible(true);
+            view.getDesktop().add(tela);
+            tela.toFront();
+        }
+    }
+            
+    public void abrirCadastrarCliente(){
+        TelaCliente cliente = new TelaCliente();
+        abrirTelas(cliente);
+    }
+
+    public void abrirCadastrarProduto(){
+        TelaProduto produto = new TelaProduto();
+        abrirTelas(produto);
+    }
+    
+    public void abrirCadastrarServico(){
+        TelaServico servico = new TelaServico();
+        abrirTelas(servico);
+    }
+    
+    public void abrirCadastrarUsuario(){
+        TelaUsuario usuario = new TelaUsuario();
+        abrirTelas(usuario);
+    }
+    
     public void abrirAgenda(){
         TelaAgenda agenda = new TelaAgenda();
         if(view.getDesktop().getAllFrames().length == 0){
@@ -22,65 +60,12 @@ public class MenuPrincipalController {
             view.getDesktop().add(agenda);
             agenda.toFront();
         }else{
-            view.getDesktop().remove(view.getDesktop().getAllFrames()[0]);
+            for(JInternalFrame frame : view.getDesktop().getAllFrames()){
+                view.getDesktop().remove(frame);
+            }
             agenda.setVisible(true);
             view.getDesktop().add(agenda);
             agenda.toFront();
-        }
-    }
-    public void abrirCadastrarCliente(){
-        TelaCliente cliente = new TelaCliente();
-        if(view.getDesktop().getAllFrames().length == 0){
-            cliente.setVisible(true);
-            view.getDesktop().add(cliente);
-            cliente.toFront();
-        }else{
-            view.getDesktop().remove(view.getDesktop().getAllFrames()[0]);
-            cliente.setVisible(true);
-            view.getDesktop().add(cliente);
-            cliente.toFront();
-        }
-    }
-    public void abrirCadastrarProduto(){
-        TelaProduto produto = new TelaProduto();
-    
-        if(view.getDesktop().getAllFrames().length == 0){
-            produto.setVisible(true);
-            view.getDesktop().add(produto);
-            produto.toFront();
-        }else{
-            view.getDesktop().remove(view.getDesktop().getAllFrames()[0]);
-            produto.setVisible(true);
-            view.getDesktop().add(produto);
-            produto.toFront();
-        }
-    }
-    public void abrirCadastrarServico(){
-        TelaServico servico = new TelaServico();
-        if(view.getDesktop().getAllFrames().length == 0){
-            servico.setVisible(true);
-            view.getDesktop().add(servico);
-            servico.toFront();
-        }else{
-            view.getDesktop().remove(view.getDesktop().getAllFrames()[0]);
-            servico.setVisible(true);
-            view.getDesktop().add(servico);
-            servico.toFront();
-        }
-    }
-    
-    public void abrirCadastrarUsuario(){
-        TelaUsuario usuario = new TelaUsuario();
-    
-        if(view.getDesktop().getAllFrames().length == 0){
-            usuario.setVisible(true);
-            view.getDesktop().add(usuario);
-            usuario.toFront();
-        }else{
-            view.getDesktop().remove(view.getDesktop().getAllFrames()[0]);
-            usuario.setVisible(true);
-            view.getDesktop().add(usuario);
-            usuario.toFront();
         }
     }
     

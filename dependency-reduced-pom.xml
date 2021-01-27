@@ -4,7 +4,7 @@
   <groupId>com.mycompany</groupId>
   <artifactId>barbertime</artifactId>
   <name>barbertime</name>
-  <version>1.3</version>
+  <version>1.5</version>
   <build>
     <plugins>
       <plugin>

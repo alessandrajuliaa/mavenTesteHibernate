@@ -38,7 +38,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuCadastro">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastro"/>
+            <Property name="text" type="java.lang.String" value="Cadastros"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemCliente">
@@ -156,7 +156,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Alessandra\Downloads\children-hairdresser-cutting-little-boy-against-a-dark.jpg"/>
+              <Image iconType="3" name="/view/images/background.jpg"/>
             </Property>
           </Properties>
           <Constraints>

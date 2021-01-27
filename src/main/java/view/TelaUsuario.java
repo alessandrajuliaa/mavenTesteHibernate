@@ -227,7 +227,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnCadastrar);
-        btnCadastrar.setBounds(270, 320, 110, 35);
+        btnCadastrar.setBounds(250, 320, 110, 35);
 
         btnEditar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnEditar.setText("EDITAR");
@@ -238,7 +238,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnEditar);
-        btnEditar.setBounds(500, 320, 110, 35);
+        btnEditar.setBounds(460, 320, 110, 35);
 
         btnExcluir.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnExcluir.setText("EXCLUIR");

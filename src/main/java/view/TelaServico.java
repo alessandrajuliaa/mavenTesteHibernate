@@ -181,7 +181,7 @@ public class TelaServico extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnEditar);
-        btnEditar.setBounds(440, 290, 110, 35);
+        btnEditar.setBounds(460, 290, 110, 35);
 
         btnCadastrar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnCadastrar.setText("CADASTRAR");
@@ -192,7 +192,7 @@ public class TelaServico extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnCadastrar);
-        btnCadastrar.setBounds(240, 290, 110, 35);
+        btnCadastrar.setBounds(250, 290, 110, 35);
 
         btnNovo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnNovo.setText("NOVO");
@@ -203,7 +203,7 @@ public class TelaServico extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnNovo);
-        btnNovo.setBounds(30, 290, 110, 35);
+        btnNovo.setBounds(40, 290, 110, 35);
 
         jInternalFrame1.setClosable(true);
         jInternalFrame1.setTitle("Serviço");

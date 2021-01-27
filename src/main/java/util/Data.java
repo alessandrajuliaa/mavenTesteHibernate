@@ -19,15 +19,29 @@ public class Data {
     
     public Date date(){
         if(this.dataEmString != null && this.horaEmString != null){
-            String dia, mes, ano, hh, mm;
+            String dia, mes, ano, hh, mm, data = "";
             if(this.dataEmString.length() > 8){
                 dia = this.dataEmString.substring(0, 2);
                 mes = this.dataEmString.substring(3, 5);
-                ano = this.dataEmString.substring(5, 10);
+                ano = this.dataEmString.substring(6, 10);
+                data = ano + "/" + mes + "/" + dia;
+            }else if(this.dataEmString.length() > 6){
+                if(dataEmString.contains("/")){
+                    dia = this.dataEmString.substring(0, 2);
+                    mes = this.dataEmString.substring(3, 5);
+                    ano = this.dataEmString.substring(6, 8);
+                    data = "20" + ano + "/" + mes + "/" + dia;
+                }else{
+                    dia = this.dataEmString.substring(0, 2);
+                    mes = this.dataEmString.substring(2, 4);
+                    ano = this.dataEmString.substring(4, 8);
+                    data = ano + "/" + mes + "/" + dia;
+                }
             }else{
                 dia = this.dataEmString.substring(0, 2);
                 mes = this.dataEmString.substring(2, 4);
-                ano = this.dataEmString.substring(4, 8);
+                ano = this.dataEmString.substring(4, 6);
+                data = "20" + ano + "/" + mes + "/" + dia;
             }
             if(this.horaEmString.length() > 4){
                 hh = this.horaEmString.substring(0, 2);
@@ -36,7 +50,7 @@ public class Data {
                 hh = this.horaEmString.substring(0, 2);
                 mm = this.horaEmString.substring(2, 4);
             }
-            return new Date(ano + "/" + mes + "/" + dia + " " + hh + ":" + mm);
+            return new Date(data + " " + hh + ":" + mm);
         }else{
             return this.dataEmData;
         }

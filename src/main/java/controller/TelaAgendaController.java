@@ -164,6 +164,9 @@ public class TelaAgendaController {
         view.getCampoData().setText("");
         view.getCampoHora().setText("");
         view.getCampoPreco().setText("");
+        view.getCampoPesquisaCliente().setText("");
+        view.getComboBoxCliente().removeAllItems();
+        preencherComboBoxCliente();
         preco = 0;
         setServicos = new HashSet<>();
         servicos = new ArrayList<>();
@@ -179,23 +182,14 @@ public class TelaAgendaController {
         view.getCampoPreco().setEnabled(true);
     }
     
-    public void preencherTabela(ModeloTabela modelo) {        
+    public void preencherTabela(ArrayList<Agendamento> l) {        
+        ModeloTabela modelo = new ModeloTabela(l);
         view.getTabela().setModel(modelo);
-        view.getTabela().setAutoResizeMode(view.getTabela().AUTO_RESIZE_OFF);
-        view.getTabela().getColumnModel().getColumn(0).setPreferredWidth(30);
-        view.getTabela().getColumnModel().getColumn(0).setResizable(false);
-        view.getTabela().getColumnModel().getColumn(1).setPreferredWidth(100);
-        view.getTabela().getColumnModel().getColumn(1).setResizable(false);
-        view.getTabela().getColumnModel().getColumn(2).setPreferredWidth(90);
-        view.getTabela().getColumnModel().getColumn(2).setResizable(false);
-        view.getTabela().getColumnModel().getColumn(3).setPreferredWidth(60);
-        view.getTabela().getColumnModel().getColumn(3).setResizable(false);
-        view.getTabela().getColumnModel().getColumn(4).setPreferredWidth(150);
-        view.getTabela().getColumnModel().getColumn(4).setResizable(false);
-        view.getTabela().getColumnModel().getColumn(5).setPreferredWidth(100);
-        view.getTabela().getColumnModel().getColumn(5).setResizable(false);
-        view.getTabela().getColumnModel().getColumn(6).setPreferredWidth(100);
-        view.getTabela().getColumnModel().getColumn(6).setResizable(false);
+        view.getTabela().getColumnModel().getColumn(0).setMaxWidth(60);
+        view.getTabela().getColumnModel().getColumn(1).setMinWidth(90);
+        view.getTabela().getColumnModel().getColumn(3).setMaxWidth(90);
+        view.getTabela().getColumnModel().getColumn(4).setMinWidth(100);
+        view.getTabela().getColumnModel().getColumn(5).setMinWidth(250);
     }
     
     public void preencherComboBoxServico(){
@@ -246,16 +240,15 @@ public class TelaAgendaController {
         Data data = new Data(new Date());
         EntityManager em = new JPAUtil().getEntityManager();
         em.getTransaction().begin();
-        ModeloTabela model = new ModeloTabela(new AgendamentoDAO(em).selectPorData(data.dataFormatadaString(), data.dataFormatadaString()));
-        preencherTabela(model);
+        preencherTabela(new AgendamentoDAO(em).selectPorData(data.dataFormatadaString(), data.dataFormatadaString()));
         em.getTransaction().commit();
         em.close();
     }
     
     public void iniciarAgenda(){
-        //iniciarTabela();
+        iniciarTabela();
         preencherComboBoxBarbeiro(view.getComboBoxBarbeiro().getModel());
-        preencherComboBoxCliente();
+        pesquisaCliente();
         preencherComboBoxServico();
         preencherComboBoxBarbeiro(view.getComboBoxBarbeiroPesquisa().getModel());
     }
@@ -370,8 +363,6 @@ public class TelaAgendaController {
                     view.getCampoHora().setEnabled(true);
                     view.getCampoPreco().setText("0");
                     view.getCampoPreco().setEnabled(true);
-                    //if(!agendamentoEncontrado.getProdutos().isEmpty())
-                     //   view.getComboBoxProduto().setSelectedItem(agendamentoEncontrado.getProdutos().get(0).getNome());
                 }else{
                     JOptionPane.showMessageDialog(null, "Agendamento não existe!");
                 }
@@ -384,23 +375,25 @@ public class TelaAgendaController {
         }
     }
     
-    public void pesquisaPorData() {
+    public ArrayList<Agendamento> pesquisaPorData() {
+        ArrayList<Agendamento> agendamentos = new ArrayList<>();
         String dataDe = view.getCampoDeData().getText();
         String dataAte = view.getCampoAteData().getText();
         if(!"".equals(view.getCampoDeData().getText())){
             EntityManager em = new JPAUtil().getEntityManager();
             em.getTransaction().begin();
             if(!"".equals(view.getCampoAteData().getText())){
-                preencherTabela(new ModeloTabela(new AgendamentoDAO(em).selectPorData(dataDe, dataAte)));
+                agendamentos = new AgendamentoDAO(em).selectPorData(dataDe, dataAte);
             }else{
                 Data dataAtual = new Data(new Date());
-                preencherTabela(new ModeloTabela(new AgendamentoDAO(em).selectPorData(dataDe, dataAtual.dataFormatadaString())));
+                agendamentos = new AgendamentoDAO(em).selectPorData(dataDe, dataAtual.dataFormatadaString());
             }
             em.getTransaction().commit();
             em.close();
         }else{
             JOptionPane.showMessageDialog(null, "A primeira data não pode estar vazia.");
         }
+        return agendamentos;
     }
     
     public void pesquisaPorCliente() {        
@@ -423,16 +416,19 @@ public class TelaAgendaController {
         em.close();
     }
     
-    public void pesquisaPorBarbeiro() {
+    public ArrayList<Agendamento> pesquisaPorBarbeiro() {
+        ArrayList<Agendamento> agendamentos = new ArrayList<>();
         String nome = view.getComboBoxBarbeiroPesquisa().getSelectedItem().toString();
         EntityManager em = new JPAUtil().getEntityManager();
         em.getTransaction().begin();
-        preencherTabela(new ModeloTabela(new AgendamentoDAO(em).selectPorBarbeiro(nome)));
+        agendamentos = new AgendamentoDAO(em).selectPorBarbeiro(nome);
         em.getTransaction().commit();
         em.close();
+        return agendamentos;
     }
        
-    public void pesquisaPorDataEBarbeiro(){
+    public ArrayList<Agendamento> pesquisaPorDataEBarbeiro(){
+        ArrayList<Agendamento> agendamentos = new ArrayList<>();
         String dataDe = view.getCampoDeData().getText();
         String dataAte = view.getCampoAteData().getText();
         String nome = view.getComboBoxBarbeiroPesquisa().getSelectedItem().toString();
@@ -440,31 +436,32 @@ public class TelaAgendaController {
         EntityManager em = new JPAUtil().getEntityManager();
         em.getTransaction().begin();
             if("".equals(view.getCampoDeData().getText()) && "".equals(view.getCampoAteData().getText())){
-                preencherTabela(new ModeloTabela(new AgendamentoDAO(em).selectPorDataEBarbeiro("01/01/2000", dataAtual.dataFormatadaString(), nome)));
+                agendamentos = new AgendamentoDAO(em).selectPorDataEBarbeiro("01/01/2000", dataAtual.dataFormatadaString(), nome);
             }else if(!"".equals(view.getCampoDeData().getText())){
-                preencherTabela(new ModeloTabela(new AgendamentoDAO(em).selectPorDataEBarbeiro(dataDe, dataAtual.dataFormatadaString(), nome)));
+                agendamentos = new AgendamentoDAO(em).selectPorDataEBarbeiro(dataDe, dataAtual.dataFormatadaString(), nome);
             }else if(!"".equals(view.getCampoAteData().getText())){
-                preencherTabela(new ModeloTabela(new AgendamentoDAO(em).selectPorDataEBarbeiro("01/01/2000", dataAte, nome)));
+                agendamentos = new AgendamentoDAO(em).selectPorDataEBarbeiro("01/01/2000", dataAte, nome);
             }else{
-                preencherTabela(new ModeloTabela(new AgendamentoDAO(em).selectPorDataEBarbeiro(dataDe, dataAte, nome)));
+                agendamentos = new AgendamentoDAO(em).selectPorDataEBarbeiro(dataDe, dataAte, nome);
             }        
         em.getTransaction().commit();
         em.close();
+        return agendamentos;
     }
             
     public void pesquisaFiltro(){
         if(opc == 1){
-            pesquisaPorData();
+            preencherTabela(pesquisaPorData());
         }else if(opc == 2){
-            pesquisaPorBarbeiro();
+            preencherTabela(pesquisaPorBarbeiro());
         }else if(opc == 3){
-            pesquisaPorDataEBarbeiro();
+            preencherTabela(pesquisaPorDataEBarbeiro());
         }else{
             Data dataAtual = new Data(new Date());
             String barbeiro = view.getComboBoxBarbeiroPesquisa().getSelectedItem().toString();
             EntityManager em = new JPAUtil().getEntityManager();
             em.getTransaction().begin();
-            preencherTabela(new ModeloTabela(new AgendamentoDAO(em).selectPorDataEBarbeiro(dataAtual.dataFormatadaString(), dataAtual.dataFormatadaString(), barbeiro)));
+            preencherTabela(new AgendamentoDAO(em).selectPorDataEBarbeiro(dataAtual.dataFormatadaString(), dataAtual.dataFormatadaString(), barbeiro));
             em.getTransaction().commit();
             em.close();
         }
@@ -480,7 +477,6 @@ public class TelaAgendaController {
                 view.getComboBoxBarbeiroPesquisa().setEnabled(false);
                 view.getComboBoxBarbeiroPesquisa().setSelectedItem("");
                 opc = 1;
-                System.out.println(opc);
                 break;
             case "Barbeiro":
                 view.getCampoDeData().setEnabled(false);
@@ -488,7 +484,6 @@ public class TelaAgendaController {
                 view.getBtnPesquisaData().setEnabled(false);
                 view.getComboBoxBarbeiroPesquisa().setEnabled(true);
                 opc = 2;
-                System.out.println(opc);
                 break;
             case "Data e Barbeiro":
                 view.getCampoDeData().setEnabled(true);
@@ -496,13 +491,32 @@ public class TelaAgendaController {
                 view.getBtnPesquisaData().setEnabled(true);
                 view.getComboBoxBarbeiroPesquisa().setEnabled(true);
                 opc = 3;
-                System.out.println(opc);
                 break;
             default:
                 opc = 0;
-                System.out.println(opc);
                 break;
         }
+    }
+    
+    public void pesquisaCliente() {        
+        String nome = view.getCampoPesquisaCliente().getText();
+        DefaultComboBoxModel comboCliente = (DefaultComboBoxModel) view.getComboBoxCliente().getModel();
+        ArrayList<Cliente> clientes = null;
+        EntityManager em = new JPAUtil().getEntityManager();
+        em.getTransaction().begin();
+        view.getComboBoxCliente().removeAllItems();
+        if(nome == "")
+            clientes = new ClienteDAO(em).selectAll();
+        else
+            clientes = new ClienteDAO(em).selectPorNomeCampo(nome);    
+        
+        if(clientes.size() != 0){
+            for(Cliente cliente : clientes){
+                comboCliente.addElement(cliente.getNome());
+            }
+        }
+        em.getTransaction().commit();
+        em.close();
     }
     
     public void gerarRelatorio() throws FileNotFoundException, DocumentException{

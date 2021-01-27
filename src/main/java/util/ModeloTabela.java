@@ -11,8 +11,8 @@ public class ModeloTabela extends AbstractTableModel{
     public static final int COL_CLIENTE_AGENDAMENTO = 1;
     public static final int COL_DATA_AGENDAMENTO = 2;
     public static final int COL_HORA_AGENDAMENTO = 3;
-    public static final int COL_SERVICO_AGENDAMENTO = 4;
-    public static final int COL_BARBEIRO_AGENDAMENTO = 5;
+    public static final int COL_BARBEIRO_AGENDAMENTO = 4;
+    public static final int COL_SERVICO_AGENDAMENTO = 5;
     public static final int COL_PRECO_AGENDAMENTO = 6;
     
     public ArrayList<Agendamento> list = null;

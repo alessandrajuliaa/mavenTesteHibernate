@@ -4,10 +4,10 @@ C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\view\TelaUsuario
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\util\Data.java
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\view\MenuPrincipal.java
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\controller\MenuPrincipalController.java
+C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\controller\TelaAgendaController.java
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\controller\TelaUsuarioController.java
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\model\Usuario.java
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\dao\TesteHiber.java
-C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\controller\TelaAgendamentoController.java
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\dao\AgendamentoDAO.java
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\dao\ClienteDAO.java
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\view\TelaProduto.java
@@ -23,7 +23,7 @@ C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\model\Cliente.ja
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\model\Agendamento.java
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\controller\LoginController.java
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\controller\TelaProdutoController.java
-C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\view\TelaAgendamento.java
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\dao\ServicoDAO.java
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\view\Login.java
 C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\dao\UsuarioDAO.java
+C:\Users\Alessandra\Documents\mavenTesteHibernate\src\main\java\view\TelaAgenda.java

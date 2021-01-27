@@ -9,7 +9,7 @@ import model.Cliente;
 import model.Servico;
 import model.Usuario;
 
-@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2021-01-21T01:49:42")
+@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2021-01-27T03:21:37")
 @StaticMetamodel(Agendamento.class)
 public class Agendamento_ { 
 

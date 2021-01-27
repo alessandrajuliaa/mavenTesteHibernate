@@ -39,7 +39,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         desktop.setAlignmentY(0.0F);
         desktop.setMinimumSize(new java.awt.Dimension(915, 520));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alessandra\\Downloads\\children-hairdresser-cutting-little-boy-against-a-dark.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/background.jpg"))); // NOI18N
         desktop.add(jLabel1);
         jLabel1.setBounds(0, -5, 1580, 1050);
 
@@ -61,7 +61,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         menuBar.add(menuAgenda);
 
-        menuCadastro.setText("Cadastro");
+        menuCadastro.setText("Cadastros");
 
         menuItemCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menuItemCliente.setText("Cliente");
